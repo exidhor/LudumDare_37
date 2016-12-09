@@ -1,21 +1,26 @@
-#pragma once
+#ifndef __GAME_HPP
+#define __GAME_HPP
+
 #include <SFML/Graphics.hpp>
 
 class Game
 {
 public :
-	Game();
+    Game();
 
-	void gameLoop();
+    void gameLoop();
 
-	void handleInput();
+    void handleInput();
 
-	void draw();
+    void draw();
 
-	bool windowIsOpen() const;
+    bool windowIsOpen() const;
 
 private :
-	sf::RenderWindow m_window;
+    sf::RenderWindow m_window;
 
-	sf::CircleShape m_shape;
+    sf::CircleShape m_shape;
 };
+
+#endif // __GAME_HPP
+
