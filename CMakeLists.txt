@@ -1,6 +1,6 @@
 # Ludum Dare 37
-# Game Engine project
-# Author : Aredhele
+# LD Project
+# Author : Aredhele, Exidhor
 # Date   : 2016-11-30
 
 # CMake configuration
