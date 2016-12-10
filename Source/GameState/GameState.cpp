@@ -137,7 +137,7 @@ void GameState::draw(sf::RenderWindow & window)
 
 bool GameState::onEnter()
 {
-    MusicManager::Instance()->FadeInOut(10.0, "MENU");
+    MusicManager::Instance()->FadeInOut(3.0, "MENU");
 
     // Init the player
     m_player = Player(150);
