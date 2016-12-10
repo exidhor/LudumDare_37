@@ -34,6 +34,8 @@ public:
 	*/
 	void addDemoniacObject(DemoniacObject * demoniacObject);
 
+	void addDrawable(Drawable * drawable);
+
 	void addDecors(sf::Vector2f const& position, sf::Texture *texture);
 
     void addBackground(sf::Texture *texture);

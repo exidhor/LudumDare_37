@@ -41,6 +41,11 @@ void World::addDemoniacObject(DemoniacObject * demoniacObject)
 	m_drawables.push_back(demoniacObject);
 }
 
+void World::addDrawable(Drawable * drawable)
+{
+	m_drawables.push_back(drawable);
+}
+
 void World::addDecors(sf::Vector2f const& position, sf::Texture *texture)
 {
 	sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
