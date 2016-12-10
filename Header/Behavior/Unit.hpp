@@ -13,7 +13,7 @@ public:
         // nothing
     }
 
-    virtual void targeted(int damage) = 0;
+    virtual void hit(int damage) = 0;
 
     void setPosition(sf::Vector2f const& position)
     {
