@@ -15,7 +15,7 @@
 class Fly : public DemoniacObject
 {
 public:
-    explicit Fly(sf::Vector2f const& startPosition);
+    explicit Fly();
 };
 
 #endif //LUDUMDARE_FLY_HPP

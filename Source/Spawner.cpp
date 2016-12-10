@@ -1,12 +1,14 @@
 #include "Spawner.hpp"
+#include "Memory/PoolAllocator.hpp"
 
-Spawner::Spawner()
+Spawner::Spawner(sf::Vector2f const& target)
 	: m_difficulty(0)
 	, m_itsTimeToSpawn(false)
 	, m_timeUntilSpawn(DEFAULT_STARTING_SPAWN_TIME)
 	, m_timeBetweenSpawn(DEFAULT_STARTING_SPAWN_TIME)
 {
 	// nothing
+	m_route.push_back(Path(m_position, target));
 }
 
 void Spawner::updateTime(double time)
@@ -26,8 +28,16 @@ DemoniacObject* Spawner::spawn()
 
 	if(m_timeUntilSpawn)
 	{
-		//return new Fly();
-		// todo
+		DemoniacObject* ptr = PoolAllocator<Fly>::Instance()->Allocate();
+		
+		// ajout du path
+		for(int i = 0; i < m_route.size(); i++)
+		{
+			ptr->addPath(m_route[i]);
+		}
+		ptr->setCurrentPath(m_route[0]);
+
+		return ptr;
 	}
 
 	return nullptr;

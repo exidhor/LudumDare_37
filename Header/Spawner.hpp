@@ -5,7 +5,7 @@
 class Spawner
 {
 public:
-	Spawner();
+	Spawner(sf::Vector2f const& target);
 
 	void updateTime(double time);
 
@@ -35,4 +35,6 @@ private:
 #define DEFAULT_STARTING_SPAWN_TIME 5
 	// in seconde
 	double m_timeBetweenSpawn;
+
+	std::vector <Path> m_route;
 };
