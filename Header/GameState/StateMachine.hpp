@@ -35,6 +35,19 @@ public:
     virtual void update(double dt);
 
     /*!
+     * \brief Handle input
+     * \param event The event
+     * \param elapsed The elapsed time
+     */
+    void onPollEvent(sf::Event & event, double elapsed);
+
+    /*!
+     * \brief Draw the state
+     * \param window The window to draw on
+     */
+    void render(sf::RenderWindow& window) ;
+
+    /*!
      * \brief   Push a state at the top of the state machine
      * \param   pState The state to push
      */

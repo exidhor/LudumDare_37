@@ -13,7 +13,7 @@ public:
 
 	void gameLoop(double time);
 
-	void handleInput();
+	void handleInput(double elapsed);
 
 	void draw();
 

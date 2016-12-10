@@ -9,6 +9,7 @@
 #ifndef __GAME_STATE_HPP
 #define __GAME_STATE_HPP
 
+#include <SFML/Graphics.hpp>
 #include "Utils/Updatable.hpp"
 
 class GameState : public Updatable
@@ -24,6 +25,19 @@ public:
      * \brief   Destructor
      */
     virtual ~GameState();
+
+    /*!
+     * \brief Handle input
+     * \param event The event
+     * \param elapsed The elapsed time
+     */
+    virtual void onPollEvent(sf::Event& event, double elapsed) = 0;
+
+    /*!
+     * \brief Draw the state
+     * \param window The window to draw on
+     */
+    virtual void draw(sf::RenderWindow & window) = 0;
 
     /*!
      * \brief   Function called when a state is pushed
