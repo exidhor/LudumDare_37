@@ -95,8 +95,14 @@ void DemoniacObject::update(double dt)
 		}
 		sf::Vector2f movement = move(getCurrentPosition(),getSpeed());
 		currentSprite->setPosition(getCurrentPosition());
+
 	#define PI 3.141592653589793
 		currentSprite->setRotation(Movement::getOrientation(movement)*180/PI);
+
+		if (getCurrentPath() == nullptr)
+		{
+			m_life = 0;
+		}
 	}
 	else
 	{

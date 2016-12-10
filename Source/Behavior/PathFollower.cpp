@@ -135,3 +135,8 @@ void PathFollower::nextPath()
 sf::Vector2f const &PathFollower::getCurrentPosition() const {
     return m_currentPosition;
 }
+
+Path* const &PathFollower::getCurrentPath() const
+{
+    return m_currentPath;
+}
