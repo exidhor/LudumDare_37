@@ -44,7 +44,7 @@ BasicInterface::~BasicInterface() {
  * \param window The surface to draw
  * \param visualObjectList The list of object to draw
  */
-void BasicInterface::basicDraw(NWindow * window) {
+void BasicInterface::basicDraw(sf::RenderWindow *window) {
 
 	// Polymorphisme !
 	for(unsigned int i = 0; i < m_Interfaces.size(); i++)

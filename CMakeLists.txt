@@ -85,7 +85,7 @@ INCLUDE(${CMAKE_SOURCE_DIR}/CMakeConfig.cmake)
 # Setting compiler depending the mode
 IF(CMAKE_BUILD_TYPE MATCHES Debug)
     # Debug mode
-    ADD_DEFINITIONS(-D ENGINE_DEBUG)
+    ADD_DEFINITIONS(-D LD_DEBUG=1)
     MESSAGE(STATUS "Compilation mode : Debug")
 
     # Setting flags
@@ -99,7 +99,7 @@ IF(CMAKE_BUILD_TYPE MATCHES Debug)
 
 ELSEIF(CMAKE_BUILD_TYPE MATCHES Release)
     # Release mode
-    ADD_DEFINITIONS(-D ENGINE_RELEASE)
+    ADD_DEFINITIONS(-D LD_RELEASE=0)
     MESSAGE(STATUS "Compilation mode : Release")
 
     # Setting flags

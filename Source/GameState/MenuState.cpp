@@ -1,13 +1,15 @@
 #include "GameState/MenuState.hpp"
 
 /* explicit */ MenuState::MenuState()
+: InputHandler(LD_DEBUG)
+, m_view(LD_DEBUG, this)
 {
     // None
 }
 
-void MenuState::init()
+/* virtual */ void MenuState::init()
 {
-
+    // None
 }
 
 /* virtual */ MenuState::~MenuState()
@@ -17,29 +19,30 @@ void MenuState::init()
 
 /* virtual */ void MenuState::update(double dt)
 {
-    // TODO
+    // Update view
+    m_view.update(dt);
 }
 
-bool MenuState::onEnter()
+/* virtual */ void MenuState::onPollEvent(sf::Event &event, double elapsed)
 {
-    // TODO
-    return true;
+    // Processing input
+    m_view.processInput(event);
 }
 
-bool MenuState::onExit()
-{
-    // TODO
-    return true;
-}
-
-void MenuState::onPollEvent(sf::Event &event, double elapsed)
-{
-    // TODO
-    (void)event;
-    (void)elapsed;
-}
-
-void MenuState::draw(sf::RenderWindow& window)
+/* virtual */ void MenuState::draw(sf::RenderWindow& window)
 {
     (void)window;
 }
+
+/* virtual */ bool MenuState::onEnter()
+{
+    // TODO
+    return true;
+}
+
+/* virtual */ bool MenuState::onExit()
+{
+    // TODO
+    return true;
+}
+
