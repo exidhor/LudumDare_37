@@ -9,12 +9,14 @@
 #ifndef __PAUSE_STATE_HPP
 #define __PAUSE_STATE_HPP
 
+#include "Menu/MenuView.hpp"
 #include "Utils/Singleton.hpp"
+#include "Interface/BasicInterface.hpp"
 
 /// Include previous and next states
 #include "GameState/StateMachine.hpp"
 
-class MenuState : public GameState, public Singleton < MenuState >
+class MenuState : public GameState, public InputHandler, public Singleton < MenuState >
 {
 public:
 
@@ -63,6 +65,10 @@ public:
      * \param window The window to draw on
      */
     virtual void draw(sf::RenderWindow & window);
+
+private:
+
+    MenuView m_view; ///< The view of the menu
 };
 
 #endif // __PAUSE_STATE_HPP

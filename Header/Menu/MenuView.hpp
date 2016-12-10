@@ -1,25 +1,38 @@
-#ifndef DEF_MENU_VIEW_HPP
-#define DEF_MENU_VIEW_HPP
+#ifndef __MENU_VIEW_HPP
+#define __MENU_VIEW_HPP
 
 #include "Interface/BasicInterface.hpp"
 
 class MenuView : public BasicInterface
 {
 public:
-	MenuView(
-		bool debug, 
-		ManagerGroup * ptr_managerGroup,
-		InputHandler * inputHandler);
 
-	~MenuView();
+    /// \brief Constructor
+    /// \param debug Debug value
+    /// \param inputHandler The controller
+	explicit MenuView(bool debug, InputHandler * inputHandler);
 
-	virtual void update(NEvent * e, double frameTime);
-	virtual void draw(NWindow * w);
+    /// \brief Destructor
+	virtual ~MenuView();
+
+    /// \brief Update the menu
+    /// \param elapsed The elapsed time
+    virtual void update(double elapsed);
+
+    /// \param e The event
+    /// \param frameTime
+	virtual void processInput(NEvent * e);
+
+    /// \param w The window
+	virtual void draw(sf::RenderWindow * w);
 
 private:
 
-	NButton m_startButton;
-	NButton m_exitButton;
+	NButton m_startButton; ///< Start button
+	NButton m_exitButton;  ///< Exit button
 };
 
-#endif // DEF_MENU_VIEW_HPP
+#endif // __MENU_VIEW_HPP
+
+
+

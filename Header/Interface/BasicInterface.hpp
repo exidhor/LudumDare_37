@@ -43,12 +43,12 @@ class BasicInterface : public Updatable
 			InputHandler * inputHandler);
 
 		// Destructor
-		~BasicInterface();
+		virtual ~BasicInterface();
 
 		// Controllers Methods
 		// Game logic
-		virtual void draw(NWindow * window) = 0;
-		void basicDraw(NWindow * window);
+		virtual void draw(sf::RenderWindow * window) = 0;
+		void basicDraw(sf::RenderWindow *window);
 		void basicInput(NEvent * evenement, double frameTime);
 
 		// Getters
