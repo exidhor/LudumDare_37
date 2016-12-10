@@ -1,3 +1,4 @@
+#include <cfloat>
 #include "MathHelper.hpp"
 
 sf::Vector2f MathHelper::abs(sf::Vector2f const& vector)
