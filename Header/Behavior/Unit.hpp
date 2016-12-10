@@ -6,7 +6,14 @@
 class Unit
 {
 public:
-    Unit(sf::Vector2f const& startPosition, int life)
+    explicit Unit()
+        : m_position(nullptr),
+          m_life(0)
+    {
+        // nothing
+    }
+
+    explicit Unit(sf::Vector2f const& startPosition, int life)
         : m_position(startPosition),
           m_life(life)
     {
