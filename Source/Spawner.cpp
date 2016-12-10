@@ -24,9 +24,7 @@ void Spawner::updateTime(double time)
 
 DemoniacObject* Spawner::spawn()
 {
-	m_itsTimeToSpawn = false;
-
-	if(m_timeUntilSpawn)
+	if(m_itsTimeToSpawn)
 	{
 		DemoniacObject* ptr = PoolAllocator<Fly>::Instance()->Allocate();
 		
@@ -39,6 +37,8 @@ DemoniacObject* Spawner::spawn()
 
 		return ptr;
 	}
+
+	m_itsTimeToSpawn = false;
 
 	return nullptr;
 }

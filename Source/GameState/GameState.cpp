@@ -60,7 +60,7 @@ void GameState::update(double dt)
 		}
 	}
 
-    for(unsigned i = 0; i < m_demoniacObjects.size();++i)
+    for(int i = 0; i < m_demoniacObjects.size();++i)
     {
         m_demoniacObjects[i]->update(dt);
 
