@@ -111,7 +111,7 @@ bool GameState::onEnter()
 
     //m_world.addDecors(); // todo
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(617.5f,175.0f));
+    sprite->setPosition(sf::Vector2f(580.0f,200.0f));
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_1"));
     m_player.addSprite(sprite);
     m_player.nextSprite();
@@ -119,13 +119,20 @@ bool GameState::onEnter()
 	m_spawners.push_back(Spawner(m_player.getPosition()));
 
 	// 1280 / 768
-	m_spawners[0].setPosition(sf::Vector2f(1280, 755));
-    m_spawners[0].addPath(Path(1280.0f,755.0f,870.0f,755.0f));
-    //m_spawners[0].addPath(Path(900.0f,675.0f,890.0f,670.0f));
-    //m_spawners[0].addPath(Path(890.0f,670.0f,880.0f,665.0f));
-    //m_spawners[0].addPath(Path(880.0f,665.0f,870.0f,660.0f));
-    //m_spawners[0].addPath(Path(20.0f,400.0f,1000.0f,200.0f));
-    //m_spawners[0].addPath(Path(1000.0f,200.0f,350.0f,10.0f));
+	m_spawners[0].setPosition(sf::Vector2f(1280, 700));
+    m_spawners[0].addPath(Path(1280.0f,700.0f,820.0f,700.0f));
+    m_spawners[0].addPath(Path(820.0f,700.0f,820.0f,560.0f));
+    m_spawners[0].addPath(Path(820.0f,560.0f,520.0f,560.0f));
+    m_spawners[0].addPath(Path(520.0f,560.0f,520.0f,700.0f));
+    m_spawners[0].addPath(Path(520.0f,700.0f,80.0f,700.0f));
+    m_spawners[0].addPath(Path(80.0f,700.0f,80.0f,360.0f));
+    m_spawners[0].addPath(Path(80.0f,360.0f,230.0f,360.0f));
+    m_spawners[0].addPath(Path(230.0f,360.0f,230.0f,600.0f));
+    m_spawners[0].addPath(Path(230.0f,600.0f,400.0f,600.0f));
+    m_spawners[0].addPath(Path(400.0f,600.0f,400.0f,410.0f));
+    m_spawners[0].addPath(Path(400.0f,410.0f,1190.0f,410.0f));
+    m_spawners[0].addPath(Path(1190.0f,410.0f,1190.0f,200.0f));
+    m_spawners[0].addPath(Path(1190.0f,200.0f,580.0f,200.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();

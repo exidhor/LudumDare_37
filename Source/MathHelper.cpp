@@ -99,7 +99,7 @@ float Movement::getOrientation(sf::Vector2f const& direction)
 	float directionX = clipOutToEpsilon(direction.x);
 	float directionY = clipOutToEpsilon(direction.y);
 
-	return atan2(directionX, directionY);
+	return atan2(directionX, -directionY);
 }
 
 float Movement::clipOutToEpsilon(float value)
