@@ -52,7 +52,6 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         for(unsigned i = 0; i < demoniacObjectsHit.size(); ++i)
         {
             demoniacObjectsHit[i]->hit(m_player.getDamage());
-            std::cout<< demoniacObjectsHit[i]->getLife() << std::endl;
         }
         // Todo Animation
     }
@@ -106,6 +105,7 @@ void GameState::update(double dt)
 
         if(m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
         {
+            m_spawners.increaseDifficulty();
             m_nextRoundIn = 10.0;
             m_gamePhase = false;
         }

@@ -29,7 +29,11 @@ DemoniacObject* Spawner::spawn()
 	{
 		m_itsTimeToSpawn = false;
 
-        Fly *ptr = PoolAllocator<Fly>::Instance()->Allocate();
+        DemoniacObject * ptr = nullptr;
+
+        int token = rand() % m_token;
+
+        ptr = PoolAllocator<Fly>::Instance()->Allocate();
         m_token--;
 
         // ajout du path

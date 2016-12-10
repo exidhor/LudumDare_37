@@ -9,7 +9,7 @@
 /* Explicit */ Player::Player(int life)
     : Unit(life)
     , m_$lotOfMoney$(1000)
-    , m_clickRadius(20.0f)
+    , m_clickRadius(15.0f)
     , m_damage(10)
     , m_elapsedSinceLastSpriteSwap(0.0)
     , m_spriteSwapTreshold(0.2)
