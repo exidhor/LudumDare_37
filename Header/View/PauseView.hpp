@@ -29,6 +29,9 @@ public:
 private:
 
     NButton m_resume;
+    NButton m_len1;
+    NButton m_len2;
+    NButton m_len3;
 };
 
 #endif // __PAUSE_VIEW_HPP

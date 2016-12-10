@@ -8,7 +8,22 @@
                         Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
                         Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
 
+    m_len1.create("LEL", 100, 200,
+                    Container<sf::Texture>::Instance()->GetResource("CSOUND"),
+                    Container<sf::Texture>::Instance()->GetResource("CSOUND"));
+
+    m_len2.create("LEL", 700, 300,
+                    Container<sf::Texture>::Instance()->GetResource("CSOUND"),
+                    Container<sf::Texture>::Instance()->GetResource("CSOUND"));
+
+    m_len3.create("LEL", 900, 500,
+                    Container<sf::Texture>::Instance()->GetResource("CSOUND"),
+                    Container<sf::Texture>::Instance()->GetResource("CSOUND"));
+
     getContentPane()->addComponent(&m_resume);
+    getContentPane()->addComponent(&m_len1);
+    getContentPane()->addComponent(&m_len2);
+    getContentPane()->addComponent(&m_len3);
 }
 
 /* virtual */ PauseView::~PauseView()
