@@ -81,7 +81,7 @@ void NTextField::create(std::string id, int x, int y,
 
 	m_text.setCharacterSize(fontSize);
 	m_text.setPosition(textPosition);
-	m_text.setColor(color);
+	m_text.setFillColor(color);
 	m_maxSize = maxSize;
 	m_fontSize = fontSize;
 }

@@ -43,7 +43,7 @@ sf::Font * ptr_font, std::string text, sf::Color color) {
 	m_text.setString(text);
 	m_text.setCharacterSize(size);
 	m_text.setPosition(m_position);
-	m_text.setColor(color);
+	m_text.setFillColor(color);
 }
 
 /*!
