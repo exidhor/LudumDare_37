@@ -9,12 +9,13 @@
 #ifndef DEF_BASIC_INTERFACE_HPP
 #define DEF_BASIC_INTERFACE_HPP
 
+#include "Utils/Updatable.hpp"
+
 #include "Interface/NPanel.hpp"
 #include "Interface/NLabel.hpp"
 #include "Interface/NEvent.hpp"
 #include "Interface/NButton.hpp"
 #include "Interface/NWindow.hpp"
-#include "Interface/Updatable.hpp"
 #include "Interface/NTextField.hpp"
 #include "Interface/ManagerGroup.hpp"
 #include "Interface/InputHandler.hpp"

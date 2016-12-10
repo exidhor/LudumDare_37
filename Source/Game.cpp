@@ -2,22 +2,28 @@
 #include "GameState/MenuState.hpp"
 
 Game::Game()
-	: m_window(sf::VideoMode(1280, 768), "LD 37"),
-	m_shape(100.f)
+: m_window(sf::VideoMode(1280, 768), "LD 37")
+, m_shape(100.f)
 {
 	m_shape.setFillColor(sf::Color::Green);
 }
 
 void Game::Init()
 {
-    // Push the first state ! An awesome menu
-    // StateMachine::Instance()->pushState(MenuState::Instance());
+    // Singleton, bitch please
+    MenuState::Instance()->init();
+
+    // Push the first state ! An awesome menu \o/
+    StateMachine::Instance()->pushState(MenuState::Instance());
+
+    // Set the framerate limit
+    m_window.setFramerateLimit(60);
 }
 
 void Game::gameLoop()
 {
 	handleInput();
-	m_window.setFramerateLimit(60);
+    StateMachine::Instance()->update(0.0);
 	draw();
 }
 
