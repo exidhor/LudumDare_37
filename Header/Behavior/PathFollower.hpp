@@ -22,7 +22,10 @@ public:
     void                addPath                   (Path path);
     void                addPath                   (sf::Vector2f from, sf::Vector2f to);
     void                addPath                   (float fromX, float fromY, float toX, float toY);
+    /// Return true if the pathfollower has a path to the point toPosition
     bool                hasPath                   (sf::Vector2f toPosition);
+    /// Set the current path if is in the possible path
+    void                setCurrentPath            (Path currentPath);
 
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
