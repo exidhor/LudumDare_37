@@ -7,9 +7,10 @@ Spawner::Spawner(sf::Vector2f const& target)
 	, m_itsTimeToSpawn(false)
 	, m_timeUntilSpawn(DEFAULT_STARTING_SPAWN_TIME)
 	, m_timeBetweenSpawn(DEFAULT_STARTING_SPAWN_TIME)
+	, m_target(target)
 {
 	// nothing
-	m_route.push_back(Path(m_position, target));
+	//m_route.push_back(Path(m_position, target));
 }
 
 void Spawner::updateTime(double time)
@@ -69,6 +70,8 @@ void Spawner::setTimeBetweenSpawn(double time)
 void Spawner::setPosition(sf::Vector2f const& position)
 {
 	m_position = position;
+	m_route.clear();
+	m_route.push_back(Path(m_position, m_target));
 }
 
 sf::Vector2f const& Spawner::getPosition() const
