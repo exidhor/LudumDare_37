@@ -89,6 +89,8 @@ void GameState::update(double dt)
 		}
     }
 
+    m_view.setHitPoint(m_player.getLife());
+    m_view.setMoney(m_player.get$Money$());
     m_view.update(dt);
 	
 	// todo : gestion de la difficulté

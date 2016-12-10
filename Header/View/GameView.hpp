@@ -26,8 +26,15 @@ public:
     /// \param w The window
     virtual void draw(sf::RenderWindow * w);
 
+    // TODO
+    void setHitPoint(int hitPoint);
+
+    // TODO
+    void setMoney(unsigned long long money);
+
 private:
 
+    NLabel m_money;
     NLabel m_hitPoint;
 };
 
