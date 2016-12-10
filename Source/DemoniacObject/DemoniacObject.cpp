@@ -28,9 +28,8 @@ bool DemoniacObject::hit(int damage)
 	if(realDamage < 0)
 	{
 		m_life -= realDamage;
-		
-		return isDead();
 	}
+	return isDead();
 }
 
 void DemoniacObject::setDamage(int strength)

@@ -3,7 +3,6 @@
 //
 
 #include <GameState/StateMachine.hpp>
-#include <Utils/Singleton.hpp>
 #include <GameState/GameOverState.hpp>
 #include "Player/Player.hpp"
 
