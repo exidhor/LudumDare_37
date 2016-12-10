@@ -36,6 +36,8 @@ public:
 
 	void addDecors(sf::Vector2f const& position, sf::Texture *texture);
 
+    void addBackground(sf::Texture *texture);
+
 	/**
 	* \brief	Return all the GameObject which have a RenderComponent
 	*			from the Active GameObject.
@@ -66,4 +68,5 @@ private:
 	std::vector<DemoniacObject*> m_activeEnemies;
 	std::vector<Drawable*> m_drawables;
 	std::vector<Drawable> m_decors;
+    Drawable m_background;
 };

@@ -4,6 +4,8 @@
 
 #include <Player/Player.hpp>
 #include <iostream>
+#include <Utils/Singleton.hpp>
+#include <Memory/Container.hpp>
 #include "GameState/GameState.hpp"
 
 /* Explicit */ GameState::GameState()
@@ -62,7 +64,8 @@ bool GameState::onEnter()
     // Init the player
     m_player = Player(150);
     m_world = World();
-    m_world.addDecors();
+    m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
+    //m_world.addDecors();
     return true;
 }
 

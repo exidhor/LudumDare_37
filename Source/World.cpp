@@ -9,9 +9,9 @@ World::World(unsigned reserveSize)
 
 World::~World()
 {
-    for (Drawable drawable : m_decors)
+    for (auto object : m_decors)
     {
-        PoolAllocator<sf::Sprite>::Instance()->Deallocate(drawable.currentSprite);
+        PoolAllocator<sf::Sprite>::Instance()->Deallocate(object.currentSprite);
     }
 }
 
@@ -49,6 +49,15 @@ void World::addDecors(sf::Vector2f const& position, sf::Texture *texture)
     drawable.addSprite(sprite);
 
     m_decors.push_back(drawable);
+}
+
+void World::addBackground(sf::Texture *texture)
+{
+    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*texture);
+    m_background.addSprite(sprite);
+
+    m_drawables.push_back(&m_background);
 }
 
 void World::getSortedDrawables(std::vector<Drawable*> & output)
