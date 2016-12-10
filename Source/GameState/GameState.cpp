@@ -111,10 +111,13 @@ bool GameState::onEnter()
 	m_spawners.push_back(Spawner(m_player.getPosition()));
 
 	// 1280 / 768
-	m_spawners[0].setPosition(sf::Vector2f(50, 700));
-    m_spawners[0].addPath(Path(50.0f,700.0f,20.0f,400.0f));
-    m_spawners[0].addPath(Path(20.0f,400.0f,1000.0f,200.0f));
-    m_spawners[0].addPath(Path(1000.0f,200.0f,350.0f,10.0f));
+	m_spawners[0].setPosition(sf::Vector2f(1280, 675));
+    m_spawners[0].addPath(Path(1280.0f,675.0f,900.0f,675.0f));
+    //m_spawners[0].addPath(Path(900.0f,675.0f,890.0f,670.0f));
+    //m_spawners[0].addPath(Path(890.0f,670.0f,880.0f,665.0f));
+    //m_spawners[0].addPath(Path(880.0f,665.0f,870.0f,660.0f));
+    //m_spawners[0].addPath(Path(20.0f,400.0f,1000.0f,200.0f));
+    //m_spawners[0].addPath(Path(1000.0f,200.0f,350.0f,10.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();
