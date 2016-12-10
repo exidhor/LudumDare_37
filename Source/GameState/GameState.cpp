@@ -69,8 +69,10 @@ void GameState::update(double dt)
 			m_demoniacObjects.erase(m_demoniacObjects.begin() + i);
 			i--;
 		}
-
-        m_world.addDemoniacObject(m_demoniacObjects[i]);
+		else
+		{
+			m_world.addDemoniacObject(m_demoniacObjects[i]);
+		}
     }
 	
 	// todo : gestion de la difficulté

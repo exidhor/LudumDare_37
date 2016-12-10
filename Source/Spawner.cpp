@@ -41,7 +41,6 @@ DemoniacObject* Spawner::spawn()
 		return ptr;
 	}
 
-
 	std::cout << "error nullptr" << std::endl;
 
 	return nullptr;
