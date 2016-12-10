@@ -96,5 +96,28 @@ sf::Vector2f Movement::deplacement(sf::Vector2f const& start, sf::Vector2f const
 
 float Movement::getOrientation(sf::Vector2f const& direction)
 {
-	return atan(-direction.x / direction.y);
+	float directionX = clipOutToEpsilon(direction.x);
+	float directionY = clipOutToEpsilon(direction.y);
+
+	return atan(-directionX / directionY);
+}
+
+float Movement::clipOutToEpsilon(float value)
+{
+	if (-EPSILON_ANGLE < value && value < EPSILON_ANGLE)
+		return setToNearest(-EPSILON_ANGLE, EPSILON_ANGLE, value);
+
+	return value;
+}
+
+float Movement::setToNearest(float minValue, float maxValue, float value)
+{
+	float distToMin = fabsf(minValue - value);
+	float distToMax = fabsf(maxValue - value);
+
+	if (distToMin < distToMax)
+		return minValue;
+
+	else
+		return maxValue;
 }

@@ -5,6 +5,8 @@
 #include <math.h>
 #include <SFML/Graphics.hpp>
 
+#define EPSILON_ANGLE 0.0001f
+
 namespace MathHelper
 {
 	sf::Vector2f abs(sf::Vector2f const& vector);
@@ -33,4 +35,8 @@ namespace Movement
 	sf::Vector2f deplacement(sf::Vector2f const& start, sf::Vector2f const& direction, double speed);
 
 	float getOrientation(sf::Vector2f const& direction);
+
+	float clipOutToEpsilon(float value);
+
+	float setToNearest(float minValue, float maxValue, float value);
 }
