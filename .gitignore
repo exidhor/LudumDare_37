@@ -17,6 +17,8 @@
 *.mod
 *.smod
 
+main.cpp
+
 # Compiled Static libraries
 *.lai
 *.la
