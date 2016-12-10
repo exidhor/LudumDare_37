@@ -23,6 +23,8 @@ public:
     float               getClickRadius      ();
     int                 getDamage           ();
     virtual sf::Vector2f getPosition        () const;
+
+    void update(double dt);
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
     //------------------------------------------------------------------------------------------------------------------
@@ -35,6 +37,8 @@ private:
     unsigned long long  m_$lotOfMoney$;
     float               m_clickRadius;
     int                 m_damage;
+    double              m_elapsedSinceLastSpriteSwap;
+    double              m_spriteSwapTreshold;
 
 };
 

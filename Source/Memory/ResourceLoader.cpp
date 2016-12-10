@@ -35,6 +35,9 @@ void LoadAll()
     LoadTexture("FAT_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche60_2.png"));
     LoadTexture("FAT_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche60_3.png"));
 
+    LoadTexture("GEEK_1", buildPath(RES_PATH, DRAW_PATH, "geekPose1.png"));
+    LoadTexture("GEEK_2", buildPath(RES_PATH, DRAW_PATH, "geekPose2.png"));
+
     // Loading musics
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 

@@ -88,6 +88,8 @@ void GameState::update(double dt)
 		}
     }
 
+    m_player.update(dt);
+
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
     m_view.update(dt);
@@ -112,8 +114,12 @@ bool GameState::onEnter()
 
     //m_world.addDecors(); // todo
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(580.0f,200.0f));
-    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_1"));
+    sprite->setPosition(sf::Vector2f(580.0f,220.0f));
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_1"));
+    m_player.addSprite(sprite);
+    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setPosition(sf::Vector2f(580.0f,220.0f));
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_2"));
     m_player.addSprite(sprite);
     m_player.nextSprite();
 
@@ -133,7 +139,7 @@ bool GameState::onEnter()
     m_spawners.addPath(Path(400.0f,550.0f,430.0f,410.0f));
     m_spawners.addPath(Path(430.0f,410.0f,1190.0f,430.0f));
     m_spawners.addPath(Path(1190.0f,430.0f,1170.0f,200.0f));
-    m_spawners.addPath(Path(1170.0f,200.0f,580.0f,200.0f));
+    m_spawners.addPath(Path(1170.0f,200.0f,580.0f,190.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();
