@@ -11,6 +11,7 @@
 #define FLY_SPEED 1
 #define FLY_DAMAGE 10
 #define FLY_ARMOR 0
+#define FLY_SPRITESWAP 0.05
 
 class Fly : public DemoniacObject
 {

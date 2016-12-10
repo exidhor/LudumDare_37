@@ -7,7 +7,7 @@
 #include "DemoniacObject/Fly.hpp"
 
 Fly::Fly()
-    : DemoniacObject(sf::Vector2f(), FLY_LIFE, FLY_SPEED, FLY_DAMAGE, FLY_ARMOR)
+    : DemoniacObject(sf::Vector2f(), FLY_LIFE, FLY_SPEED, FLY_DAMAGE, FLY_ARMOR, FLY_SPRITESWAP)
 {
 	sf::Sprite *sprite = new sf::Sprite();
     //sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();

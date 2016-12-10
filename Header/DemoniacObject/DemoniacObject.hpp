@@ -14,7 +14,8 @@ public :
 				   int life, 
 				   float speed, 
 				   int strength, 
-				   int armor);
+				   int armor,
+				   double spriteSwapTreshold);
 
 	virtual void suicide(Unit* target);
 
