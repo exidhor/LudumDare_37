@@ -25,7 +25,7 @@ public:
     /// Return true if the pathfollower has a path to the point toPosition
     bool                hasPath                   (sf::Vector2f toPosition);
     /// Set the current path if is in the possible path
-    void                setCurrentPath            (Path currentPath);
+    void                setCurrentPath            (Path* currentPath);
 
     virtual void        move                      (sf::Vector2f const& position, float speed);
 
@@ -43,7 +43,7 @@ private:
     std::vector<Path>   m_aPathes;
     sf::Vector2f        m_initialPositions;
     sf::Vector2f        m_currentPosition;
-    Path                m_currentPath;
+    Path*               m_currentPath;
 
     bool                hasPath                   (sf::Vector2f position, sf::Vector2f toPosition);
 
