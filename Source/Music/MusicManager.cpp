@@ -101,6 +101,7 @@ void MusicManager::PlayImmediateCurrent()
 
 void MusicManager::PauseCurrent()
 {
+    std::cout << "PAUSE !" <<std::endl;
     if(m_current != nullptr)
     {
         if(m_pause)
