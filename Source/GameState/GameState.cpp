@@ -53,6 +53,18 @@ void GameState::update(double dt)
         m_world.addDemoniacObject(&object);
     }
 
+	// Update spawners
+	for(int i = 0; i < m_spawners.size(); i++)
+	{
+		m_spawners[i].updateTime(dt);
+
+		if(m_spawners[i].isReadyToSpawn())
+		{
+			// todo : spawn the monsters
+		}
+	}
+	
+	// todo : gestion de la difficulté
 }
 
 void GameState::draw(sf::RenderWindow &window)
@@ -67,8 +79,21 @@ bool GameState::onEnter()
     // Init the player
     m_player = Player(150);
     m_world = World();
+
+    //m_world.addDecors(); // todo
+
+	m_spawners.push_back(Spawner());
+	m_spawners.push_back(Spawner());
+	m_spawners.push_back(Spawner());
+
+	// 1280 / 768
+	m_spawners[0].setPosition(sf::Vector2f(50, 700));
+	m_spawners[1].setPosition(sf::Vector2f(360, 700));
+	m_spawners[2].setPosition(sf::Vector2f(1200, 700));
+
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();
+
     return true;
 }
 
