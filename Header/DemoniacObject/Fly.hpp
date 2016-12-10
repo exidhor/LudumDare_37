@@ -16,7 +16,7 @@ class Fly : public DemoniacObject
 public:
     explicit Fly(sf::Vector2f const& startPosition);
 
-    void hit(int damage);
+    bool hit(int damage);
     Projectile shoot(Unit* target);
 };
 

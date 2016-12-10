@@ -10,9 +10,10 @@ Fly::Fly(sf::Vector2f const &startPosition)
     // nothing
 }
 
-void Fly::hit(int damage)
+bool Fly::hit(int damage)
 {
     m_life -= damage;
+    return isDead();
 }
 
 Projectile Fly::shoot(Unit *target)
