@@ -33,5 +33,4 @@ private:
 
 };
 
-
 #endif //LUDUMDARE_PLAYER_HPP
