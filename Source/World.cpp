@@ -110,8 +110,10 @@ void World::sort(std::vector<Drawable*>& vector) const
 	{
 		bool operator()(Drawable* a, Drawable* b)
 		{
-			sf::Vector2f const& a_position = a->currentSprite->getPosition();
-			sf::Vector2f const& b_position = b->currentSprite->getPosition();
+			sf::Vector2f const& a_position = a->currentSprite->getPosition() + sf::Vector2f(a->currentSprite->getGlobalBounds().width / 2,
+																							a->currentSprite->getGlobalBounds().height / 2);
+			sf::Vector2f const& b_position = b->currentSprite->getPosition() + sf::Vector2f(b->currentSprite->getGlobalBounds().width / 2,
+																							b->currentSprite->getGlobalBounds().height / 2);;
 
 			if (a_position.y < b_position.y)
 			{
