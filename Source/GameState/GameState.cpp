@@ -17,6 +17,7 @@
 , m_view(LD_DEBUG, this)
 , m_player(0)
 , m_world()
+, m_spawners(sf::Vector2f())
 {
 
 }
@@ -61,15 +62,13 @@ void GameState::update(double dt)
 
     // 8f20
 	// Update spawners
-	for(unsigned int i = 0; i < m_spawners.size(); ++i)
-	{
-		m_spawners[i].updateTime(dt);
+    m_spawners.updateTime(dt);
 
-		if(m_spawners[i].isReadyToSpawn())
-		{
-			m_demoniacObjects.push_back(m_spawners[i].spawn());
-		}
-	}
+    if(m_spawners.isReadyToSpawn())
+    {
+        m_demoniacObjects.push_back(m_spawners.spawn());
+    }
+
 
     for(int i = 0; i < (int)m_demoniacObjects.size();++i)
     {
@@ -118,23 +117,23 @@ bool GameState::onEnter()
     m_player.addSprite(sprite);
     m_player.nextSprite();
 
-	m_spawners.push_back(Spawner(m_player.getPosition()));
+	m_spawners = Spawner(m_player.getPosition());
 
 	// 1280 / 768
-	m_spawners[0].setPosition(sf::Vector2f(1280, 700));
-    m_spawners[0].addPath(Path(1280.0f,700.0f,820.0f,680.0f));
-    m_spawners[0].addPath(Path(820.0f,680.0f,780.0f,560.0f));
-    m_spawners[0].addPath(Path(780.0f,560.0f,560.0f,560.0f));
-    m_spawners[0].addPath(Path(560.0f,560.0f,520.0f,650.0f));
-    m_spawners[0].addPath(Path(520.0f,650.0f,80.0f,700.0f));
-    m_spawners[0].addPath(Path(80.0f,700.0f,80.0f,360.0f));
-    m_spawners[0].addPath(Path(80.0f,360.0f,230.0f,360.0f));
-    m_spawners[0].addPath(Path(230.0f,360.0f,250.0f,600.0f));
-    m_spawners[0].addPath(Path(250.0f,600.0f,400.0f,550.0f));
-    m_spawners[0].addPath(Path(400.0f,550.0f,430.0f,410.0f));
-    m_spawners[0].addPath(Path(430.0f,410.0f,1190.0f,430.0f));
-    m_spawners[0].addPath(Path(1190.0f,430.0f,1170.0f,200.0f));
-    m_spawners[0].addPath(Path(1170.0f,200.0f,580.0f,200.0f));
+	m_spawners.setPosition(sf::Vector2f(1280, 700));
+    m_spawners.addPath(Path(1280.0f,700.0f,820.0f,680.0f));
+    m_spawners.addPath(Path(820.0f,680.0f,780.0f,560.0f));
+    m_spawners.addPath(Path(780.0f,560.0f,560.0f,560.0f));
+    m_spawners.addPath(Path(560.0f,560.0f,520.0f,650.0f));
+    m_spawners.addPath(Path(520.0f,650.0f,80.0f,700.0f));
+    m_spawners.addPath(Path(80.0f,700.0f,80.0f,360.0f));
+    m_spawners.addPath(Path(80.0f,360.0f,230.0f,360.0f));
+    m_spawners.addPath(Path(230.0f,360.0f,250.0f,600.0f));
+    m_spawners.addPath(Path(250.0f,600.0f,400.0f,550.0f));
+    m_spawners.addPath(Path(400.0f,550.0f,430.0f,410.0f));
+    m_spawners.addPath(Path(430.0f,410.0f,1190.0f,430.0f));
+    m_spawners.addPath(Path(1190.0f,430.0f,1170.0f,200.0f));
+    m_spawners.addPath(Path(1170.0f,200.0f,580.0f,200.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();
