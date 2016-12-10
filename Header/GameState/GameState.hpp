@@ -59,7 +59,7 @@ protected:
 private:
     Player                  m_player;
     World                   m_world;
-    std::vector<DemoniacObject> m_demoniacObjects;
+    std::vector<DemoniacObject*> m_demoniacObjects;
 	std::vector<Spawner> m_spawners;
 };
 

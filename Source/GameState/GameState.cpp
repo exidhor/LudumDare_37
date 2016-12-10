@@ -46,13 +46,8 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 
 void GameState::update(double dt)
 {
-    // None
-    m_world.prepare();
-    for(unsigned i = 0; i < m_demoniacObjects.size();++i)
-    {
-        m_demoniacObjects[i].update(dt);
-        m_world.addDemoniacObject(&m_demoniacObjects[i]);
-    }
+	// None
+	m_world.prepare();
 
 	// Update spawners
 	for(unsigned int i = 0; i < m_spawners.size(); i++)
@@ -61,9 +56,22 @@ void GameState::update(double dt)
 
 		if(m_spawners[i].isReadyToSpawn())
 		{
-			// todo : spawn the monsters
+			m_demoniacObjects.push_back(m_spawners[i].spawn());
 		}
 	}
+
+    for(unsigned i = 0; i < m_demoniacObjects.size();++i)
+    {
+        m_demoniacObjects[i]->update(dt);
+
+		if(m_demoniacObjects[i]->toRemove())
+		{
+			m_demoniacObjects.erase(m_demoniacObjects.begin() + i);
+			i--;
+		}
+
+        m_world.addDemoniacObject(m_demoniacObjects[i]);
+    }
 	
 	// todo : gestion de la difficulté
 }
