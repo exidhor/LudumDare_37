@@ -53,6 +53,7 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         {
             demoniacObjectsHit[i]->hit(m_player.getDamage());
         }
+
         // Todo Animation
     }
     // Process money generation

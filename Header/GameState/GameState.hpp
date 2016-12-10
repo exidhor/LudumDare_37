@@ -59,6 +59,7 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
+	void updateClickEffect(double dt);
 
     GameView                m_view;
     Player                  m_player;
@@ -67,6 +68,8 @@ private:
 	Spawner                 m_spawners;
     bool                    m_gamePhase;
     double                  m_nextRoundIn;
+
+	Drawable                m_clickEffect;
 };
 
 
