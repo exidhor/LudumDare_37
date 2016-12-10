@@ -3,7 +3,6 @@
 int main()
 {
 	Game game;
-	game.Init();
 
 	while (game.windowIsOpen())
 	{
