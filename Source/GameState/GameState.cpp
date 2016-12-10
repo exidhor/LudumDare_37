@@ -4,6 +4,8 @@
 
 #include <Player/Player.hpp>
 #include <iostream>
+#include <Utils/Singleton.hpp>
+#include <Memory/Container.hpp>
 #include "GameState/GameState.hpp"
 
 /* Explicit */ GameState::GameState()
@@ -74,7 +76,8 @@ bool GameState::onEnter()
     // Init the player
     m_player = Player(150);
     m_world = World();
-    m_world.addDecors();
+
+    //m_world.addDecors(); // todo
 
 	m_spawners.push_back(Spawner());
 	m_spawners.push_back(Spawner());
@@ -84,6 +87,9 @@ bool GameState::onEnter()
 	m_spawners[0].setPosition(sf::Vector2f(50, 700));
 	m_spawners[1].setPosition(sf::Vector2f(360, 700));
 	m_spawners[2].setPosition(sf::Vector2f(1200, 700));
+
+    m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
+    //m_world.addDecors();
 
     return true;
 }
