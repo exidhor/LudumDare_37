@@ -9,15 +9,18 @@
 Fly::Fly()
     : DemoniacObject(sf::Vector2f(), FLY_LIFE, FLY_SPEED, FLY_DAMAGE, FLY_ARMOR)
 {
-    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+	sf::Sprite *sprite = new sf::Sprite();
+    //sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_1"));
     addSprite(sprite);
 
-    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    //sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+	sprite = new sf::Sprite();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_2"));
     addSprite(sprite);
 
-    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    //sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+	sprite = new sf::Sprite();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_3"));
     setDeathSprite(sprite);
 
