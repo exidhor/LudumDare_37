@@ -48,4 +48,9 @@ private:
 	double m_timeBetweenSpawn;
 
 	std::vector <Path> m_route;
+
+    int getHighestTokenCost(int token);
+
+    DemoniacObject* createDemoniacObjectWithToken(int token);
+
 };

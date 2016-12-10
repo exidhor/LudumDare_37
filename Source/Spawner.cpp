@@ -29,12 +29,13 @@ DemoniacObject* Spawner::spawn()
 	{
 		m_itsTimeToSpawn = false;
 
-        DemoniacObject * ptr = nullptr;
-
         int token = rand() % m_token;
 
-        ptr = PoolAllocator<Fly>::Instance()->Allocate();
-        m_token--;
+        token = getHighestTokenCost(token);
+
+        DemoniacObject * ptr = createDemoniacObjectWithToken(token);
+
+        m_token-=token;
 
         // ajout du path
         for(unsigned i = 0; i < m_route.size(); i++)
@@ -98,6 +99,33 @@ bool Spawner::outOfToken()
 
 void Spawner::giveToken()
 {
-    m_token = 10 + m_difficulty * 10;
+    m_token = (long) (10 + m_difficulty * 10);
+}
+
+int Spawner::getHighestTokenCost(int token)
+{
+    // Respecter la hierarchie ! Du plus grand au plus petit !
+
+    if(token >= 15)
+        return 15;
+    else if(token >= 5)
+        return 5;
+    else
+        return 1;
+}
+
+DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
+{
+    switch(token)
+    {
+        case 1 :
+            return PoolAllocator<Fly>::Instance()->Allocate();
+        case 5 :
+            return PoolAllocator<FatFly>::Instance()->Allocate();
+        case 15 :
+            return PoolAllocator<SmallFly>::Instance()->Allocate();
+        default:
+            return PoolAllocator<Fly>::Instance()->Allocate();
+    }
 }
 
