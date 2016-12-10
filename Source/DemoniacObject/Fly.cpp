@@ -12,17 +12,14 @@ Fly::Fly(sf::Vector2f const &startPosition)
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_1"));
     addSprite(sprite);
-    PoolAllocator<sf::Sprite>::Instance()->Deallocate(sprite);
 
     sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_2"));
     addSprite(sprite);
-    PoolAllocator<sf::Sprite>::Instance()->Deallocate(sprite);
 
     sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_3"));
     setDeathSprite(sprite);
-    PoolAllocator<sf::Sprite>::Instance()->Deallocate(sprite);
 
     nextSprite();
 }

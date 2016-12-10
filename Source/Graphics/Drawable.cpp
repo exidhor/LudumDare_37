@@ -2,6 +2,7 @@
 // Created by Kraghan on 10/12/2016.
 //
 
+#include "Memory/PoolAllocator.hpp"
 #include "Graphics/Drawable.hpp"
 
 /* Explicit */ Drawable::Drawable()
@@ -14,7 +15,11 @@
 
 /* Virtual */ Drawable::~Drawable()
 {
-    // None
+    for (sf::Sprite *sprite : m_pSprites)
+    {
+        PoolAllocator<sf::Sprite>::Instance()->Deallocate(sprite);
+    }
+    PoolAllocator<sf::Sprite>::Instance()->Deallocate(m_deathSprite);
 }
 
 void Drawable::addSprite(sf::Sprite* sprite)
