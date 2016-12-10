@@ -9,7 +9,7 @@
 #ifndef __PAUSE_STATE_HPP
 #define __PAUSE_STATE_HPP
 
-#include "Menu/MenuView.hpp"
+#include "View/MenuView.hpp"
 #include "Utils/Singleton.hpp"
 #include "Interface/BasicInterface.hpp"
 

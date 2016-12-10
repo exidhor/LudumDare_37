@@ -34,6 +34,3 @@ private:
 };
 
 #endif // __MENU_VIEW_HPP
-
-
-
