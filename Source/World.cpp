@@ -95,7 +95,8 @@ void World::getDemoniacObjectIn(sf::Vector2f const& position,
 {
 	for (unsigned i = 0; i < m_activeEnemies.size(); i++)
 	{
-		if (MathHelper::isColliding(m_activeEnemies[i]->currentSprite->getGlobalBounds(),
+		if (!m_activeEnemies[i]->isDead() &&
+			MathHelper::isColliding(m_activeEnemies[i]->currentSprite->getGlobalBounds(),
 			                        position,
 			                        radius))
 		{
