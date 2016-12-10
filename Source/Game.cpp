@@ -48,10 +48,10 @@ void Game::handleInput(double elapsed)
 	{
 		if (event.type == sf::Event::Closed)
 			m_window.close();
-
-        // Process input of the top state
-        StateMachine::Instance()->onPollEvent(event, elapsed);
 	}
+
+    // Process input of the top state
+    StateMachine::Instance()->onPollEvent(event, elapsed);
 
     // Checking state machine states
     if(StateMachine::Instance()->isEmpty())
