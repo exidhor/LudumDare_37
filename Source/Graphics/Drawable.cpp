@@ -2,7 +2,7 @@
 // Created by Kraghan on 10/12/2016.
 //
 
-#include "Drawable/Drawable.hpp"
+#include "Graphics/Drawable.hpp"
 
 /* Explicit */ Drawable::Drawable()
 : currentSprite(nullptr)

@@ -3,7 +3,7 @@
 #include "Behavior/Unit.hpp"
 #include "Behavior/PathFollower.hpp"
 #include "Behavior/Suicidable.hpp"
-#include "Drawable/Drawable.hpp"
+#include "Graphics/Drawable.hpp"
 
 
 class DemoniacObject : public Unit, public PathFollower, public Suicidable, public Drawable
