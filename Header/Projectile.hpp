@@ -1,8 +1,11 @@
 #pragma once
+#include "Behavior/Movable.hpp"
 
-class Projectile
+class Projectile : public Movable
 {
 public :
-	// todo
+	Projectile();
+
 private :
+
 };
