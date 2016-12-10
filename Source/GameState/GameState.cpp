@@ -7,6 +7,8 @@
 #include "GameState/GameState.hpp"
 
 /* Explicit */ GameState::GameState()
+: m_player(0)
+, m_world()
 {
 
 }
@@ -22,44 +24,50 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     if (event.type == sf::Event::MouseButtonPressed)
     {
         std::vector<DemoniacObject*> demoniacObjectsHit;
-        m_pworld->getDemoniacObjectIn(sf::Vector2f(event.mouseButton.x,event.mouseButton.y),m_pplayer->getClickRadius(),
+        m_world.getDemoniacObjectIn(sf::Vector2f(event.mouseButton.x,event.mouseButton.y),m_player.getClickRadius(),
                                       demoniacObjectsHit);
 
         for(auto objects : demoniacObjectsHit)
         {
-            objects->hit(m_pplayer->getDamage());
+            objects->hit(m_player.getDamage());
         }
         // Todo Animation
     }
     // Process money generation
     else if(event.type == sf::Event::KeyReleased)
     {
-        m_pplayer->increaseMoney(100);
+        m_player.increaseMoney(100);
     }
 }
 
 void GameState::update(double dt)
 {
     // None
+    m_world.prepare();
+    for(auto object : m_demoniacObjects)
+    {
+        object.update(dt);
+        m_world.addDemoniacObject(&object);
+    }
+
 }
 
 void GameState::draw(sf::RenderWindow &window)
 {
-    //m_pworld->draw(window);
+    m_world.draw(window);
 }
 
 bool GameState::onEnter()
 {
     // Init the player
-    m_pplayer = new Player(150);
-    m_pworld = new World();
-
+    m_player = Player(150);
+    m_world = World();
+    m_world.addDecors();
     return true;
 }
 
 bool GameState::onExit()
 {
-    delete m_pplayer;
     return true;
 }
 

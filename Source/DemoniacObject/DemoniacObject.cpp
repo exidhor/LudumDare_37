@@ -5,11 +5,16 @@ DemoniacObject::DemoniacObject(sf::Vector2f const& startPosition,
 							   float speed,
 							   int strength,
 							   int armor)
-	: Unit(life),
-	PathFollower(startPosition),
-	m_speed(speed),
-	m_damage(strength),
-	m_armor(armor)
+	: Unit(life)
+	,PathFollower(startPosition)
+    ,m_damage(strength)
+    ,m_armor(armor)
+	,m_speed(speed)
+	,m_elapsedSinceLastSpriteSwap(0.0)
+	,m_spriteSwapTreshold(0.25)
+	,m_deathTreshold(1.0)
+	,m_deathElapsed(0.0)
+	,m_toRemove(false)
 {
 	// nothing
 }
@@ -65,4 +70,38 @@ float DemoniacObject::getSpeed() const
 int DemoniacObject::getArmor() const
 {
 	return m_armor;
+}
+
+sf::Vector2f const &DemoniacObject::getPosition() const
+{
+	return getCurrentPosition();
+}
+
+bool DemoniacObject::toRemove()
+{
+	return m_toRemove;
+}
+
+void DemoniacObject::update(double dt)
+{
+	if(!isDead())
+	{
+		move(getCurrentPosition(),getSpeed());
+		currentSprite->setPosition(getCurrentPosition());
+
+		m_elapsedSinceLastSpriteSwap+=dt;
+		if(m_elapsedSinceLastSpriteSwap >= m_spriteSwapTreshold)
+		{
+			nextSprite();
+			m_elapsedSinceLastSpriteSwap = 0.0;
+		}
+	}
+	else
+	{
+		activeDeathSprite();
+		if(m_deathElapsed >= m_deathTreshold)
+		{
+			m_toRemove = true;
+		}
+	}
 }
