@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 Game::Game()
-	: m_window(sf::VideoMode(1000, 800), "LUDUM DARE 37 WAHOU !!!"),
+	: m_window(sf::VideoMode(1280, 768), "LD 37"),
 	m_shape(100.f)
 {
 	m_shape.setFillColor(sf::Color::Green);
