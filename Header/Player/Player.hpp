@@ -20,6 +20,8 @@ public:
     void                increaseMoney       (unsigned long long $money$);
     unsigned long long  get$Money$          ();
     virtual bool        hit                 (int damage);
+    float               getClickRadius      ();
+    int                 getDamage           ();
     sf::Vector2f const& getPosition()       const;
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
@@ -30,7 +32,9 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
-    unsigned long long m_$lotOfMoney$;
+    unsigned long long  m_$lotOfMoney$;
+    float               m_clickRadius;
+    int                 m_damage;
 
 };
 

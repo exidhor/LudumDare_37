@@ -21,6 +21,8 @@ public:
     void                addSprite             (sf::Sprite* sprite);
     sf::Sprite*         currentSprite;
     void                nextSprite            ();
+    void                setDeathSprite        (sf::Sprite* sprite);
+    void                activeDeathSprite     ();
 
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
@@ -32,6 +34,7 @@ protected:
 private:
     std::vector<sf::Sprite*> m_pSprites;
     unsigned                 m_spriteId;
+    sf::Sprite*              m_deathSprite;
 };
 
 

@@ -8,6 +8,7 @@
 
 #include <Player/Player.hpp>
 #include <Utils/Singleton.hpp>
+#include <World.hpp>
 #include "State.hpp"
 
 class GameState : public State, public Singleton < GameState >
@@ -56,6 +57,7 @@ protected:
     //------------------------------------------------------------------------------------------------------------------
 private:
     Player*              m_pplayer;
+    World*               m_pworld;
 };
 
 

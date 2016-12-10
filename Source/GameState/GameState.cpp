@@ -21,7 +21,15 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     // Process player shoot
     if (event.type == sf::Event::MouseButtonPressed)
     {
-        //m_pworld->
+        std::vector<DemoniacObject*> demoniacObjectsHit;
+        m_pworld->getDemoniacObjectIn(sf::Vector2f(event.mouseButton.x,event.mouseButton.y),m_pplayer->getClickRadius(),
+                                      demoniacObjectsHit);
+
+        for(auto objects : demoniacObjectsHit)
+        {
+            objects->hit(m_pplayer->getDamage());
+        }
+        // Todo Animation
     }
     // Process money generation
     else if(event.type == sf::Event::KeyReleased)
@@ -44,6 +52,7 @@ bool GameState::onEnter()
 {
     // Init the player
     m_pplayer = new Player(150);
+    m_pworld = new World();
 
     return true;
 }
