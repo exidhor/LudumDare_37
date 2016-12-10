@@ -10,10 +10,11 @@
 #define __STATE_MACHINE_HPP
 
 #include <vector>
+#include <Utils/Singleton.hpp>
 #include "Utils/Updatable.hpp"
 #include "GameState/GameState.hpp"
 
-class StateMachine : public Updatable
+class StateMachine : public Updatable, public Singleton <StateMachine>
 {
 public:
 

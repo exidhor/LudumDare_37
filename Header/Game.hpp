@@ -8,6 +8,9 @@ class Game
 public:
 	Game();
 
+    /// \brief Initialize the game class
+	void Init();
+
 	void gameLoop();
 
 	void handleInput();

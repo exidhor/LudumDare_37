@@ -1,11 +1,18 @@
 #include "Game.hpp"
-#include "Memory/Container.hpp"
+#include "GameState/MenuState.hpp"
+#include "GameState/StateMachine.hpp"
 
 Game::Game()
 	: m_window(sf::VideoMode(1280, 768), "LD 37"),
 	m_shape(100.f)
 {
 	m_shape.setFillColor(sf::Color::Green);
+}
+
+void Game::Init()
+{
+    // Push the first state ! An awesome menu
+    StateMachine::Instance()->pushState(MenuState::Instance());
 }
 
 void Game::gameLoop()
