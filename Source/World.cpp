@@ -47,6 +47,7 @@ void World::addDecors(sf::Vector2f const& position, sf::Texture *texture)
     sprite->setTexture(*texture);
     Drawable drawable;
     drawable.addSprite(sprite);
+    drawable.nextSprite();
 
     m_decors.push_back(drawable);
 }
@@ -56,6 +57,7 @@ void World::addBackground(sf::Texture *texture)
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*texture);
     m_background.addSprite(sprite);
+    m_background.nextSprite();
 
     m_drawables.push_back(&m_background);
 }
