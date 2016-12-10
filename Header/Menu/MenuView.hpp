@@ -21,7 +21,7 @@ public:
 
     /// \param e The event
     /// \param frameTime
-	virtual void processInput(NEvent * e);
+	virtual void processInput(sf::Event & e);
 
     /// \param w The window
 	virtual void draw(sf::RenderWindow * w);

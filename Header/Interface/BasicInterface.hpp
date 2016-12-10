@@ -23,39 +23,69 @@
 
 class BasicInterface : public Updatable
 {
-	private:
-		NPanel m_contentPane;
-		
-		std::vector < VisualObject * > m_Interfaces;
+public:
 
-		// Methods
-		void updateInterfaces(double frameTime);
+    /*!
+     * \brief Constructor
+     * \param ptr_managerGroup
+     */
+    BasicInterface(bool debug, InputHandler * inputHandler);
 
-	protected:
-		bool m_debug;
-		bool m_optionActive;
-		InputHandler * m_inputHandler;
-		ManagerGroup * m_ptr_managerGroup;
-		
-	public:
-		// Constructor
-		BasicInterface(bool debug, ManagerGroup * ptr_managerGroup,
-			InputHandler * inputHandler);
+    /*!
+     * \brief Destructor
+     */
+    virtual ~BasicInterface();
 
-		// Destructor
-		virtual ~BasicInterface();
+    /*!
+     * \brief Draw the interface
+     */
+    virtual void draw(sf::RenderWindow * window) = 0;
 
-		// Controllers Methods
-		// Game logic
-		virtual void draw(sf::RenderWindow * window) = 0;
-		void basicDraw(sf::RenderWindow *window);
-		void basicInput(NEvent * evenement, double frameTime);
+    /*!
+     * \brief Draw all object on the window
+     * \param window The surface to draw
+     * \param visualObjectList The list of object to draw
+     */
+    void basicDraw(sf::RenderWindow * window);
 
-		// Getters
-		NPanel * getContentPane();
+    void basicUpdate(double elapsed);
 
-		// Setters
-		void setContentPane(NPanel * pane);
+    /*!
+     * \brief Handle inputs of the basics Interfaces
+     * \param e The current event to handle
+     * \param frameTime TimeElapsed since last iteration
+     */
+    void basicInput(sf::Event & event);
+
+    /*!
+     * \brief Allow the acces on the main panel
+     * \return m_contentPane The reference on the main panel
+     */
+    NPanel * getContentPane();
+
+    /*!
+     * \brief Replace the current main panel
+     * \param pane The pointeur on the panel
+     * \return None
+     */
+    void setContentPane(NPanel * pane);
+
+protected:
+
+    bool m_debug;
+    bool m_optionActive;
+    InputHandler * m_inputHandler;
+
+private:
+    NPanel m_contentPane;
+
+    std::vector < VisualObject * > m_Interfaces;
+
+    /*!
+     * \brief Update all component
+     * \param frameTime Time elapsed since last frame
+     */
+    void updateInterfaces(double frameTime);
 };
 
 #endif // DEF_BASIC_INTERFACE_HPP

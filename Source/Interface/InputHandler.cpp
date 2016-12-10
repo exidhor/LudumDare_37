@@ -29,28 +29,28 @@ InputHandler::~InputHandler() {
  * \param e The pointer on the event
  * \param objectList Vector of component
  */
-void InputHandler::handleInput(sf::Event * e, 
+void InputHandler::handleInput(sf::Event & e,
 VisualObject * o, bool mouselock) {
 
 	// Enable or disable mouse blocking
 	m_mouseLock = mouselock;
 
-	switch(e->type)
+	switch(e.type)
 	{
 		case sf::Event::MouseButtonPressed:
-			mousePressedHandle(e, o);
+			mousePressedHandle(&e, o);
 			break;
 
 		case sf::Event::MouseButtonReleased:
-			mouseReleasedHandle(e);
+			mouseReleasedHandle(&e);
 			break;
 
 		case sf::Event::MouseMoved:
-			mouseMovedHandle(e, o);
+			mouseMovedHandle(&e, o);
 			break;
 
 		case sf::Event::TextEntered:
-			textEnteredHandle(e, o);
+			textEnteredHandle(&e, o);
 			break;
 
 		default:
@@ -66,7 +66,7 @@ VisualObject * o, bool mouselock) {
  * \param e The current event to handle
  * \param objectList Vector of component
  */
-void InputHandler::mousePressedHandle(sf::Event * e, 
+void InputHandler::mousePressedHandle(sf::Event * e,
 VisualObject * o) {
 	
 	switch(e->mouseButton.button)
@@ -137,13 +137,6 @@ VisualObject * o) {
 
 	m_overId = "NULL";
 	m_overId = o->eventMouseMoved(e);
-
-	if(m_overId != "NULL" && false) { // TMP
-		std::cout << "- Event ID : mouseMoved" << std::endl;
-		std::cout << "- Compo ID : " << m_overId << std::endl;
-		std::cout << "- Mouse x  : " << e->mouseMove.x << std::endl;
-		std::cout << "- Mouse y  : " << e->mouseMove.y << std::endl;
-	}
 }
 
 /*!

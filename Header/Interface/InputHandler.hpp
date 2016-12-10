@@ -42,8 +42,7 @@ class InputHandler
 		~InputHandler();
 
 		// Methods
-		void handleInput(sf::Event * e, VisualObject * o,
-			bool mouselock);
+		void handleInput(sf::Event & e, VisualObject * o, bool mouselock);
 
 		// Getters
 		std::string getComponentId();

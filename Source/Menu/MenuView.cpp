@@ -16,7 +16,7 @@
     basicUpdate(elapsed);
 }
 
-/* virtual */ void MenuView::processInput(NEvent * e)
+/* virtual */ void MenuView::processInput(sf::Event & e)
 {
 	basicInput(e);
 }
