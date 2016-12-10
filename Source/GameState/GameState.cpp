@@ -54,7 +54,7 @@ void GameState::update(double dt)
     }
 
 	// Update spawners
-	for(int i = 0; i < m_spawners.size(); i++)
+	for(unsigned int i = 0; i < m_spawners.size(); i++)
 	{
 		m_spawners[i].updateTime(dt);
 

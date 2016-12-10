@@ -31,11 +31,11 @@ DemoniacObject* Spawner::spawn()
 		DemoniacObject* ptr = PoolAllocator<Fly>::Instance()->Allocate();
 		
 		// ajout du path
-		for(int i = 0; i < m_route.size(); i++)
+		for(unsigned i = 0; i < m_route.size(); i++)
 		{
 			ptr->addPath(m_route[i]);
 		}
-		ptr->setCurrentPath(m_route[0]);
+		ptr->setCurrentPath(&m_route[0]);
 
 		return ptr;
 	}
