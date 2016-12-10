@@ -40,6 +40,8 @@ void Drawable::nextSprite()
 void Drawable::setDeathSprite(sf::Sprite* sprite)
 {
     m_deathSprite = sprite;
+    m_deathSprite->setOrigin(m_deathSprite->getGlobalBounds().width / 2,
+                             m_deathSprite->getGlobalBounds().height / 2);
 }
 
 void Drawable::activeDeathSprite()
