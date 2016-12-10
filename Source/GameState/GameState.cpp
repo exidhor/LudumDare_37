@@ -14,6 +14,7 @@
 
 /* Explicit */ GameState::GameState()
 : InputHandler(LD_DEBUG)
+, m_view(LD_DEBUG, this)
 , m_player(0)
 , m_world()
 {
@@ -49,6 +50,8 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         else
             m_player.increaseMoney(100);
     }
+
+    m_view.processInput(event);
 }
 
 void GameState::update(double dt)
@@ -85,6 +88,8 @@ void GameState::update(double dt)
 			m_world.addDemoniacObject(m_demoniacObjects[i]);
 		}
     }
+
+    m_view.update(dt);
 	
 	// todo : gestion de la difficulté
 }
@@ -93,6 +98,7 @@ void GameState::draw(sf::RenderWindow & window)
 {
     m_world.addDrawable(&m_player);
     m_world.draw(window);
+    m_view.draw(&window);
 }
 
 bool GameState::onEnter()

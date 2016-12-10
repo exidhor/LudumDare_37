@@ -5,8 +5,9 @@
 #include "Memory/ResourceLoader.hpp"
 
 #define INTERFACE_PATH ("Images/Interface/")
-#define DRAW_PATH ("Images/")
+#define DRAW_PATH  ("Images/")
 #define MUSIC_PATH ("Music/")
+#define FONT_PATH  ("Font/")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -30,6 +31,9 @@ void LoadAll()
 
     // Loading musics
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
+
+    // Loading font
+    LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "Avqest.ttf"));
 }
 
 std::string buildPath(std::string const& base, std::string const& path,
@@ -65,5 +69,20 @@ void LoadMusic(std::string const& key, std::string const& path)
         return;
 
     if(!_music->openFromFile(path))
+        std::cerr << StaticString::STATIC_FAILURE_FNF << std::endl;
+}
+
+void LoadFont(std::string const& key, std::string const& path)
+{
+    // Getting texture container
+    Container <sf::Font> * p_Fcontainer = Container<sf::Font>::Instance();
+
+    // Loading
+    sf::Font * _music = p_Fcontainer->LoadResource(key);
+
+    if(nullptr == _music)
+        return;
+
+    if(!_music->loadFromFile(path))
         std::cerr << StaticString::STATIC_FAILURE_FNF << std::endl;
 }

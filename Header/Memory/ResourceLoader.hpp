@@ -22,4 +22,9 @@ void LoadTexture(std::string const& key, std::string const& path);
 /// \param path The path
 void LoadMusic(std::string const& key, std::string const& path);
 
+/// \brief Load a font
+/// \param key The key
+/// \param path The path
+void LoadFont(std::string const& key, std::string const& path);
+
 #endif // __RESOURCE_LOADER_HPP

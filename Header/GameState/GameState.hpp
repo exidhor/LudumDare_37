@@ -10,6 +10,7 @@
 #include <Utils/Singleton.hpp>
 #include <World.hpp>
 #include <Interface/InputHandler.hpp>
+#include <View/GameView.hpp>
 #include "State.hpp"
 #include "Spawner.hpp"
 
@@ -58,6 +59,8 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
+
+    GameView                m_view;
     Player                  m_player;
     World                   m_world;
     std::vector<DemoniacObject*> m_demoniacObjects;

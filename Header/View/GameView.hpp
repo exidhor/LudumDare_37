@@ -5,6 +5,8 @@
 
 class GameView : public BasicInterface
 {
+public:
+
     /// \brief Constructor
     /// \param debug Debug value
     /// \param inputHandler The controller
@@ -23,6 +25,10 @@ class GameView : public BasicInterface
 
     /// \param w The window
     virtual void draw(sf::RenderWindow * w);
+
+private:
+
+    NLabel m_hitPoint;
 };
 
 #endif // __GAME_VIEW_HPP
