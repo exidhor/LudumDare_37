@@ -56,5 +56,3 @@ int Player::getDamage()
 {
     return m_damage;
 }
-
-

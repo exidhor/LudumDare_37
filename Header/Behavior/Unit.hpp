@@ -6,11 +6,7 @@
 class Unit
 {
 public:
-    Unit(int life)
-        : m_life(life)
-    {
-        // nothing
-    }
+    Unit(int life);
 
     virtual ~Unit() {};
 
@@ -22,6 +18,8 @@ public:
     }
 
     virtual sf::Vector2f getPosition() const = 0;
+
+    int getLife();
 
 protected:
     int m_life;

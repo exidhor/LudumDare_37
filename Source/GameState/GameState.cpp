@@ -9,6 +9,8 @@
 #include "GameState/GameState.hpp"
 #include "Music/MusicManager.hpp"
 #include <Memory/PoolAllocator.hpp>
+#include <GameState/StateMachine.hpp>
+#include <GameState/PauseState.hpp>
 
 /* Explicit */ GameState::GameState()
 : m_player(0)
@@ -40,7 +42,10 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     // Process money generation
     else if(event.type == sf::Event::KeyReleased)
     {
-        m_player.increaseMoney(100);
+        if(event.key.code == 36)
+            StateMachine::Instance()->pushState(PauseState::Instance());
+        else
+            m_player.increaseMoney(100);
     }
 }
 
@@ -51,7 +56,7 @@ void GameState::update(double dt)
 
     // 8f20
 	// Update spawners
-	for(unsigned int i = 0; i < m_spawners.size(); i++)
+	for(unsigned int i = 0; i < m_spawners.size(); ++i)
 	{
 		m_spawners[i].updateTime(dt);
 
@@ -61,9 +66,12 @@ void GameState::update(double dt)
 		}
 	}
 
-    for(int i = 0; i < m_demoniacObjects.size();++i)
+    for(int i = 0; i < (int)m_demoniacObjects.size();++i)
     {
+        bool justDie = m_demoniacObjects[i]->isDead();
         m_demoniacObjects[i]->update(dt);
+        if(!justDie && m_demoniacObjects[i]->isDead())
+            m_player.hit(m_demoniacObjects[i]->getDamage());
 
 		if(m_demoniacObjects[i]->toRemove())
 		{

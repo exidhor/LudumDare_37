@@ -133,7 +133,8 @@ void PathFollower::nextPath()
     m_currentPath = nullptr;
 }
 
-sf::Vector2f const &PathFollower::getCurrentPosition() const {
+sf::Vector2f const &PathFollower::getCurrentPosition() const
+{
     return m_currentPosition;
 }
 
