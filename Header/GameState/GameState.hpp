@@ -10,6 +10,7 @@
 #include <Utils/Singleton.hpp>
 #include <World.hpp>
 #include "State.hpp"
+#include "Spawner.hpp"
 
 class GameState : public State, public Singleton < GameState >
 {
@@ -59,6 +60,7 @@ private:
     Player                  m_player;
     World                   m_world;
     std::vector<DemoniacObject> m_demoniacObjects;
+	std::vector<Spawner> m_spawners;
 };
 
 
