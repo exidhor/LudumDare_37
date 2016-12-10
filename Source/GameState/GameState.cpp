@@ -78,7 +78,6 @@ void GameState::update(double dt)
         m_demoniacObjects.push_back(m_spawners.spawn());
     }
 
-
     for(int i = 0; i < (int)m_demoniacObjects.size();++i)
     {
         bool justDie = m_demoniacObjects[i]->isDead();
