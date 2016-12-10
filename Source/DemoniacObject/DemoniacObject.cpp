@@ -11,7 +11,7 @@ DemoniacObject::DemoniacObject(sf::Vector2f const& startPosition,
     ,m_armor(armor)
 	,m_speed(speed)
 	,m_elapsedSinceLastSpriteSwap(0.0)
-	,m_spriteSwapTreshold(0.25)
+	,m_spriteSwapTreshold(0.10)
 	,m_deathTreshold(1.0)
 	,m_deathElapsed(0.0)
 	,m_toRemove(false)

@@ -98,6 +98,7 @@ void PathFollower::setCurrentPath(Path* currentPath)
                 && path.getFromPositions() == currentPath->getFromPositions())
         {
             m_currentPath = currentPath;
+            m_currentPosition = currentPath->getFromPositions();
         }
     }
 }
