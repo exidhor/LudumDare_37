@@ -9,6 +9,7 @@
 
 #include <vector>
 #include "Memory/Resource.hpp"
+#include "Utils/Singleton.hpp"
 
 /// \class  PoolAllocator
 /// \brief  Handle memory for a type T
