@@ -5,10 +5,10 @@
 #ifndef LUDUMDARE_PLAYER_HPP
 #define LUDUMDARE_PLAYER_HPP
 
-
+#include "Graphics/Drawable.hpp"
 #include <Behavior/Unit.hpp>
 
-class Player : public Unit
+class Player : public Unit, public Drawable
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members
@@ -20,6 +20,7 @@ public:
     void                increaseMoney       (unsigned long long $money$);
     unsigned long long  get$Money$          ();
     virtual bool        hit                 (int damage);
+    sf::Vector2f const& getPosition()       const;
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
     //------------------------------------------------------------------------------------------------------------------

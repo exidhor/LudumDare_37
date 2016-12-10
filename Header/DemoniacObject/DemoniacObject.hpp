@@ -28,6 +28,11 @@ public :
 	float getSpeed() const;
 	int getArmor() const;
 
+    sf::Vector2f const& getPosition() const
+    {
+        return currentSprite->getPosition();
+    }
+
 private :
 	int m_damage;
 	int m_armor;

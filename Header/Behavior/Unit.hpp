@@ -19,21 +19,10 @@ public:
         return m_life <= 0;
     }
 
-    void setPosition(sf::Vector2f const& position)
-    {
-        m_position = position;
-    }
-
-    sf::Vector2f const& getPosition() const
-    {
-        return m_position;
-    }
+    virtual sf::Vector2f const& getPosition() const = 0;
 
 protected:
     int m_life;
-
-private:
-    sf::Vector2f m_position;
 };
 
 #endif // __UNIT_HPP
