@@ -29,6 +29,8 @@ void World::draw(sf::RenderTarget & target)
 	std::vector<Drawable*> toDraw;
 	getSortedDrawables(toDraw);
 
+	target.draw(*m_background.currentSprite);
+
 	for(unsigned int i = 0; i < toDraw.size(); i++)
 	{
 		target.draw(*toDraw[i]->currentSprite);
@@ -65,7 +67,7 @@ void World::addBackground(sf::Texture *texture)
     m_background.addSprite(sprite);
     m_background.nextSprite();
 
-    m_drawables.push_back(&m_background);
+    //m_drawables.push_back(&m_background);
 }
 
 void World::getSortedDrawables(std::vector<Drawable*> & output)
