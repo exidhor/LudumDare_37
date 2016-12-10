@@ -13,7 +13,8 @@
 #include <GameState/PauseState.hpp>
 
 /* Explicit */ GameState::GameState()
-: m_player(0)
+: InputHandler(LD_DEBUG)
+, m_player(0)
 , m_world()
 {
 

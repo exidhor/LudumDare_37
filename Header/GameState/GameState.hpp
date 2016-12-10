@@ -9,10 +9,11 @@
 #include <Player/Player.hpp>
 #include <Utils/Singleton.hpp>
 #include <World.hpp>
+#include <Interface/InputHandler.hpp>
 #include "State.hpp"
 #include "Spawner.hpp"
 
-class GameState : public State, public Singleton < GameState >
+class GameState : public State, public InputHandler, public Singleton < GameState >
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members

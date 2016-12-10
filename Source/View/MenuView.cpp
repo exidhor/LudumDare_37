@@ -1,4 +1,4 @@
-#include "Menu/MenuView.hpp"
+#include "View/MenuView.hpp"
 #include "Memory/Container.hpp"
 
 /* explicit */ MenuView::MenuView(bool debug, InputHandler * inputHandler)
