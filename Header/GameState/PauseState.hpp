@@ -7,9 +7,10 @@
 
 
 #include <Utils/Singleton.hpp>
+#include "View/PauseView.hpp"
 #include "State.hpp"
 
-class PauseState : public State, public Singleton < PauseState >
+class PauseState : public State, public InputHandler, public Singleton < PauseState >
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members
@@ -59,6 +60,9 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
+
+    PauseView m_view;
+
 };
 
 

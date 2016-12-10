@@ -2,7 +2,7 @@
 #include "Memory/Container.hpp"
 
 /* explicit */ PauseView::PauseView(bool debug, InputHandler * inputHandler)
-        : BasicInterface(debug, inputHandler)
+: BasicInterface(debug, inputHandler)
 {
     m_resume.create("RESUME_BUTTON", 500, 400,
                         Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
