@@ -10,14 +10,12 @@
 #define FLY_LIFE 10
 #define FLY_SPEED 10
 #define FLY_DAMAGE 10
+#define FLY_ARMOR 0
 
 class Fly : public DemoniacObject
 {
 public:
     explicit Fly(sf::Vector2f const& startPosition);
-
-    bool hit(int damage);
-    Projectile shoot(Unit* target);
 };
 
 #endif //LUDUMDARE_FLY_HPP
