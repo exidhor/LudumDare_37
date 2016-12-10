@@ -10,7 +10,7 @@
     : Unit(life)
     , m_$lotOfMoney$(1000)
     , m_clickRadius(15.0f)
-    , m_damage(10)
+    , m_damage(5)
     , m_elapsedSinceLastSpriteSwap(0.0)
     , m_spriteSwapTreshold(0.2)
 {

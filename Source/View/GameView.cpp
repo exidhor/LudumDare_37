@@ -29,12 +29,17 @@
                          Container<sf::Texture>::Instance()->GetResource("OPT_BR"),
                          Container<sf::Texture>::Instance()->GetResource("OPT_BP"));
 
+    m_BonusPhase.create("BONUS_PHASE", 700,80, 25,
+                        Container<sf::Font>::Instance()->GetResource("FONT"),
+                        "", sf::Color::Black);
+
     getContentPane()->addComponent(&m_hitPoint);
     getContentPane()->addComponent(&m_money);
     getContentPane()->addComponent(&m_nextRoundIn);
     getContentPane()->addComponent(&m_difficulty);
     getContentPane()->addComponent(&m_exitButton);
     getContentPane()->addComponent(&m_optButton);
+    getContentPane()->addComponent(&m_BonusPhase);
 }
 
 /* virtual */ GameView::~GameView()
@@ -82,3 +87,12 @@ void GameView::setDifficulty(unsigned int diff)
     m_difficulty.setTexte("DIFFICULTY : " + fix::to_string(diff));
 }
 
+void GameView::showBonusPhase()
+{
+    m_BonusPhase.setTexte("KEYBOARD RUSH ! ");
+}
+
+void GameView::hideBonusPhase()
+{
+    m_BonusPhase.setTexte("");
+}

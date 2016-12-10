@@ -67,6 +67,11 @@ private:
     std::vector<DemoniacObject*> m_demoniacObjects;
 	Spawner                 m_spawners;
     bool                    m_gamePhase;
+    int                     m_nextBonusPhaseIn;
+    bool                    m_bonusPhase;
+    bool                    m_overlayPhase;
+    int                     m_nextOverlayPhaseIn;
+    int                     m_overlayKey;
     double                  m_nextRoundIn;
 
 	Drawable                m_clickEffect;
