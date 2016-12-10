@@ -15,7 +15,6 @@
 #include "Interface/NLabel.hpp"
 #include "Interface/NEvent.hpp"
 #include "Interface/NButton.hpp"
-#include "Interface/NWindow.hpp"
 #include "Interface/NTextField.hpp"
 #include "Interface/ManagerGroup.hpp"
 #include "Interface/InputHandler.hpp"
