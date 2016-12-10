@@ -40,4 +40,3 @@ void LoadTexture(std::string const& key, std::string const& path)
     if(!_texture->loadFromFile(path))
         std::cerr << StaticString::STATIC_FAILURE_FNF << std::endl;
 }
-

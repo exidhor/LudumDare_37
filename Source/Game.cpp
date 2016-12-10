@@ -47,6 +47,10 @@ void Game::handleInput(double elapsed)
         // Process input of the top state
         StateMachine::Instance()->onPollEvent(event, elapsed);
 	}
+
+    // Checking state machine states
+    if(StateMachine::Instance()->isEmpty())
+        m_window.close();
 }
 
 void Game::draw()

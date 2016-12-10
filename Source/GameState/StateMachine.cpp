@@ -56,3 +56,13 @@ void StateMachine::popState()
         }
     }
 }
+
+bool StateMachine::isEmpty()
+{
+    return m_gameStates.size() == 0;
+}
+
+void StateMachine::exit()
+{
+    m_gameStates.clear();
+}

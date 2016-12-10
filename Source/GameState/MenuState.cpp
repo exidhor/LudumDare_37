@@ -27,6 +27,16 @@
 {
     // Processing input
     m_view.processInput(event);
+
+    // Checking input
+    if(getComponentId() == "START_BUTTON")
+    {
+        StateMachine::Instance()->pushState(GameState::Instance());
+    }
+    else if(getComponentId() == "EXIT_BUTTON")
+    {
+        StateMachine::Instance()->exit();
+    }
 }
 
 /* virtual */ void MenuState::draw(sf::RenderWindow& window)

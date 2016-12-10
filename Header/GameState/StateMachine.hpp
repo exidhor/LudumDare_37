@@ -64,6 +64,16 @@ public:
      */
     void popState();
 
+    /**
+     * \brief Tells is the machine is empty
+     */
+    bool isEmpty();
+
+    /**
+     * \brief Remove all states
+     */
+    void exit();
+
 private:
 
     std::vector < State * > m_gameStates;
