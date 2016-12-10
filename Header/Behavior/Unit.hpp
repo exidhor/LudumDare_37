@@ -12,14 +12,19 @@ public:
         // nothing
     }
 
-    virtual void hit(int damage) = 0;
+    virtual bool hit(int damage) = 0;
+
+    bool isDead()
+    {
+        return m_life <= 0;
+    }
 
     void setPosition(sf::Vector2f const& position)
     {
         m_position = position;
     }
 
-    sf::Vector2f getPosition()
+    sf::Vector2f const& getPosition()
     {
         return m_position;
     }
