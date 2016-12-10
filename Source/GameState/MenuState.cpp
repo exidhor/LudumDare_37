@@ -40,10 +40,6 @@
     {
         StateMachine::Instance()->exit();
     }
-    else if(getComponentId() == "SOUND_BUTTON")
-    {
-       MusicManager::Instance()->PauseCurrent();
-    }
 }
 
 /* virtual */ void MenuState::draw(sf::RenderWindow& window)

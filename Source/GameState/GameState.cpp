@@ -29,6 +29,17 @@
 
 void GameState::onPollEvent(sf::Event &event, double elapsed)
 {
+    m_view.processInput(event);
+
+    if(getComponentId() == "EXIT_BUTTON")
+    {
+        StateMachine::Instance()->exit();
+    }
+    else if(getComponentId() == "OPT_BUTTON")
+    {
+        MusicManager::Instance()->PauseCurrent();
+    }
+
     // Process player shoot
     if (event.type == sf::Event::MouseButtonPressed)
     {
@@ -51,8 +62,6 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         else
             m_player.increaseMoney(100);
     }
-
-    m_view.processInput(event);
 }
 
 void GameState::update(double dt)
@@ -92,6 +101,7 @@ void GameState::update(double dt)
 
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
+    m_view.setDifficulty(m_spawners.getDifficulty());
     m_view.update(dt);
 	
 	// todo : gestion de la difficulté

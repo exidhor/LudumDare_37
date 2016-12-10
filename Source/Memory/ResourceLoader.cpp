@@ -24,6 +24,11 @@ void LoadAll()
     LoadTexture("QUIT_P", buildPath(RES_PATH, INTERFACE_PATH, "QuitP.png"));
     LoadTexture("CSOUND", buildPath(RES_PATH, INTERFACE_PATH, "LenR.png"));
 
+    LoadTexture("EXIT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarExitButton_1.png"));
+    LoadTexture("EXIT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarExitButton_2.png"));
+    LoadTexture("OPT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_1.png"));
+    LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
+
     LoadTexture("BACKGROUND", buildPath(RES_PATH, DRAW_PATH, "Fond.png"));
     LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
     LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
@@ -42,7 +47,7 @@ void LoadAll()
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 
     // Loading font
-    LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "Avqest.ttf"));
+    LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "GEEKT___.TTF"));
 }
 
 std::string buildPath(std::string const& base, std::string const& path,

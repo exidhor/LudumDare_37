@@ -32,10 +32,17 @@ public:
     // TODO
     void setMoney(unsigned long long money);
 
+    // TODO
+    void setDifficulty(unsigned int diff);
+
 private:
 
     NLabel m_money;
     NLabel m_hitPoint;
+    NLabel m_difficulty;
+
+    NButton m_exitButton;
+    NButton m_optButton;
 };
 
 #endif // __GAME_VIEW_HPP
