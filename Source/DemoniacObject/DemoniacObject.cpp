@@ -31,11 +31,8 @@ void DemoniacObject::suicide(Unit* target)
 
 bool DemoniacObject::hit(int damage)
 {
-	int realDamage = damage - m_armor;
-	if(realDamage < 0)
-	{
-		m_life -= realDamage;
-	}
+	if(damage > m_armor)
+		m_life -= (damage - m_armor);
 	return isDead();
 }
 
@@ -109,6 +106,7 @@ void DemoniacObject::update(double dt)
 	else
 	{
 		activeDeathSprite();
+		m_deathElapsed+=dt;
 		if(m_deathElapsed >= m_deathTreshold)
 		{
 			m_toRemove = true;

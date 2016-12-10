@@ -9,7 +9,7 @@
 /* Explicit */ Player::Player(int life)
 : Unit(life)
 , m_$lotOfMoney$(1000)
-, m_clickRadius(7.5f)
+, m_clickRadius(20.0f)
 , m_damage(10)
 {
     // None
