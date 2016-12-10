@@ -7,15 +7,15 @@ int main()
 
 	sf::Clock clock;
 	sf::Time time;
-	double timeElasped;
+	double timeElapsed;
 
 	while (game.windowIsOpen())
 	{
 		time = clock.getElapsedTime();
-		timeElasped = time.asSeconds();
+		timeElapsed = time.asSeconds();
 		clock.restart();
 
-		game.gameLoop();
+		game.gameLoop(timeElapsed);
 	}
 
 	return 0;
