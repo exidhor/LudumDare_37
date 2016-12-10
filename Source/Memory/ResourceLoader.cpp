@@ -28,6 +28,12 @@ void LoadAll()
     LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
     LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
     LoadTexture("FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche45_3.png"));
+    LoadTexture("SMALL_FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche30.png"));
+    LoadTexture("SMALL_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche30_2.png"));
+    LoadTexture("SMALL_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche30_3.png"));
+    LoadTexture("FAT_FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche60.png"));
+    LoadTexture("FAT_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche60_2.png"));
+    LoadTexture("FAT_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche60_3.png"));
 
     // Loading musics
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));

@@ -20,4 +20,18 @@ public:
     virtual ~Fly() {};
 };
 
+class SmallFly : public DemoniacObject
+{
+public:
+    explicit SmallFly();
+    virtual ~SmallFly() {};
+};
+
+class FatFly : public DemoniacObject
+{
+public:
+    explicit FatFly();
+    virtual ~FatFly() {};
+};
+
 #endif //LUDUMDARE_FLY_HPP

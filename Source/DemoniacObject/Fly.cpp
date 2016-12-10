@@ -23,3 +23,38 @@ Fly::Fly()
 
     nextSprite();
 }
+
+SmallFly::SmallFly()
+        : DemoniacObject(sf::Vector2f(), FLY_LIFE/2, FLY_SPEED*2, FLY_DAMAGE - FLY_DAMAGE/2, FLY_ARMOR, FLY_SPRITESWAP)
+{
+    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("SMALL_FLY_1"));
+    addSprite(sprite);
+
+    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("SMALL_FLY_2"));
+    addSprite(sprite);
+
+    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("SMALL_FLY_3"));
+    setDeathSprite(sprite);
+
+    nextSprite();
+}
+
+FatFly::FatFly()
+        : DemoniacObject(sf::Vector2f(), FLY_LIFE*2, FLY_SPEED/2, FLY_DAMAGE + FLY_DAMAGE/2, FLY_ARMOR, FLY_SPRITESWAP){
+    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FAT_FLY_1"));
+    addSprite(sprite);
+
+    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FAT_FLY_2"));
+    addSprite(sprite);
+
+    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FAT_FLY_3"));
+    setDeathSprite(sprite);
+
+    nextSprite();
+}

@@ -29,7 +29,9 @@ DemoniacObject* Spawner::spawn()
 	{
 		m_itsTimeToSpawn = false;
 
-		Fly * ptr = PoolAllocator<Fly>::Instance()->Allocate();
+
+
+        Fly * ptr = PoolAllocator<Fly>::Instance()->Allocate();
 		
 		// ajout du path
 		for(unsigned i = 0; i < m_route.size(); i++)
@@ -78,4 +80,9 @@ sf::Vector2f const& Spawner::getPosition() const
 void Spawner::addPath(Path path)
 {
     m_route.push_back(path);
+}
+
+unsigned Spawner::getDifficulty()
+{
+    return m_difficulty;
 }

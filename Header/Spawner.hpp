@@ -25,6 +25,8 @@ public:
 
 	void addPath(Path path);
 
+    unsigned getDifficulty();
+
 private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_target;
