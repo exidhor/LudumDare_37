@@ -21,6 +21,8 @@ public:
 	*/
 	World(unsigned reserveSize = 0);
 
+	virtual ~World();
+
 	void prepare();
 
 	void draw(sf::RenderTarget & target);
@@ -32,7 +34,7 @@ public:
 	*/
 	void addDemoniacObject(DemoniacObject * demoniacObject);
 
-	void addDecors();
+	void addDecors(sf::Vector2f const& position, sf::Texture *texture);
 
 	/**
 	* \brief	Return all the GameObject which have a RenderComponent
