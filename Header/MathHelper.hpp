@@ -8,6 +8,14 @@
 namespace MathHelper
 {
 	sf::Vector2f abs(sf::Vector2f const& vector);
+
+	bool isColliding(sf::FloatRect const& rect, 
+					 sf::Vector2f const& centerCircle,
+					 float radius);
+
+	bool contains(sf::Vector2f const& centerCircle, 
+				  float radius, 
+				  sf::Vector2f const& pointToCheck);
 }
 
 namespace Movement
@@ -15,6 +23,8 @@ namespace Movement
 	sf::Vector2f offset(sf::Vector2f const& start, sf::Vector2f const& end);
 
 	float distance(sf::Vector2f const& start, sf::Vector2f const& end);
+
+	float squareDistance(sf::Vector2f const& start, sf::Vector2f const& end);
 
 	/**
 	* return the deplacement of an object (the vector2f returned has to

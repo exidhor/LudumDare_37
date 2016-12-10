@@ -1,4 +1,5 @@
 #include "World.hpp"
+#include "MathHelper.hpp"
 
 World::World(unsigned reserveSize)
 {
@@ -42,11 +43,12 @@ void World::getDemoniacObjectIn(sf::Vector2f const& position,
 {
 	for (unsigned i = 0; i < m_activeEnemies.size(); i++)
 	{
-		// todo
-		//if (m_active[i]->GetComponent<PhysicsComponent>() != nullptr)
-		//{
-		//	output.push_back(m_active[i]);
-		//}
+		if (MathHelper::isColliding(m_activeEnemies[i]->currentSprite->getGlobalBounds(),
+			                        position,
+			                        radius))
+		{
+			output.push_back(m_activeEnemies[i]);
+		}
 	}
 }
 
