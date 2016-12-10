@@ -14,8 +14,13 @@
         Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
         Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
 
+    m_soundButton.create("SOUND_BUTTON", 700, 300,
+                        Container<sf::Texture>::Instance()->GetResource("CSOUND"),
+                        Container<sf::Texture>::Instance()->GetResource("CSOUND"));
+
     getContentPane()->addComponent(&m_startButton);
     getContentPane()->addComponent(&m_exitButton);
+    getContentPane()->addComponent(&m_soundButton);
 }
 
 /* virtual */ MenuView::~MenuView()

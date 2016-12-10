@@ -30,6 +30,7 @@ private:
 
 	NButton m_startButton; ///< Start button
 	NButton m_exitButton;  ///< Exit button
+    NButton m_soundButton;  ///< Exit button
 };
 
 #endif // __MENU_VIEW_HPP

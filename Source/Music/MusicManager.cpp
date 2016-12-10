@@ -9,6 +9,7 @@
 , m_current(nullptr)
 , m_fadeOut(false)
 , m_fadeIn(false)
+, m_pause(false)
 
 {
     // None
@@ -95,6 +96,23 @@ void MusicManager::PlayImmediateCurrent()
     if(m_current != nullptr)
     {
         m_current->play();
+    }
+}
+
+void MusicManager::PauseCurrent()
+{
+    if(m_current != nullptr)
+    {
+        if(m_pause)
+        {
+            m_current->pause();
+            m_pause = true;
+        }
+        else
+        {
+            m_current->play();
+            m_pause = false;
+        }
     }
 }
 

@@ -25,6 +25,9 @@ public :
     /// \brief  Play immediately the current music
     void PlayImmediateCurrent();
 
+    /// \brief Pause the current sound
+    void PauseCurrent();
+
     /// \brief Set the current music
     void SetCurrentMusic(std::string const& key);
 
@@ -44,6 +47,7 @@ private:
 
     bool m_fadeOut;
     bool m_fadeIn;
+    bool m_pause;
 };
 
 #endif // __MUSIC_MANAGER_HPP
