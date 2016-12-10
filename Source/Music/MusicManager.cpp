@@ -80,6 +80,7 @@ void MusicManager::FadeInOut(double time, std::string const &next)
         m_fadeOut = false;
         m_fadeIn = true;
 
+        m_current->setVolume(50);
         m_attenuation = m_current->getVolume() / m_fade;
         m_current->setVolume(0);
         m_current->play();
@@ -87,6 +88,7 @@ void MusicManager::FadeInOut(double time, std::string const &next)
     else
     {
         m_fadeOut = true;
+        m_current->setVolume(50);
         m_attenuation = m_current->getVolume() / m_fade;
     }
 }
