@@ -12,6 +12,8 @@ public:
         // nothing
     }
 
+    virtual ~Unit() {};
+
     virtual bool hit(int damage) = 0;
 
     bool isDead() const

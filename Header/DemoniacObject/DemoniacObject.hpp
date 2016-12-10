@@ -17,6 +17,8 @@ public :
 				   int armor,
 				   double spriteSwapTreshold);
 
+	virtual ~DemoniacObject() {};
+
 	virtual void suicide(Unit* target);
 
 	bool hit(int damage);

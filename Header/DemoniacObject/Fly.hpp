@@ -17,6 +17,7 @@ class Fly : public DemoniacObject
 {
 public:
     explicit Fly();
+    virtual ~Fly() {};
 };
 
 #endif //LUDUMDARE_FLY_HPP

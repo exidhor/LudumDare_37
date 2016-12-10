@@ -7,43 +7,46 @@ template <typename T>
 template <typename T>
 inline PoolAllocator<T>::~PoolAllocator()
 {
-    // None
+    for(unsigned i = 0; i < m_resources.size(); ++i)
+    {
+        delete m_resources[i];
+    }
 }
 
 template <typename T>
 void PoolAllocator<T>::Init(unsigned int size)
 {
     for(unsigned int i = 0; i < size; ++i)
-        m_resources.push_back(Resource<T>());
+        m_resources.push_back(new Resource<T>());
 }
 
 template <typename T>
 T * PoolAllocator<T>::Allocate()
 {
-    for(auto& it : m_resources)
+    for(Resource<T> * res : m_resources)
     {
-        if(it.IsAvailable())
+        if(res->IsAvailable())
         {
-            it.SetAvailable(false);
-            return it.GetResource();
+            res->SetAvailable(false);
+            return res->GetResource();
         }
     }
 
     // Need to allocate a new one
-    m_resources.push_back(Resource<T>());
-    m_resources.back().SetAvailable(false);
+    m_resources.push_back(new Resource<T>());
+    m_resources.back()->SetAvailable(false);
 
-    return m_resources.back().GetResource();
+    return m_resources.back()->GetResource();
 }
 
 template <typename T>
 void PoolAllocator<T>::Deallocate(T * resource)
 {
-    for(auto& it : m_resources)
+    for(Resource<T> * res : m_resources)
     {
-        if(it.GetResource() == resource)
+        if(res->GetResource() == resource)
         {
-            it.SetAvailable(true);
+            res->SetAvailable(true);
             break;
         }
     }

@@ -37,8 +37,8 @@ public :
     void Deallocate(T * resource);
 
 private :
-
-    std::vector < Resource < T > > m_resources;
+    friend class GameState;
+    std::vector < Resource < T > * > m_resources;
 };
 
 #include "Memory/PoolAllocator.inl"
