@@ -27,7 +27,6 @@ T * PoolAllocator<T>::Allocate()
             it.SetAvailable(false);
             return it.GetResource();
         }
-
     }
 
     // Need to allocate a new one

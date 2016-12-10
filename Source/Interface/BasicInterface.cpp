@@ -28,7 +28,6 @@ void BasicInterface::basicDraw(sf::RenderWindow * window)
 		m_Interfaces[i]->draw(window);
 }
 
-
 void BasicInterface::updateInterfaces(double frameTime)
 {
 	for(unsigned int i = 0; i < m_Interfaces.size(); i++)

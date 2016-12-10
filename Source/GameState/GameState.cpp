@@ -56,7 +56,8 @@ void GameState::update(double dt)
 
 		if(m_spawners[i].isReadyToSpawn())
 		{
-			m_demoniacObjects.push_back(m_spawners[i].spawn());
+            DemoniacObject * obj = m_spawners[i].spawn();
+			m_demoniacObjects.push_back(obj);
 		}
 	}
 
