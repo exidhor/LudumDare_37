@@ -1,4 +1,4 @@
-#include "StateMachine/StateMachine.hpp"
+#include "GameState/StateMachine.hpp"
 
 /* explicit */ StateMachine::StateMachine()
 {

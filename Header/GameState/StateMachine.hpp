@@ -10,8 +10,8 @@
 #define __STATE_MACHINE_HPP
 
 #include <vector>
-#include "GameEngine/Updatable.hpp"
-#include "StateMachine/GameState.hpp"
+#include "Utils/Updatable.hpp"
+#include "GameState/GameState.hpp"
 
 class StateMachine : public Updatable
 {

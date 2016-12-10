@@ -9,7 +9,7 @@
 #ifndef __GAME_STATE_HPP
 #define __GAME_STATE_HPP
 
-#include "GameEngine/Updatable.hpp"
+#include "Utils/Updatable.hpp"
 
 class GameState : public Updatable
 {
