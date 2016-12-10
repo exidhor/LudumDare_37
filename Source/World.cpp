@@ -72,9 +72,9 @@ void World::addBackground(sf::Texture *texture)
 
 void World::getSortedDrawables(std::vector<Drawable*> & output)
 {
-	for (unsigned i = 0; i < m_activeEnemies.size(); i++)
+	for (unsigned i = 0; i < m_drawables.size(); i++)
 	{
-		output.push_back(m_activeEnemies[i]);
+		output.push_back(m_drawables[i]);
 	}
 
     for (unsigned i = 0; i < m_decors.size(); i++)
@@ -82,7 +82,7 @@ void World::getSortedDrawables(std::vector<Drawable*> & output)
         output.push_back(&m_decors[i]);
     }
 
-    output.push_back(&m_background);
+    //output.push_back(&m_background);
 
 	sort(output);
 }
