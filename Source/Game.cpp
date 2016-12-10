@@ -1,5 +1,6 @@
 #include <Memory/PoolAllocator.hpp>
 #include "Game.hpp"
+#include "Music/MusicManager.hpp"
 #include "GameState/MenuState.hpp"
 #include "Memory/ResourceLoader.hpp"
 
@@ -33,6 +34,7 @@ void Game::gameLoop(double time)
 	handleInput(time);
 
     // Updating the top state
+    MusicManager::Instance()->update(time);
     StateMachine::Instance()->update(time);
 
     // Render the top state

@@ -17,4 +17,9 @@ std::string buildPath(std::string const& base,
 /// \param path The path
 void LoadTexture(std::string const& key, std::string const& path);
 
+/// \brief Load a music
+/// \param key The key
+/// \param path The path
+void LoadMusic(std::string const& key, std::string const& path);
+
 #endif // __RESOURCE_LOADER_HPP

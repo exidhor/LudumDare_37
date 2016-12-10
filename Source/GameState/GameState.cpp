@@ -7,6 +7,7 @@
 #include <Utils/Singleton.hpp>
 #include <Memory/Container.hpp>
 #include "GameState/GameState.hpp"
+#include "Music/MusicManager.hpp"
 
 /* Explicit */ GameState::GameState()
 : m_player(0)
@@ -61,6 +62,8 @@ void GameState::draw(sf::RenderWindow &window)
 
 bool GameState::onEnter()
 {
+    MusicManager::Instance()->FadeInOut(10.0, "MENU");
+
     // Init the player
     m_player = Player(150);
     m_world = World();

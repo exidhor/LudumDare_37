@@ -1,10 +1,12 @@
-#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "Memory/Container.hpp"
 #include "Memory/ResourceLoader.hpp"
 
 #define INTERFACE_PATH ("Images/Interface/")
 #define DRAW_PATH ("Images/")
+#define MUSIC_PATH ("Music/")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -23,6 +25,10 @@ void LoadAll()
     LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
     LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
     LoadTexture("FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche45_3.png"));
+
+
+    // Loading musics
+    LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 }
 
 std::string buildPath(std::string const& base, std::string const& path,
@@ -43,5 +49,20 @@ void LoadTexture(std::string const& key, std::string const& path)
         return;
 
     if(!_texture->loadFromFile(path))
+        std::cerr << StaticString::STATIC_FAILURE_FNF << std::endl;
+}
+
+void LoadMusic(std::string const& key, std::string const& path)
+{
+    // Getting texture container
+    Container <sf::Music> * p_Mcontainer = Container<sf::Music>::Instance();
+
+    // Loading
+    sf::Music * _music = p_Mcontainer->LoadResource(key);
+
+    if(nullptr == _music)
+        return;
+
+    if(!_music->openFromFile(path))
         std::cerr << StaticString::STATIC_FAILURE_FNF << std::endl;
 }
