@@ -14,10 +14,21 @@ public:
     }
 
     virtual void targeted(int damage) = 0;
-    virtual sf::Vector2f getPosition() const = 0;
+
+    void setPosition(sf::Vector2f const& position)
+    {
+        m_position = position;
+    }
+
+    sf::Vector2f const& getPosition() const
+    {
+        return m_position;
+    }
 
 protected:
     int m_life;
+
+private:
     sf::Vector2f m_position;
 };
 
