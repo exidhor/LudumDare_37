@@ -95,6 +95,7 @@ void DemoniacObject::update(double dt)
 			m_elapsedSinceLastSpriteSwap = 0.0;
 		}
 		sf::Vector2f movement = move(getCurrentPosition(),getSpeed());
+
 		currentSprite->setPosition(getCurrentPosition());
 
 	#define PI 3.141592653589793

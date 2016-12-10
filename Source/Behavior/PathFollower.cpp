@@ -92,10 +92,10 @@ bool PathFollower::hasPath(sf::Vector2f position, sf::Vector2f toPosition)
 
 void PathFollower::setCurrentPath(Path* currentPath)
 {
-    for(auto path : m_aPathes)
+    for(unsigned int i = 0; i < m_aPathes.size(); ++i)
     {
-        if(path.getToPositions() == currentPath->getToPositions()
-                && path.getFromPositions() == currentPath->getFromPositions())
+        if(m_aPathes[i].getToPositions() == currentPath->getToPositions()
+                && m_aPathes[i].getFromPositions() == currentPath->getFromPositions())
         {
             m_currentPath = currentPath;
             m_currentPosition = currentPath->getFromPositions();
@@ -122,11 +122,12 @@ sf::Vector2f PathFollower::move(sf::Vector2f const &position, float speed)
 
 void PathFollower::nextPath()
 {
-    for(auto path : m_aPathes)
+    for(unsigned int i = 0; i < m_aPathes.size(); ++i)
     {
-        if(m_currentPath->getToPositions() == path.getFromPositions())
+        if(m_currentPath->getToPositions() == m_aPathes[i].getFromPositions())
         {
-            m_currentPath = &path;
+            m_currentPath = &m_aPathes[i];
+            return;
         }
     }
     m_currentPath = nullptr;

@@ -10,7 +10,6 @@ Spawner::Spawner(sf::Vector2f const& target)
 	, m_target(target)
 {
 	// nothing
-	//m_route.push_back(Path(m_position, target));
 }
 
 void Spawner::updateTime(double time)
@@ -42,8 +41,6 @@ DemoniacObject* Spawner::spawn()
 		return ptr;
 	}
 
-	std::cout << "error nullptr" << std::endl;
-
 	return nullptr;
 }
 
@@ -71,10 +68,16 @@ void Spawner::setPosition(sf::Vector2f const& position)
 {
 	m_position = position;
 	m_route.clear();
-	m_route.push_back(Path(m_position, m_target));
 }
+
+
 
 sf::Vector2f const& Spawner::getPosition() const
 {
 	return m_position;
+}
+
+void Spawner::addPath(Path path)
+{
+    m_route.push_back(path);
 }
