@@ -1,4 +1,5 @@
 #include "DemoniacObject/DemoniacObject.hpp"
+#include "MathHelper.hpp"
 
 DemoniacObject::DemoniacObject(sf::Vector2f const& startPosition,
 							   int life,
@@ -92,8 +93,10 @@ void DemoniacObject::update(double dt)
 			nextSprite();
 			m_elapsedSinceLastSpriteSwap = 0.0;
 		}
-		move(getCurrentPosition(),getSpeed());
+		sf::Vector2f movement = move(getCurrentPosition(),getSpeed());
 		currentSprite->setPosition(getCurrentPosition());
+	#define PI 3.141592653589793
+		currentSprite->setRotation(Movement::getOrientation(movement)*180/PI);
 	}
 	else
 	{

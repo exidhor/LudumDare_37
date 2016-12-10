@@ -103,7 +103,7 @@ void PathFollower::setCurrentPath(Path* currentPath)
     }
 }
 
-void PathFollower::move(sf::Vector2f const &position, float speed)
+sf::Vector2f PathFollower::move(sf::Vector2f const &position, float speed)
 {
     if(m_currentPath != nullptr)
     {
@@ -113,7 +113,11 @@ void PathFollower::move(sf::Vector2f const &position, float speed)
         if (m_currentPosition == m_currentPath->getToPositions()) {
             nextPath();
         }
+
+		return deplacement;
     }
+
+	return sf::Vector2f();
 }
 
 void PathFollower::nextPath()

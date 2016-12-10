@@ -27,7 +27,7 @@ public:
     /// Set the current path if is in the possible path
     void                setCurrentPath            (Path* currentPath);
 
-    virtual void        move                      (sf::Vector2f const& position, float speed);
+    virtual sf::Vector2f move                     (sf::Vector2f const& position, float speed);
 
     sf::Vector2f const &getCurrentPosition        () const;
 
