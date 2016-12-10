@@ -4,12 +4,6 @@
 
 #include "DemoniacObject/Fly.hpp"
 
-Fly::Fly()
-    : DemoniacObject()
-{
-    // nothing
-}
-
 Fly::Fly(sf::Vector2f const &startPosition)
     : DemoniacObject(startPosition, FLY_LIFE, FLY_SPEED)
 {
@@ -24,5 +18,5 @@ void Fly::hit(int damage)
 Projectile Fly::shoot(Unit *target)
 {
     target->hit(FLY_DAMAGE);
-    return nullptr;
+    return Projectile();
 }

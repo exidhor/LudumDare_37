@@ -6,16 +6,8 @@
 class Unit
 {
 public:
-    explicit Unit()
-        : m_position(nullptr),
-          m_life(0)
-    {
-        // nothing
-    }
-
-    explicit Unit(sf::Vector2f const& startPosition, int life)
-        : m_position(startPosition),
-          m_life(life)
+    Unit(int life)
+        : m_life(life)
     {
         // nothing
     }
@@ -27,7 +19,7 @@ public:
         m_position = position;
     }
 
-    sf::Vector2f const& getPosition() const
+    sf::Vector2f getPosition()
     {
         return m_position;
     }
