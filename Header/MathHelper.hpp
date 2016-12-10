@@ -5,7 +5,7 @@
 #include <math.h>
 #include <SFML/Graphics.hpp>
 
-#define EPSILON_ANGLE 0.0001f
+#define EPSILON_ANGLE 0.1f
 
 namespace MathHelper
 {

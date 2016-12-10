@@ -19,8 +19,8 @@ bool MathHelper::isColliding(sf::FloatRect const& rect,
 
 	bool isIn = rect.intersects(globalBoundsCircle, intersections);
 
-	if (!isIn)
-		return false;
+	if (isIn)
+		return true;
 
 	// left/top
 	isIn = contains(centerCircle, radius, sf::Vector2f(intersections.left, 
