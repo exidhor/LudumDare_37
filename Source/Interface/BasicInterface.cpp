@@ -42,7 +42,7 @@ void BasicInterface::basicUpdate(double elapsed)
 void BasicInterface::basicInput(sf::Event & event)
 {
 	// Checking for contentPane Event
-	m_inputHandler->handleInput(event, &m_contentPane, true);
+	m_inputHandler->handleInput(event, &m_contentPane, false);
 }
 
 NPanel * BasicInterface::getContentPane()

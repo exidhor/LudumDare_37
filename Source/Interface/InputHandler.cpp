@@ -109,10 +109,9 @@ VisualObject * o) {
 
 	m_pressedId = "NULL";
 
-	if(!m_mouseState) {
-		
-		if(m_mouseLock) m_mouseState = true;
-		
+	if(!m_mouseState)
+    {
+		m_mouseState = true;
 		m_pressedId = o->eventMousePressed(e);
 
 		if(m_debug) {

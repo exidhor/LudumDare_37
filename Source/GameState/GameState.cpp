@@ -35,10 +35,12 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 
     if(getComponentId() == "EXIT_BUTTON")
     {
+        std::cout << "EXIT" << std::endl;
         StateMachine::Instance()->popState();
     }
     else if(getComponentId() == "OPT_BUTTON")
     {
+        std::cout << "OPT" << std::endl;
         MusicManager::Instance()->PauseCurrent();
     }
 
