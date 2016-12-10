@@ -1,11 +1,20 @@
 #pragma once
 
-class Turret
+#include <SFML/System.hpp>
+
+#include "Graphics/Drawable.hpp"
+#include "Player/Projectile.hpp"
+
+class Turret : public Drawable
 {
 public :
 	Turret();
 
-	// todo
+    virtual void update(double time) = 0;
+    virtual Projectile* shoot(sf::Vector2f const& target) = 0;
 
-private :
+protected:
+	double m_timeUntilShoot;
+    bool m_isTimeToShoot;
+	bool m_isShooting;
 };

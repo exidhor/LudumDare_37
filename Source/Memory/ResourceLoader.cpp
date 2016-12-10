@@ -42,6 +42,8 @@ void LoadAll()
 
     LoadTexture("GEEK_1", buildPath(RES_PATH, DRAW_PATH, "geekPose1.png"));
     LoadTexture("GEEK_2", buildPath(RES_PATH, DRAW_PATH, "geekPose2.png"));
+    LoadTexture("TURRET_IDLE", buildPath(RES_PATH, DRAW_PATH, "poison180.png"));
+    LoadTexture("TURRET_SHOOT", buildPath(RES_PATH, DRAW_PATH, "poison180-2.png"));
 
     // Loading musics
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
