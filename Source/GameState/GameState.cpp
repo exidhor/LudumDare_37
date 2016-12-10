@@ -64,7 +64,7 @@ void GameState::update(double dt)
 		}
 	}
 	
-	// todo : gestion de la difficulté
+	// todo : gestion de la difficultÃ©
 }
 
 void GameState::draw(sf::RenderWindow &window)
