@@ -14,6 +14,17 @@ void World::prepare()
 	addDecorsToDrawable();
 }
 
+void World::draw(sf::RenderTarget & target)
+{
+	std::vector<Drawable*> toDraw;
+	getSortedDrawables(toDraw);
+
+	for(int i = 0; i < toDraw.size(); i++)
+	{
+		target.draw(*toDraw[i]->currentSprite);
+	}
+}
+
 void World::addDemoniacObject(DemoniacObject * demoniacObject)
 {
 	m_activeEnemies.push_back(demoniacObject);

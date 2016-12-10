@@ -23,6 +23,8 @@ public:
 
 	void prepare();
 
+	void draw(sf::RenderTarget & target);
+
 	/**
 	* \brief   Add a GameObject to the Active GameObject.
 	*			Now it can is available for all the Engine
