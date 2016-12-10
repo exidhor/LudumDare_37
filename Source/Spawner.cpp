@@ -1,5 +1,6 @@
 #include "Spawner.hpp"
 #include "Memory/PoolAllocator.hpp"
+#include <iostream>
 
 Spawner::Spawner(sf::Vector2f const& target)
 	: m_difficulty(0)
@@ -39,6 +40,9 @@ DemoniacObject* Spawner::spawn()
 
 		return ptr;
 	}
+
+
+	std::cout << "error nullptr" << std::endl;
 
 	return nullptr;
 }
