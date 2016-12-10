@@ -13,10 +13,8 @@
 
 #include "Interface/NPanel.hpp"
 #include "Interface/NLabel.hpp"
-#include "Interface/NEvent.hpp"
 #include "Interface/NButton.hpp"
 #include "Interface/NTextField.hpp"
-#include "Interface/ManagerGroup.hpp"
 #include "Interface/InputHandler.hpp"
 #include "Interface/AnimatableObject.hpp"
 
