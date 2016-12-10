@@ -14,7 +14,6 @@
 class Fly : public DemoniacObject
 {
 public:
-    explicit Fly();
     explicit Fly(sf::Vector2f const& startPosition);
 
     void hit(int damage);
