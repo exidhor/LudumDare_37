@@ -1,4 +1,4 @@
-#include "Interface/MenuView.hpp"
+#include "Menu/MenuView.hpp"
 
 MenuView::MenuView(bool debug, ManagerGroup * ptr_managerGroup,
 	InputHandler * inputHandler) : 

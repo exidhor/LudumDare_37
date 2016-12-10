@@ -1,4 +1,4 @@
-#include "Interface/MenuViewController.hpp"
+#include "Menu/MenuViewController.hpp"
 
 MenuViewController::MenuViewController() {
 	// None

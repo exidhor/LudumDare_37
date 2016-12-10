@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "Interface/MenuView.hpp"
+#include "MenuView.hpp"
 #include "Interface/InputHandler.hpp"
 
 class MenuViewController
