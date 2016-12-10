@@ -34,9 +34,10 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         m_world.getDemoniacObjectIn(sf::Vector2f(event.mouseButton.x,event.mouseButton.y),m_player.getClickRadius(),
                                       demoniacObjectsHit);
 
-        for(auto objects : demoniacObjectsHit)
+        for(unsigned i = 0; i < demoniacObjectsHit.size(); ++i)
         {
-            objects->hit(m_player.getDamage());
+            demoniacObjectsHit[i]->hit(m_player.getDamage());
+            std::cout<< demoniacObjectsHit[i]->getLife() << std::endl;
         }
         // Todo Animation
     }
