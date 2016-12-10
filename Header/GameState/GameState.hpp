@@ -56,8 +56,9 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
-    Player*              m_pplayer;
-    World*               m_pworld;
+    Player                  m_player;
+    World                   m_world;
+    std::vector<DemoniacObject> m_demoniacObjects;
 };
 
 

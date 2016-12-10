@@ -28,7 +28,7 @@ void World::draw(sf::RenderTarget & target)
 	std::vector<Drawable*> toDraw;
 	getSortedDrawables(toDraw);
 
-	for(int i = 0; i < toDraw.size(); i++)
+	for(unsigned int i = 0; i < toDraw.size(); i++)
 	{
 		target.draw(*toDraw[i]->currentSprite);
 	}
@@ -106,7 +106,7 @@ void World::sort(std::vector<Drawable*>& vector) const
 
 void World::addDecorsToDrawable()
 {
-	for(int i = 0; i < m_decors.size(); i++)
+	for(unsigned int i = 0; i < m_decors.size(); i++)
 	{
 		m_drawables.push_back(&m_decors[i]);
 	}

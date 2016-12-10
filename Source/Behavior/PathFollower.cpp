@@ -123,3 +123,7 @@ void PathFollower::nextPath()
         }
     }
 }
+
+sf::Vector2f const &PathFollower::getCurrentPosition() const {
+    return m_currentPosition;
+}

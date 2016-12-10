@@ -22,6 +22,8 @@ void Spawner::updateTime(double time)
 
 DemoniacObject* Spawner::spawn()
 {
+	m_itsTimeToSpawn = false;
+
 	if(m_timeUntilSpawn)
 	{
 		//return new Fly();
@@ -29,6 +31,11 @@ DemoniacObject* Spawner::spawn()
 	}
 
 	return nullptr;
+}
+
+bool Spawner::isReadyToSpawn() const
+{
+	return m_itsTimeToSpawn;
 }
 
 void Spawner::setDifficulty(unsigned difficulty)
@@ -44,4 +51,14 @@ void Spawner::increaseDifficulty()
 void Spawner::setTimeBetweenSpawn(double time)
 {
 	m_timeBetweenSpawn = time;
+}
+
+void Spawner::setPosition(sf::Vector2f const& position)
+{
+	m_position = position;
+}
+
+sf::Vector2f const& Spawner::getPosition() const
+{
+	return m_position;
 }
