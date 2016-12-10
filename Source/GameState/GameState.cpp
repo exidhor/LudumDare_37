@@ -113,7 +113,7 @@ void GameState::update(double dt)
     else
     {
         m_nextRoundIn -= dt;
-        m_view.setNextRoundIn(m_nextRoundIn > 0.0 ? m_nextRoundIn : 0.0);
+        m_view.setNextRoundIn(m_nextRoundIn > 0.0 ? (int)m_nextRoundIn : 0.0);
         if(m_nextRoundIn <= 0)
         {
             m_gamePhase = true;
