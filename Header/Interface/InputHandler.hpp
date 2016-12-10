@@ -11,9 +11,7 @@
 
 #include <vector>
 #include <iostream>
-
 #include <SFML/Graphics.hpp>
-
 #include "Interface/VisualObject.hpp"
 
 class InputHandler

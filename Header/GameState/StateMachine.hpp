@@ -10,7 +10,7 @@
 #define __STATE_MACHINE_HPP
 
 #include <vector>
-#include <Utils/Singleton.hpp>
+#include "Utils/Singleton.hpp"
 #include "Utils/Updatable.hpp"
 #include "GameState/State.hpp"
 
@@ -57,7 +57,7 @@ public:
      * \brief   Remove the previous state before pushing another one
      * \param   pState The state to change with
      */
-    void changeChange(State * pState);
+    void changeState(State * pState);
 
     /*!
      * \brief   Remove the state at the top of the state machine

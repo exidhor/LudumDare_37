@@ -20,7 +20,6 @@
 
 /* virtual */ void MenuState::update(double dt)
 {
-    // Update view
     m_view.update(dt);
 }
 
@@ -38,6 +37,7 @@
 /* virtual */ bool MenuState::onEnter()
 {
     // TODO
+    std::cout << "MENU" << std::endl;
     StateMachine::Instance()->pushState(GameState::Instance());
     return true;
 }

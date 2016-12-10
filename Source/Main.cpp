@@ -3,6 +3,7 @@
 int main()
 {
 	Game game;
+    game.Init();
 
 	sf::Clock clock;
 	sf::Time time;
