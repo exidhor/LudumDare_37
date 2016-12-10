@@ -9,6 +9,8 @@ public:
 
 	void updateTime(double time);
 
+	bool isReadyToSpawn() const;
+
 	DemoniacObject* spawn();
 
 	void setDifficulty(unsigned difficulty);
@@ -17,8 +19,13 @@ public:
 
 	void setTimeBetweenSpawn(double time);
 
+	void setPosition(sf::Vector2f const& position);
+
+	sf::Vector2f const& getPosition() const;
 
 private:
+	sf::Vector2f m_position;
+
 	unsigned m_difficulty;
 
 	bool m_itsTimeToSpawn;
