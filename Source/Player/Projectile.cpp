@@ -1,6 +1,6 @@
 #include "Player/Projectile.hpp"
 
-Projectile::Projectile(sf::Vector2f const& position, float speed)
+Projectile::Projectile()
 {
 	// todo
 }
