@@ -37,17 +37,16 @@ public:
     virtual ~BasicInterface();
 
     /*!
-     * \brief Draw the interface
-     */
-    virtual void draw(sf::RenderWindow * window) = 0;
-
-    /*!
      * \brief Draw all object on the window
      * \param window The surface to draw
      * \param visualObjectList The list of object to draw
      */
     void basicDraw(sf::RenderWindow * window);
 
+    /*!
+     * Update
+     * \param elapsed
+     */
     void basicUpdate(double elapsed);
 
     /*!

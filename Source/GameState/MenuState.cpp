@@ -31,7 +31,7 @@
 
 /* virtual */ void MenuState::draw(sf::RenderWindow& window)
 {
-    (void)window;
+    m_view.draw(&window);
 }
 
 /* virtual */ bool MenuState::onEnter()

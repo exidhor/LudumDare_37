@@ -23,5 +23,5 @@
 
 /* virtual */ void MenuView::draw(sf::RenderWindow * w)
 {
-	basicDraw(w);
+    basicDraw(w);
 }
