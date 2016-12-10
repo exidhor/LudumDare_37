@@ -82,9 +82,9 @@ bool GameState::onEnter()
 
     //m_world.addDecors(); // todo
 
-	m_spawners.push_back(Spawner());
-	m_spawners.push_back(Spawner());
-	m_spawners.push_back(Spawner());
+	m_spawners.push_back(Spawner(m_player.getPosition()));
+	m_spawners.push_back(Spawner(m_player.getPosition()));
+	m_spawners.push_back(Spawner(m_player.getPosition()));
 
 	// 1280 / 768
 	m_spawners[0].setPosition(sf::Vector2f(50, 700));
