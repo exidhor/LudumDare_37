@@ -1,55 +1,59 @@
-/*!
- * \brief   Header of the game state
- * \file    StateMachine.hpp
- * \author  Aredhele
- * \version 0.1
- * \date    15/10/2016
- */
+//
+// Created by Kraghan on 10/12/2016.
+//
 
-#ifndef __GAME_STATE_HPP
-#define __GAME_STATE_HPP
+#ifndef LUDUMDARE_GAMESTATE_HPP
+#define LUDUMDARE_GAMESTATE_HPP
 
-#include <SFML/Graphics.hpp>
-#include "Utils/Updatable.hpp"
 
-class GameState : public Updatable
+#include <Player/Player.hpp>
+#include "State.hpp"
+
+class GameState : public State
 {
+    //------------------------------------------------------------------------------------------------------------------
+    /// Public members
+    //------------------------------------------------------------------------------------------------------------------
 public:
-
-    /*!
-     * \brief   Default constructor
-     */
-    explicit GameState();
-
-    /*!
-     * \brief   Destructor
-     */
-    virtual ~GameState();
+    explicit            GameState              ();
+    virtual             ~GameState             ();
 
     /*!
      * \brief Handle input
      * \param event The event
      * \param elapsed The elapsed time
      */
-    virtual void onPollEvent(sf::Event& event, double elapsed) = 0;
+    virtual void onPollEvent(sf::Event& event, double elapsed);
 
     /*!
      * \brief Draw the state
      * \param window The window to draw on
      */
-    virtual void draw(sf::RenderWindow & window) = 0;
+    virtual void draw(sf::RenderWindow & window);
 
     /*!
      * \brief   Function called when a state is pushed
      * \return  True if the state can be pushed
      */
-    virtual bool onEnter() = 0;
+    virtual bool onEnter();
 
     /*!
      * \brief   Function called when a state is popped
      * \return  True if the state can be popped
      */
-    virtual bool onExit() = 0;
+    virtual bool onExit();
+
+    //------------------------------------------------------------------------------------------------------------------
+    /// Protected members
+    //------------------------------------------------------------------------------------------------------------------
+protected:
+
+    //------------------------------------------------------------------------------------------------------------------
+    /// Private members
+    //------------------------------------------------------------------------------------------------------------------
+private:
+    Player*              m_pplayer;
 };
 
-#endif // __GAME_STATE_HPP
+
+#endif //LUDUMDARE_GAMESTATE_HPP

@@ -28,7 +28,7 @@ void StateMachine::render(sf::RenderWindow &window)
     if(!m_gameStates.empty()) m_gameStates.back()->draw(window);
 }
 
-void StateMachine::pushState(GameState * pState)
+void StateMachine::pushState(State * pState)
 {
     // Pushing the state at the top of
     // State machine, calling onEnter()
@@ -36,7 +36,7 @@ void StateMachine::pushState(GameState * pState)
     m_gameStates.back()->onEnter();
 }
 
-void StateMachine::changeChange(GameState * pState)
+void StateMachine::changeChange(State * pState)
 {
     popState();
     pushState(pState);

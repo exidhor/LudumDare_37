@@ -2,6 +2,7 @@
 #define __GAME_HPP
 
 #include <SFML/Graphics.hpp>
+#include <Player/Player.hpp>
 
 class Game
 {
@@ -20,8 +21,9 @@ public:
 	bool windowIsOpen() const;
 
 private:
-	sf::RenderWindow m_window;
-	sf::CircleShape m_shape;
+	sf::RenderWindow    m_window;
+	sf::CircleShape     m_shape;
+    Player*             m_player;
 };
 
 #endif // __GAME_HPP

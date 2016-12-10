@@ -12,7 +12,7 @@
 #include <vector>
 #include <Utils/Singleton.hpp>
 #include "Utils/Updatable.hpp"
-#include "GameState/GameState.hpp"
+#include "GameState/State.hpp"
 
 class StateMachine : public Updatable, public Singleton <StateMachine>
 {
@@ -51,13 +51,13 @@ public:
      * \brief   Push a state at the top of the state machine
      * \param   pState The state to push
      */
-    void pushState(GameState * pState);
+    void pushState(State * pState);
 
     /*!
      * \brief   Remove the previous state before pushing another one
      * \param   pState The state to change with
      */
-    void changeChange(GameState * pState);
+    void changeChange(State * pState);
 
     /*!
      * \brief   Remove the state at the top of the state machine
@@ -66,7 +66,7 @@ public:
 
 private:
 
-    std::vector < GameState * > m_gameStates;
+    std::vector < State * > m_gameStates;
 };
 
 #endif // __STATE_MACHINE_HPP
