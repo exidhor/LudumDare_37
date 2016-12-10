@@ -86,15 +86,14 @@ void DemoniacObject::update(double dt)
 {
 	if(!isDead())
 	{
-		move(getCurrentPosition(),getSpeed());
-		currentSprite->setPosition(getCurrentPosition());
-
 		m_elapsedSinceLastSpriteSwap+=dt;
 		if(m_elapsedSinceLastSpriteSwap >= m_spriteSwapTreshold)
 		{
 			nextSprite();
 			m_elapsedSinceLastSpriteSwap = 0.0;
 		}
+		move(getCurrentPosition(),getSpeed());
+		currentSprite->setPosition(getCurrentPosition());
 	}
 	else
 	{
