@@ -1,5 +1,8 @@
+#include <Utils/Singleton.hpp>
 #include "Game.hpp"
 #include "GameState/MenuState.hpp"
+#include "GameState/GameState.hpp"
+#include "GameState/GameOverState.hpp"
 
 Game::Game()
 : m_window(sf::VideoMode(1280, 768), "LD 37")

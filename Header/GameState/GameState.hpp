@@ -7,9 +7,10 @@
 
 
 #include <Player/Player.hpp>
+#include <Utils/Singleton.hpp>
 #include "State.hpp"
 
-class GameState : public State
+class GameState : public State, public Singleton < GameState >
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members
@@ -42,6 +43,8 @@ public:
      * \return  True if the state can be popped
      */
     virtual bool onExit();
+
+    virtual void update(double dt);
 
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members

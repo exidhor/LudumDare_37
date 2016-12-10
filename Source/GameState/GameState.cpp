@@ -31,6 +31,11 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     }
 }
 
+void GameState::update(double dt)
+{
+    // None
+}
+
 void GameState::draw(sf::RenderWindow &window)
 {
 
@@ -41,11 +46,12 @@ bool GameState::onEnter()
     // Init the player
     m_pplayer = new Player(150);
 
-    return false;
+    return true;
 }
 
 bool GameState::onExit()
 {
-    return false;
+    delete m_pplayer;
+    return true;
 }
 

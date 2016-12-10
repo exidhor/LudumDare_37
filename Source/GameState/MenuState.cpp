@@ -1,3 +1,4 @@
+#include <GameState/GameState.hpp>
 #include "GameState/MenuState.hpp"
 
 /* explicit */ MenuState::MenuState()
@@ -37,6 +38,7 @@
 /* virtual */ bool MenuState::onEnter()
 {
     // TODO
+    StateMachine::Instance()->pushState(GameState::Instance());
     return true;
 }
 

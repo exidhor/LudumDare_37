@@ -1,10 +1,10 @@
 #include "Spawner.hpp"
 
 Spawner::Spawner()
-	: m_difficulty(0),
-	m_timeUntilSpawn(DEFAULT_STARTING_SPAWN_TIME),
-	m_timeBetweenSpawn(DEFAULT_STARTING_SPAWN_TIME),
-	m_itsTimeToSpawn(false)
+	: m_difficulty(0)
+	, m_itsTimeToSpawn(false)
+	, m_timeUntilSpawn(DEFAULT_STARTING_SPAWN_TIME)
+	, m_timeBetweenSpawn(DEFAULT_STARTING_SPAWN_TIME)
 {
 	// nothing
 }
