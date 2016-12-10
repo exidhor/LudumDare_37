@@ -2,6 +2,7 @@
 // Created by Kraghan on 10/12/2016.
 //
 
+#include <MathHelper.hpp>
 #include "Behavior/PathFollower.hpp"
 
 /* Explicit */ PathFollower::PathFollower()
@@ -101,3 +102,24 @@ void PathFollower::setCurrentPath(Path currentPath)
     }
 }
 
+void PathFollower::move(sf::Vector2f const &position, float speed)
+{
+    sf::Vector2f deplacement = Movement::deplacement(position,m_currentPath.getToPositions(),speed);
+    m_currentPosition+=deplacement;
+
+    if(m_currentPosition == m_currentPath.getToPositions())
+    {
+        nextPath();
+    }
+}
+
+void PathFollower::nextPath()
+{
+    for(auto path : m_aPathes)
+    {
+        if(m_currentPath.getToPositions() == path.getFromPositions())
+        {
+            m_currentPath = path;
+        }
+    }
+}

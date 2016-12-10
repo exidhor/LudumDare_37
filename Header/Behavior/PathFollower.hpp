@@ -27,6 +27,8 @@ public:
     /// Set the current path if is in the possible path
     void                setCurrentPath            (Path currentPath);
 
+    virtual void        move                      (sf::Vector2f const& position, float speed);
+
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
     //------------------------------------------------------------------------------------------------------------------
@@ -42,6 +44,8 @@ private:
     Path                m_currentPath;
 
     bool                hasPath                   (sf::Vector2f position, sf::Vector2f toPosition);
+
+    void                nextPath                  ();
 };
 
 

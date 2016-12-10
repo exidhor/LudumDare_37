@@ -16,7 +16,7 @@
 /// Include previous and next states
 #include "GameState/StateMachine.hpp"
 
-class MenuState : public GameState, public InputHandler, public Singleton < MenuState >
+class MenuState : public State, public InputHandler, public Singleton < MenuState >
 {
 public:
 
