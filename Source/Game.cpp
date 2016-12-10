@@ -1,6 +1,5 @@
 #include "Game.hpp"
 #include "GameState/MenuState.hpp"
-#include "GameState/StateMachine.hpp"
 
 Game::Game()
 	: m_window(sf::VideoMode(1280, 768), "LD 37"),
@@ -12,7 +11,7 @@ Game::Game()
 void Game::Init()
 {
     // Push the first state ! An awesome menu
-    StateMachine::Instance()->pushState(MenuState::Instance());
+    // StateMachine::Instance()->pushState(MenuState::Instance());
 }
 
 void Game::gameLoop()
