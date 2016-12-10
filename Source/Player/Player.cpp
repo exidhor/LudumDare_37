@@ -3,6 +3,8 @@
 //
 
 #include <GameState/StateMachine.hpp>
+#include <Utils/Singleton.hpp>
+#include <GameState/GameOverState.hpp>
 #include "Player/Player.hpp"
 
 /* Explicit */ Player::Player(int life)
@@ -33,7 +35,7 @@ unsigned long long Player::get$Money$()
     if(m_life <= 0)
     {
         // TODO set game over
-        //StateMachine::changeChange(GameOverState::Instance());
+        StateMachine::Instance()->pushState(GameOverState::Instance());
         return true;
     }
     return false;

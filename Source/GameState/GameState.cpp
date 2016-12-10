@@ -21,13 +21,12 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     // Process player shoot
     if (event.type == sf::Event::MouseButtonPressed)
     {
-
+        m_pworld->
     }
     // Process money generation
     else if(event.type == sf::Event::KeyReleased)
     {
         m_pplayer->increaseMoney(100);
-        std::cout<< m_pplayer->get$Money$() <<std::endl;
     }
 }
 
@@ -38,7 +37,7 @@ void GameState::update(double dt)
 
 void GameState::draw(sf::RenderWindow &window)
 {
-
+    m_pworld->draw(window);
 }
 
 bool GameState::onEnter()

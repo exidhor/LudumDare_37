@@ -2,22 +2,21 @@
 // Created by Kraghan on 10/12/2016.
 //
 
-#ifndef LUDUMDARE_GAMEOVERSTATE_HPP
-#define LUDUMDARE_GAMEOVERSTATE_HPP
+#ifndef LUDUMDARE_DRAWABLE_HPP
+#define LUDUMDARE_DRAWABLE_HPP
 
 
-#include <winnt.h>
-#include <Utils/Singleton.hpp>
-#include "State.hpp"
+#include <vector>
+#include <SFML/Graphics/Sprite.hpp>
 
-class GameOverState : public State, public Singleton < GameOverState >
+class Drawable
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members
     //------------------------------------------------------------------------------------------------------------------
 public:
-    explicit            GameOverState              ();
-    virtual             ~GameOverState             ();
+    explicit            Drawable              ();
+    virtual             ~Drawable             ();
 
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
@@ -28,7 +27,8 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
+    std::vector<sf::Sprite*> m_pSprites;
 };
 
 
-#endif //LUDUMDARE_GAMEOVERSTATE_HPP
+#endif //LUDUMDARE_DRAWABLE_HPP

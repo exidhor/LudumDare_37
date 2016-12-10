@@ -3,9 +3,10 @@
 #include "Behavior/Unit.hpp"
 #include "Behavior/PathFollower.hpp"
 #include "Behavior/Suicidable.hpp"
+#include "../../Source/Graphics/Drawable.hpp"
 
 
-class DemoniacObject : public Unit, public PathFollower, public Suicidable
+class DemoniacObject : public Unit, public PathFollower, public Suicidable, public Drawable
 {
 public :
 	DemoniacObject(sf::Vector2f const& startPosition, 
