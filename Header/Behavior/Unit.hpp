@@ -19,7 +19,7 @@ public:
         return m_life <= 0;
     }
 
-    virtual sf::Vector2f const& getPosition() const = 0;
+    virtual sf::Vector2f getPosition() const = 0;
 
 protected:
     int m_life;

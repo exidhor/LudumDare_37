@@ -72,7 +72,7 @@ int DemoniacObject::getArmor() const
 	return m_armor;
 }
 
-sf::Vector2f const &DemoniacObject::getPosition() const
+sf::Vector2f DemoniacObject::getPosition() const
 {
 	return getCurrentPosition();
 }

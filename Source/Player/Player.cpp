@@ -42,7 +42,7 @@ unsigned long long Player::get$Money$()
     return false;
 }
 
-sf::Vector2f const& Player::getPosition() const
+sf::Vector2f Player::getPosition() const
 {
     return currentSprite->getPosition();
 }

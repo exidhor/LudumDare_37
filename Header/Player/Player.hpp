@@ -22,7 +22,7 @@ public:
     virtual bool        hit                 (int damage);
     float               getClickRadius      ();
     int                 getDamage           ();
-    sf::Vector2f const& getPosition()       const;
+    virtual sf::Vector2f getPosition        () const;
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
     //------------------------------------------------------------------------------------------------------------------

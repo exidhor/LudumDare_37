@@ -29,7 +29,7 @@ public :
 	float getSpeed() const;
 	int getArmor() const;
 
-    sf::Vector2f const& getPosition() const;
+    virtual sf::Vector2f getPosition() const;
 
 	virtual void update(double dt);
 

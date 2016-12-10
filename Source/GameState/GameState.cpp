@@ -8,6 +8,7 @@
 #include <Memory/Container.hpp>
 #include "GameState/GameState.hpp"
 #include "Music/MusicManager.hpp"
+#include <Memory/PoolAllocator.hpp>
 
 /* Explicit */ GameState::GameState()
 : m_player(0)
@@ -81,6 +82,11 @@ bool GameState::onEnter()
     m_world = World();
 
     //m_world.addDecors(); // todo
+    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    sprite->setPosition(sf::Vector2f(350.0f,10.0f));
+    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_1"));
+    m_player.addSprite(sprite);
+    m_player.nextSprite();
 
 	m_spawners.push_back(Spawner(m_player.getPosition()));
 	m_spawners.push_back(Spawner(m_player.getPosition()));
