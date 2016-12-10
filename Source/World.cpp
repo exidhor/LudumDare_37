@@ -67,6 +67,8 @@ void World::addBackground(sf::Texture *texture)
     m_background.addSprite(sprite);
     m_background.nextSprite();
 
+	m_background.currentSprite->setOrigin(0, 0);
+
     //m_drawables.push_back(&m_background);
 }
 

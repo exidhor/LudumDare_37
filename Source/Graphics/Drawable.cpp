@@ -33,6 +33,8 @@ void Drawable::nextSprite()
     if(m_spriteId >= m_pSprites.size())
         m_spriteId = 0;
     currentSprite = m_pSprites[m_spriteId];
+	currentSprite->setOrigin(currentSprite->getGlobalBounds().width / 2,
+							 currentSprite->getGlobalBounds().height / 2);
 }
 
 void Drawable::setDeathSprite(sf::Sprite* sprite)
