@@ -11,7 +11,7 @@ Game::Game()
 void Game::gameLoop()
 {
 	handleInput();
-
+	m_window.setFramerateLimit(60);
 	draw();
 }
 
