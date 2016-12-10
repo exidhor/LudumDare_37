@@ -31,7 +31,7 @@ void World::addDemoniacObject(DemoniacObject * demoniacObject)
 	m_drawables.push_back(demoniacObject);
 }
 
-void World::addDecors(sf::Sprite const& decors)
+void World::addDecors()
 {
 	// todo
 	//m_decors.push_back()

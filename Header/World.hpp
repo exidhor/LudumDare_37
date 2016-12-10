@@ -32,7 +32,7 @@ public:
 	*/
 	void addDemoniacObject(DemoniacObject * demoniacObject);
 
-	void addDecors(sf::Sprite const& decors);
+	void addDecors();
 
 	/**
 	* \brief	Return all the GameObject which have a RenderComponent
