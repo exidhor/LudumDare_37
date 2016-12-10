@@ -6,21 +6,18 @@
 class Unit
 {
 public:
-    explicit Unit()
-        : m_position(nullptr),
-          m_life(0)
+    Unit(int life)
+        : m_life(life)
     {
         // nothing
     }
 
-    explicit Unit(sf::Vector2f const& startPosition, int life)
-        : m_position(startPosition),
-          m_life(life)
-    {
-        // nothing
-    }
+    virtual bool hit(int damage) = 0;
 
-    virtual void hit(int damage) = 0;
+    bool isDead() const
+    {
+        return m_life <= 0;
+    }
 
     void setPosition(sf::Vector2f const& position)
     {
