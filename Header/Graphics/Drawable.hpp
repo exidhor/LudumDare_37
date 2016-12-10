@@ -19,7 +19,7 @@ public:
     virtual             ~Drawable             ();
 
     void                addSprite             (sf::Sprite* sprite);
-    sf::Sprite          currentSprite;
+    sf::Sprite*         currentSprite;
     void                nextSprite            ();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -31,6 +31,7 @@ protected:
     //------------------------------------------------------------------------------------------------------------------
 private:
     std::vector<sf::Sprite*> m_pSprites;
+    unsigned                 m_spriteId;
 };
 
 
