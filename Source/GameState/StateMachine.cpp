@@ -35,7 +35,6 @@ void StateMachine::pushState(State * pState)
     // State machine, calling onEnter()
     m_gameStates.push_back(pState);
     m_gameStates.back()->onEnter();
-    std::cout << "0" << m_gameStates.size() << std::endl;
 }
 
 void StateMachine::changeState(State * pState)

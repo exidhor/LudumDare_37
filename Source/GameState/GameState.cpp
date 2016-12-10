@@ -33,7 +33,7 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 
 void GameState::update(double dt)
 {
-    std::cout << "u" << std::endl;
+    // None
 }
 
 void GameState::draw(sf::RenderWindow &window)
@@ -43,7 +43,6 @@ void GameState::draw(sf::RenderWindow &window)
 
 bool GameState::onEnter()
 {
-    std::cout << "GA%ME" << std::endl;
     // Init the player
     m_pplayer = new Player(150);
 
