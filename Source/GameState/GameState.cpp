@@ -33,7 +33,7 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 
     if(getComponentId() == "EXIT_BUTTON")
     {
-        StateMachine::Instance()->exit();
+        StateMachine::Instance()->popState();
     }
     else if(getComponentId() == "OPT_BUTTON")
     {
