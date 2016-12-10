@@ -21,4 +21,6 @@ namespace Movement
 	* be add to the position)
 	*/
 	sf::Vector2f deplacement(sf::Vector2f const& start, sf::Vector2f const& direction, double speed);
+
+	float getOrientation(sf::Vector2f const& direction);
 }

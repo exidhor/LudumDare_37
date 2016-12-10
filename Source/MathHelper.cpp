@@ -36,3 +36,8 @@ sf::Vector2f Movement::deplacement(sf::Vector2f const& start, sf::Vector2f const
 
 	return offset(start, direction) * (float)ratio;
 }
+
+float Movement::getOrientation(sf::Vector2f const& direction)
+{
+	return atan(direction.x / direction.y);
+}

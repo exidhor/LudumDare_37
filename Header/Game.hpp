@@ -27,3 +27,5 @@ private:
 };
 
 #endif // __GAME_HPP
+
+// monstres ou sont ils geré
