@@ -31,3 +31,15 @@ bool MenuState::onExit()
     // TODO
     return true;
 }
+
+void MenuState::onPollEvent(sf::Event &event, double elapsed)
+{
+    // TODO
+    (void)event;
+    (void)elapsed;
+}
+
+void MenuState::draw(sf::RenderWindow& window)
+{
+    (void)window;
+}

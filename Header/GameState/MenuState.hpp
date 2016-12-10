@@ -50,6 +50,19 @@ public:
      * \param   The elapsed time since last update
      */
     virtual void update(double dt);
+
+    /*!
+     * \brief Handle input
+     * \param event The event
+     * \param elapsed The elapsed time
+     */
+    virtual void onPollEvent(sf::Event & event, double elapsed);
+
+    /*!
+     * \brief Draw the state
+     * \param window The window to draw on
+     */
+    virtual void draw(sf::RenderWindow & window);
 };
 
 #endif // __PAUSE_STATE_HPP

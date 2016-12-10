@@ -16,6 +16,18 @@
     if(!m_gameStates.empty()) m_gameStates.back()->update(dt);
 }
 
+void StateMachine::onPollEvent(sf::Event & event, double elapsed)
+{
+    // Processing event
+    if(!m_gameStates.empty()) m_gameStates.back()->onPollEvent(event, elapsed);
+}
+
+void StateMachine::render(sf::RenderWindow &window)
+{
+    // Draw the current state
+    if(!m_gameStates.empty()) m_gameStates.back()->draw(window);
+}
+
 void StateMachine::pushState(GameState * pState)
 {
     // Pushing the state at the top of

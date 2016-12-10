@@ -22,25 +22,39 @@ void Game::Init()
 
 void Game::gameLoop(double time)
 {
-	handleInput();
-    StateMachine::Instance()->update(0.0);
+    // Processing inputs
+	handleInput(time);
+
+    // Updating the top state
+    StateMachine::Instance()->update(time);
+
+    // Render the top state
 	draw();
 }
 
-void Game::handleInput()
+void Game::handleInput(double elapsed)
 {
 	sf::Event event;
 	while (m_window.pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 			m_window.close();
+
+        // Process input of the top state
+        StateMachine::Instance()->onPollEvent(event, elapsed);
 	}
 }
 
 void Game::draw()
 {
+    // Clearing buffer
 	m_window.clear();
-	m_window.draw(m_shape);
+
+    // Draw in the buffer the state at the top
+    // of the state machine
+	StateMachine::Instance()->render(m_window);
+
+    // Swap buffer
 	m_window.display();
 }
 
