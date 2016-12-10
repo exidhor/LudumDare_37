@@ -3,11 +3,13 @@
 DemoniacObject::DemoniacObject(sf::Vector2f const& startPosition,
 							   int life,
 							   float speed,
-							   int strength)
+							   int strength,
+							   int armor)
 	: Unit(life),
-	  PathFollower(startPosition),
-	  m_speed(speed),
-	  m_damage(strength)
+	PathFollower(startPosition),
+	m_speed(speed),
+	m_damage(strength),
+	m_armor(armor)
 {
 	// nothing
 }
