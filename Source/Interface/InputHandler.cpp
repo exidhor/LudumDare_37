@@ -91,8 +91,12 @@ VisualObject * o) {
  */
 void InputHandler::mouseReleasedHandle(sf::Event * e) {
 
-	if (e->mouseButton.button == sf::Mouse::Left) {
-			m_mouseState = false;
+	if (e->mouseButton.button == sf::Mouse::Left)
+    {
+        m_mouseState = false;
+        m_overId = "NULL";
+        m_keyCode = -1;
+        m_pressedId = "NULL";
 	}
 }
 
@@ -181,3 +185,10 @@ std::string InputHandler::getOverId() {
 int InputHandler::getKeyCode() {
 	return m_keyCode;
 }
+/*
+void InputHandler::clearInput()
+{
+    m_overId = "NULL";
+    m_keyCode = -1;
+    m_pressedId = "NULL";
+}*/

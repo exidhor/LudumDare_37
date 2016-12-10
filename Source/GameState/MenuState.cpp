@@ -40,6 +40,8 @@
     {
         StateMachine::Instance()->exit();
     }
+
+    // clearInput(); // Hot fix
 }
 
 /* virtual */ void MenuState::draw(sf::RenderWindow& window)

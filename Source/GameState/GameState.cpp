@@ -35,12 +35,10 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 
     if(getComponentId() == "EXIT_BUTTON")
     {
-        std::cout << "EXIT" << std::endl;
         StateMachine::Instance()->popState();
     }
     else if(getComponentId() == "OPT_BUTTON")
     {
-        std::cout << "OPT" << std::endl;
         MusicManager::Instance()->PauseCurrent();
     }
 
@@ -66,8 +64,6 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
             if(m_gamePhase)
                 m_player.increaseMoney(100);
     }
-
-    m_view.processInput(event);
 }
 
 void GameState::update(double dt)
