@@ -13,6 +13,10 @@
                       Container<sf::Font>::Instance()->GetResource("FONT"),
                       "MONEY : ", sf::Color::Black);
 
+    m_nextRoundIn.create("NEXT_ROUND_IN", 700, 50, 25,
+                   Container<sf::Font>::Instance()->GetResource("FONT"),
+                   "", sf::Color::Black);
+
     m_difficulty.create("DIFFICULTY", 400, 110, 25,
                    Container<sf::Font>::Instance()->GetResource("FONT"),
                    "DIFFICULTY : ", sf::Color::Black);
@@ -27,6 +31,7 @@
 
     getContentPane()->addComponent(&m_hitPoint);
     getContentPane()->addComponent(&m_money);
+    getContentPane()->addComponent(&m_nextRoundIn);
     getContentPane()->addComponent(&m_difficulty);
     getContentPane()->addComponent(&m_exitButton);
     getContentPane()->addComponent(&m_optButton);
@@ -60,6 +65,16 @@ void GameView::setHitPoint(int hitPoint)
 void GameView::setMoney(unsigned long long money)
 {
     m_money.setTexte("MONEY : " + fix::to_string(money));
+}
+
+void GameView::setNextRoundIn(double nextRoundIn)
+{
+    m_nextRoundIn.setTexte("Next round in : "+fix::to_string(nextRoundIn));
+}
+
+void GameView::hideNextRoundIn()
+{
+    m_nextRoundIn.setTexte("");
 }
 
 void GameView::setDifficulty(unsigned int diff)

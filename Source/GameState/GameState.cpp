@@ -18,6 +18,8 @@
 , m_player(0)
 , m_world()
 , m_spawners(sf::Vector2f())
+, m_gamePhase(true)
+, m_nextRoundIn(0.0)
 {
 
 }
@@ -60,8 +62,11 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         if(event.key.code == 36)
             StateMachine::Instance()->pushState(PauseState::Instance());
         else
-            m_player.increaseMoney(100);
+            if(m_gamePhase)
+                m_player.increaseMoney(100);
     }
+
+    m_view.processInput(event);
 }
 
 void GameState::update(double dt)
@@ -69,33 +74,52 @@ void GameState::update(double dt)
 	// None
 	m_world.prepare();
 
-    // 8f20
-	// Update spawners
-    m_spawners.updateTime(dt);
-
-    if(m_spawners.isReadyToSpawn())
+    if(m_gamePhase)
     {
-        m_demoniacObjects.push_back(m_spawners.spawn());
-    }
+        m_view.hideNextRoundIn();
+        // 8f20
+        // Update spawners
+        m_spawners.updateTime(dt);
 
-    for(int i = 0; i < (int)m_demoniacObjects.size();++i)
+        if (m_spawners.isReadyToSpawn() && !m_spawners.outOfToken())
+        {
+            m_demoniacObjects.push_back(m_spawners.spawn());
+        }
+
+        for (int i = 0; i < (int) m_demoniacObjects.size(); ++i)
+        {
+            bool justDie = m_demoniacObjects[i]->isDead();
+            m_demoniacObjects[i]->update(dt);
+            if (!justDie && m_demoniacObjects[i]->isDead())
+                m_player.hit(m_demoniacObjects[i]->getDamage());
+
+            if (m_demoniacObjects[i]->toRemove())
+            {
+                m_demoniacObjects.erase(m_demoniacObjects.begin() + i);
+                i--;
+            }
+            else
+            {
+                m_world.addDemoniacObject(m_demoniacObjects[i]);
+            }
+        }
+
+        if(m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
+        {
+            m_nextRoundIn = 10.0;
+            m_gamePhase = false;
+        }
+    }
+    else
     {
-        bool justDie = m_demoniacObjects[i]->isDead();
-        m_demoniacObjects[i]->update(dt);
-        if(!justDie && m_demoniacObjects[i]->isDead())
-            m_player.hit(m_demoniacObjects[i]->getDamage());
-
-		if(m_demoniacObjects[i]->toRemove())
-		{
-			m_demoniacObjects.erase(m_demoniacObjects.begin() + i);
-			i--;
-		}
-		else
-		{
-			m_world.addDemoniacObject(m_demoniacObjects[i]);
-		}
+        m_nextRoundIn -= dt;
+        m_view.setNextRoundIn(m_nextRoundIn > 0.0 ? m_nextRoundIn : 0.0);
+        if(m_nextRoundIn <= 0)
+        {
+            m_gamePhase = true;
+            m_spawners.giveToken();
+        }
     }
-
     m_player.update(dt);
 
     m_view.setHitPoint(m_player.getLife());
@@ -133,6 +157,7 @@ bool GameState::onEnter()
     m_player.nextSprite();
 
 	m_spawners = Spawner(m_player.getPosition());
+    m_spawners.giveToken();
 
 	// 1280 / 768
 	m_spawners.setPosition(sf::Vector2f(1280, 700));

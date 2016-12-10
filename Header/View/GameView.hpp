@@ -32,6 +32,9 @@ public:
     // TODO
     void setMoney(unsigned long long money);
 
+    void setNextRoundIn(double nextRoundIn);
+
+    void hideNextRoundIn();
     // TODO
     void setDifficulty(unsigned int diff);
 
@@ -39,6 +42,7 @@ private:
 
     NLabel m_money;
     NLabel m_hitPoint;
+    NLabel m_nextRoundIn;
     NLabel m_difficulty;
 
     NButton m_exitButton;

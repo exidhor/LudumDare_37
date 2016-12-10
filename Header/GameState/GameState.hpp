@@ -65,6 +65,8 @@ private:
     World                   m_world;
     std::vector<DemoniacObject*> m_demoniacObjects;
 	Spawner                 m_spawners;
+    bool                    m_gamePhase;
+    double                  m_nextRoundIn;
 };
 
 

@@ -27,6 +27,10 @@ public:
 
     unsigned getDifficulty();
 
+    bool outOfToken();
+
+    void giveToken();
+
 private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_target;
@@ -37,7 +41,9 @@ private:
 
 	double m_timeUntilSpawn;
 
-#define DEFAULT_STARTING_SPAWN_TIME 5
+    long m_token;
+
+#define DEFAULT_STARTING_SPAWN_TIME 1
 	// in seconde
 	double m_timeBetweenSpawn;
 

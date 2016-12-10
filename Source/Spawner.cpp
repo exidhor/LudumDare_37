@@ -29,16 +29,18 @@ DemoniacObject* Spawner::spawn()
 	{
 		m_itsTimeToSpawn = false;
 
-        Fly * ptr = PoolAllocator<Fly>::Instance()->Allocate();
-		
-		// ajout du path
-		for(unsigned i = 0; i < m_route.size(); i++)
-		{
-			ptr->addPath(m_route[i]);
-		}
-		ptr->setCurrentPath(&m_route[0]);
+        Fly *ptr = PoolAllocator<Fly>::Instance()->Allocate();
+        m_token--;
 
-		return ptr;
+        // ajout du path
+        for(unsigned i = 0; i < m_route.size(); i++)
+        {
+            ptr->addPath(m_route[i]);
+        }
+        ptr->setCurrentPath(&m_route[0]);
+
+        return ptr;
+
 	}
 
 	return nullptr;
@@ -84,3 +86,14 @@ unsigned Spawner::getDifficulty()
 {
     return m_difficulty;
 }
+
+bool Spawner::outOfToken()
+{
+    return m_token <= 0;
+}
+
+void Spawner::giveToken()
+{
+    m_token = 10 + m_difficulty * 10;
+}
+
