@@ -14,7 +14,7 @@ public:
 
     virtual bool hit(int damage) = 0;
 
-    bool isDead()
+    bool isDead() const
     {
         return m_life <= 0;
     }
@@ -24,7 +24,7 @@ public:
         m_position = position;
     }
 
-    sf::Vector2f const& getPosition()
+    sf::Vector2f const& getPosition() const
     {
         return m_position;
     }
