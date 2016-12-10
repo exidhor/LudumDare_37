@@ -11,7 +11,7 @@ public:
     /// \brief Initialize the game class
 	void Init();
 
-	void gameLoop();
+	void gameLoop(double time);
 
 	void handleInput();
 

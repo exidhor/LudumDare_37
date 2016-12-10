@@ -20,7 +20,7 @@ void Game::Init()
     m_window.setFramerateLimit(60);
 }
 
-void Game::gameLoop()
+void Game::gameLoop(double time)
 {
 	handleInput();
     StateMachine::Instance()->update(0.0);
