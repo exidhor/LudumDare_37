@@ -42,5 +42,7 @@ void Drawable::setDeathSprite(sf::Sprite* sprite)
 
 void Drawable::activeDeathSprite()
 {
+    sf::Vector2f const& position = currentSprite->getPosition();
+    m_deathSprite->setPosition(position);
     currentSprite = m_deathSprite;
 }

@@ -94,6 +94,10 @@ void DemoniacObject::update(double dt)
 		}
 		move(getCurrentPosition(),getSpeed());
 		currentSprite->setPosition(getCurrentPosition());
+		if (getCurrentPath() == nullptr)
+		{
+			m_life = 0;
+		}
 	}
 	else
 	{

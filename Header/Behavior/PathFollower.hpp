@@ -30,6 +30,7 @@ public:
     virtual void        move                      (sf::Vector2f const& position, float speed);
 
     sf::Vector2f const &getCurrentPosition        () const;
+    Path* const &getCurrentPath            () const;
 
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
