@@ -37,7 +37,6 @@
 /* virtual */ bool MenuState::onEnter()
 {
     // TODO
-    StateMachine::Instance()->pushState(GameState::Instance());
     return true;
 }
 

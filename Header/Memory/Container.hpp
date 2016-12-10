@@ -9,11 +9,12 @@
 
 #include <string>
 #include <unordered_map>
+#include "Utils/Singleton.hpp"
 
 /// \class  Container
 /// \brief  Store resources in an associative array
 template <typename T>
-class Container
+class Container : public Singleton < Container < T > >
 {
 public :
 

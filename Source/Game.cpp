@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "GameState/MenuState.hpp"
+#include "Memory/ResourceLoader.hpp"
 
 Game::Game()
 : m_window(sf::VideoMode(1280, 768), "LD 37")
@@ -10,6 +11,9 @@ Game::Game()
 
 void Game::Init()
 {
+    // Loading all resources ! >///<
+    LoadAll();
+
     // Singleton, bitch please
     MenuState::Instance()->init();
 
