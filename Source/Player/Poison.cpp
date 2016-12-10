@@ -7,7 +7,7 @@
 #include "Player/Poison.hpp"
 
 Poison::Poison(sf::Vector2f const &position)
-    : Turret()
+    : Turret(TARGETING_RANGE, SHOOTING_RANGE)
 {
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("TURRET_IDLE"));

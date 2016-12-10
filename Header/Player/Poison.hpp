@@ -9,6 +9,8 @@
 #include "Player/Turret.hpp"
 
 #define TIME_BETWEEN_SHOT 10
+#define TARGETING_RANGE 12
+#define SHOOTING_RANGE 10
 
 class Poison : public Turret
 {
