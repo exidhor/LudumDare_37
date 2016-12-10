@@ -2,26 +2,30 @@
 
 #include <SFML/System.hpp>
 
+#include "World.hpp"
 #include "Graphics/Drawable.hpp"
 #include "Player/Projectile.hpp"
 
 class Turret : public Drawable
 {
 public :
-	Turret(double targetingRange, double shootingRange);
+	Turret(float m_timeBetWeenShoot, float targetingRange, float shootingRange);
 
-    virtual void update(double time) = 0;
-    virtual Projectile* shoot(sf::Vector2f const& target) = 0;
+    void update(double time, const World world);
+    Projectile* shoot(sf::Vector2f const& target);
 
-    double getTargetingRange() const;
-    double getShootingRange() const;
+    virtual Projectile *getProjetile(sf::Vector2f const &target) = 0;
+
+    float getTargetingRange() const;
+    float getShootingRange() const;
 
 protected:
-	double m_timeUntilShoot;
+    float m_timeUntilShoot;
     bool m_isTimeToShoot;
 	bool m_isShooting;
 
 private:
-    double m_targetingRange;
-    double m_shootingRange;
+    float m_timeBetweenShoot;
+    float m_targetingRange;
+    float m_shootingRange;
 };

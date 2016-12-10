@@ -7,7 +7,7 @@
 #include "Player/Poison.hpp"
 
 Poison::Poison(sf::Vector2f const &position)
-    : Turret(TARGETING_RANGE, SHOOTING_RANGE)
+    : Turret(TIME_BETWEEN_SHOT, TARGETING_RANGE, SHOOTING_RANGE)
 {
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("TURRET_IDLE"));
@@ -22,32 +22,11 @@ Poison::Poison(sf::Vector2f const &position)
     nextSprite();
 }
 
-void Poison::update(double time)
+Projectile* Turret::getProjetile(sf::Vector2f const &target)
 {
-    m_timeUntilShoot -= time;
-    m_isTimeToShoot = m_timeUntilShoot <= 0;
-    if (m_isShooting)
-    {
-        m_isShooting = false;
-        nextSprite();
-    }
-}
+    Projectile *projectile = nullptr;
 
-Projectile* Poison::shoot(sf::Vector2f const &target)
-{
-    if (m_isTimeToShoot)
-    {
-        m_isTimeToShoot = false;
-        m_timeUntilShoot = TIME_BETWEEN_SHOT;
-        m_isShooting = true;
-        nextSprite();
+    //TODO - create Projectile
 
-        Projectile *projectile = nullptr;
-
-        //TODO - create projectile
-
-        return projectile;
-    }
-
-    return nullptr;
+    return projectile;
 }
