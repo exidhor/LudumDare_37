@@ -2,6 +2,7 @@
 
 #include <SFML/System.hpp>
 
+#include "MathHelper.hpp"
 #include "World.hpp"
 #include "Graphics/Drawable.hpp"
 #include "Player/Projectile.hpp"
@@ -16,15 +17,11 @@ public :
 
     virtual Projectile *getProjetile(sf::Vector2f const &target) = 0;
 
-    float getTargetingRange() const;
-    float getShootingRange() const;
-
-protected:
+private:
     float m_timeUntilShoot;
     bool m_isTimeToShoot;
 	bool m_isShooting;
 
-private:
     float m_timeBetweenShoot;
     float m_targetingRange;
     float m_shootingRange;
