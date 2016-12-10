@@ -29,7 +29,7 @@ public:
 
     virtual void        move                      (sf::Vector2f const& position, float speed);
 
-    sf::Vector2f const &getCurrentPosition               () const;
+    sf::Vector2f const &getCurrentPosition        () const;
 
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members

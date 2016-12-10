@@ -122,6 +122,7 @@ void PathFollower::nextPath()
             m_currentPath = path;
         }
     }
+    m_currentPath = nullptr;
 }
 
 sf::Vector2f const &PathFollower::getCurrentPosition() const {

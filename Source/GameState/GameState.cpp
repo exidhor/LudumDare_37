@@ -47,10 +47,10 @@ void GameState::update(double dt)
 {
     // None
     m_world.prepare();
-    for(auto object : m_demoniacObjects)
+    for(unsigned i = 0; i < m_demoniacObjects.size();++i)
     {
-        object.update(dt);
-        m_world.addDemoniacObject(&object);
+        m_demoniacObjects[i].update(dt);
+        m_world.addDemoniacObject(&m_demoniacObjects[i]);
     }
 
 	// Update spawners
@@ -67,7 +67,7 @@ void GameState::update(double dt)
 	// todo : gestion de la difficulté
 }
 
-void GameState::draw(sf::RenderWindow &window)
+void GameState::draw(sf::RenderWindow & window)
 {
     m_world.draw(window);
 }
