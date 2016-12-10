@@ -81,6 +81,7 @@ void GameState::update(double dt)
 
 void GameState::draw(sf::RenderWindow & window)
 {
+    m_world.addDrawable(&m_player);
     m_world.draw(window);
 }
 
@@ -94,7 +95,7 @@ bool GameState::onEnter()
 
     //m_world.addDecors(); // todo
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(350.0f,10.0f));
+    sprite->setPosition(sf::Vector2f(617.5f,175.0f));
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("FLY_1"));
     m_player.addSprite(sprite);
     m_player.nextSprite();
