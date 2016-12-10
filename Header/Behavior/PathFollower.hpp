@@ -8,6 +8,8 @@
 #include <SFML/System.hpp>
 #include "Path.hpp"
 #include "Movable.hpp"
+#include <vector>
+
 
 class PathFollower : public Movable {
     //------------------------------------------------------------------------------------------------------------------
@@ -35,6 +37,8 @@ private:
     sf::Vector2f        m_initialPositions;
     sf::Vector2f        m_currentPosition;
     Path                m_currentPath;
+
+    bool                hasPath                   (sf::Vector2f position, sf::Vector2f toPosition);
 };
 
 

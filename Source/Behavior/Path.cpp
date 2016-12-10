@@ -38,5 +38,5 @@ sf::Vector2f Path::getFromPositions()
 
 sf::Vector2f Path::getToPositions()
 {
-    return m_;
+    return m_toPosition;
 }
