@@ -13,6 +13,7 @@ World::~World()
     {
         PoolAllocator<sf::Sprite>::Instance()->Deallocate(object.currentSprite);
     }
+    PoolAllocator<sf::Sprite>::Instance()->Deallocate(m_background.currentSprite);
 }
 
 void World::prepare()
