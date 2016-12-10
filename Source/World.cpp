@@ -37,7 +37,7 @@ void World::draw(sf::RenderTarget & target)
 void World::addDemoniacObject(DemoniacObject * demoniacObject)
 {
 	m_activeEnemies.push_back(demoniacObject);
-	m_drawables.push_back(demoniacObject);
+	m_drawables.push_back((Drawable *&&) demoniacObject);
 }
 
 void World::addDecors(sf::Vector2f const& position, sf::Texture *texture)
@@ -66,8 +66,15 @@ void World::getSortedDrawables(std::vector<Drawable*> & output)
 {
 	for (unsigned i = 0; i < m_activeEnemies.size(); i++)
 	{
-		output.push_back(m_activeEnemies[i]);
+		output.push_back((Drawable *&&) m_activeEnemies[i]);
 	}
+
+    for (unsigned i = 0; i < m_decors.size(); i++)
+    {
+        output.push_back(&m_decors[i]);
+    }
+
+    output.push_back(&m_background);
 
 	sort(output);
 }
