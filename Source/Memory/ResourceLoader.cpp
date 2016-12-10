@@ -4,6 +4,7 @@
 #include "Memory/ResourceLoader.hpp"
 
 #define INTERFACE_PATH ("Images/Interface/")
+#define DRAW_PATH ("Images/")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -18,6 +19,9 @@ void LoadAll()
     LoadTexture("PLAY_P", buildPath(RES_PATH, INTERFACE_PATH, "PlayP.png"));
     LoadTexture("QUIT_R", buildPath(RES_PATH, INTERFACE_PATH, "QuitR.png"));
     LoadTexture("QUIT_P", buildPath(RES_PATH, INTERFACE_PATH, "QuitP.png"));
+    LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
+    LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
+    LoadTexture("FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche45_3.png"));
 }
 
 std::string buildPath(std::string const& base, std::string const& path,

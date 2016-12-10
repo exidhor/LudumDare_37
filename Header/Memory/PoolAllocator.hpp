@@ -13,7 +13,7 @@
 /// \class  PoolAllocator
 /// \brief  Handle memory for a type T
 template <typename T>
-class PoolAllocator
+class PoolAllocator : public Singleton < PoolAllocator < T > >
 {
 public :
 

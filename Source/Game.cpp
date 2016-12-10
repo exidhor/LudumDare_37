@@ -1,3 +1,4 @@
+#include <Memory/PoolAllocator.hpp>
 #include "Game.hpp"
 #include "GameState/MenuState.hpp"
 #include "Memory/ResourceLoader.hpp"
@@ -13,6 +14,8 @@ void Game::Init()
 {
     // Loading all resources ! >///<
     LoadAll();
+
+    PoolAllocator<sf::Sprite>::Instance()->Init(100);
 
     // Singleton, bitch please
     MenuState::Instance()->init();
