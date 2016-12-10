@@ -57,6 +57,33 @@ bool MathHelper::contains(sf::Vector2f const& centerCircle,
 	return Movement::squareDistance(centerCircle, pointToCheck) < radius * radius;
 }
 
+unsigned MathHelper::getClosestPoint(sf::Vector2f const& pointToCompare,
+									 std::vector<sf::Vector2f> const& points)
+{
+	float bestSquareDistance = FLT_MAX;
+	int bestIndex = -1;
+
+	float currentSquareDistance = 0;
+
+	for(unsigned i = 0; i < points.size(); i++)
+	{
+		currentSquareDistance = Movement::squareDistance(pointToCompare, points[i]);
+
+		if(currentSquareDistance < bestSquareDistance)
+		{
+			bestSquareDistance = currentSquareDistance;
+			bestIndex = i;
+		}
+	}
+
+	if(bestIndex == 0)
+	{
+		std::cerr << "ERROR : best value not found !" << std::endl;
+	}
+
+	return bestIndex;
+}
+
 sf::Vector2f Movement::offset(sf::Vector2f const& start, sf::Vector2f const& end)
 {
 	return end - start;

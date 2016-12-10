@@ -18,6 +18,9 @@ namespace MathHelper
 	bool contains(sf::Vector2f const& centerCircle, 
 				  float radius, 
 				  sf::Vector2f const& pointToCheck);
+
+	unsigned getClosestPoint(sf::Vector2f const& pointToCompare,
+							 std::vector<sf::Vector2f> const& points);
 }
 
 namespace Movement
