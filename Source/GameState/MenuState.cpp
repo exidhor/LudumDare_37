@@ -1,7 +1,6 @@
 #include <SFML/Audio.hpp>
 #include <Music/MusicManager.hpp>
 
-#include "Memory/Container.hpp"
 #include "GameState/GameState.hpp"
 #include "GameState/MenuState.hpp"
 
@@ -50,7 +49,7 @@
 
 /* virtual */ bool MenuState::onEnter()
 {
-    MusicManager::Instance()->FadeInOut(10.0, "MENU");
+    MusicManager::Instance()->FadeInOut(4.0, "MENU");
     return true;
 }
 
