@@ -1,12 +1,29 @@
 #include "Player/Projectile.hpp"
 
-Projectile::Projectile()
+Projectile::Projectile(float speed, int damage, double timeBetweenSwap)
+	: m_speed(speed),
+	  m_damage(damage),
+      m_elapsedSinceLastSpriteSwap(0),
+      m_spriteSwapTreshold(timeBetweenSwap)
 {
-	// todo
+	// nothing
 }
 
-sf::Vector2f Projectile::move(sf::Vector2f const& position, float speed)
+void Projectile::update(double time)
 {
-	// todo
-	return sf::Vector2f(); // tmp
+    m_elapsedSinceLastSpriteSwap += time;
+
+    sf::Vector2f position = currentSprite->getPosition();
+    if (m_elapsedSinceLastSpriteSwap >= m_spriteSwapTreshold)
+    {
+        nextSprite();
+        m_elapsedSinceLastSpriteSwap = 0;
+    }
+    sf::Vector2f movement = move(position, m_speed);
+    currentSprite->setPosition(movement);
+}
+
+float Projectile::getDamage() const
+{
+    return m_damage;
 }

@@ -4,6 +4,7 @@
 
 #include <Memory/PoolAllocator.hpp>
 #include <Memory/Container.hpp>
+#include <Player/Pschit.hpp>
 #include "Player/Poison.hpp"
 
 Poison::Poison(sf::Vector2f const &position)
@@ -24,9 +25,9 @@ Poison::Poison(sf::Vector2f const &position)
 
 Projectile* Turret::getProjetile(sf::Vector2f const &target)
 {
-    Projectile *projectile = nullptr;
+    Projectile *projectile = PoolAllocator<Pschit>::Instance()->Allocate();
 
-    //TODO - create Projectile
+    projectile->currentSprite->setPosition(target);
 
     return projectile;
 }

@@ -46,6 +46,9 @@ void LoadAll()
     LoadTexture("GEEK_2", buildPath(RES_PATH, DRAW_PATH, "geekPose2.png"));
     LoadTexture("TURRET_IDLE", buildPath(RES_PATH, DRAW_PATH, "poison180.png"));
     LoadTexture("TURRET_SHOOT", buildPath(RES_PATH, DRAW_PATH, "poison180-2.png"));
+    LoadTexture("PSCHIT_1", buildPath(RES_PATH, DRAW_PATH, "pschit1.png"));
+    LoadTexture("PSCHIT_2", buildPath(RES_PATH, DRAW_PATH, "pschit2.png"));
+    LoadTexture("PSCHIT_3", buildPath(RES_PATH, DRAW_PATH, "pschit3.png"));
 
 	// clickEffect
 	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "effetClic3.png"));
