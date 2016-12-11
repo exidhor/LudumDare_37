@@ -166,7 +166,7 @@ void GameState::update(double dt)
     }
     m_player.update(dt);
     m_screenElapsed += dt;
-    if(m_screenElapsed >= 0.10)
+    if(m_screenElapsed >= 0.20)
     {
         m_screen.nextSprite();
         m_screenElapsed = 0.0;
