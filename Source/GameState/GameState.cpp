@@ -146,6 +146,7 @@ void GameState::update(double dt)
                     m_bonusPhase = true;
             }
 
+            m_player.increaseMoney(250*(m_spawners.getDifficulty()+1));
             m_spawners.increaseDifficulty();
             // Shop phase duration
             m_nextRoundIn = 10.0;
@@ -206,11 +207,11 @@ bool GameState::onEnter()
 
     //m_world.addDecors(); // todo
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(620.0f,220.0f));
+    sprite->setPosition(sf::Vector2f(617.0f,237.0f));
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_1"));
     m_player.addSprite(sprite);
     sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(620.0f,220.0f));
+    sprite->setPosition(sf::Vector2f(617.0f,237.0f));
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_2"));
     m_player.addSprite(sprite);
     m_player.nextSprite();
