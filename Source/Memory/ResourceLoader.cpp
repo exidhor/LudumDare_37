@@ -45,6 +45,9 @@ void LoadAll()
     LoadTexture("TURRET_IDLE", buildPath(RES_PATH, DRAW_PATH, "poison180.png"));
     LoadTexture("TURRET_SHOOT", buildPath(RES_PATH, DRAW_PATH, "poison180-2.png"));
 
+	// clickEffect
+	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "effetClic3.png"));
+
     // Loading musics
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 
