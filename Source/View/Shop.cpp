@@ -14,10 +14,10 @@
 
     // Exit button
     m_shopExit.create("SHOP_EXIT",
-                      SHOP_PAN_POS_X + 605,
+                      SHOP_PAN_POS_X + 578,
                       SHOP_PAN_POS_Y + 8,
-                      pTContainer->GetResource("SHOP_EXIT"),
-                      pTContainer->GetResource("SHOP_EXIT"));
+                      pTContainer->GetResource("SHOP_EXIT_R"),
+                      pTContainer->GetResource("SHOP_EXIT_P"));
 
     // Creating items
     m_items.push_back(new ShopItem(
