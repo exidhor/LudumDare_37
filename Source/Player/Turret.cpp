@@ -37,6 +37,7 @@ Projectile* Turret::shoot()
 {
     if (m_isTimeToShoot && m_hasATarget)
     {
+        m_drawable.nextTexture();
         m_isTimeToShoot = false;
         m_timeUntilShoot = m_timeBetweenShoot;
 
