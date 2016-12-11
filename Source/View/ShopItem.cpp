@@ -12,7 +12,7 @@
 
     // Adding components
     // Image
-    m_image.create("PAN_IMAGE", x + 5, y + 5, pTContainer->GetResource(key));
+    m_image.create("PAN_IMAGE", x, y, pTContainer->GetResource(key));
 
     // Price
     // TODO
