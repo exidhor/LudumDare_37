@@ -21,6 +21,7 @@
 , m_nextRoundIn(0.0)
 , m_bonusPhase(false)
 , m_overlayPhase(false)
+, m_poison(sf::Vector2f(0,0))
 {
 
 }
@@ -172,6 +173,7 @@ void GameState::update(double dt)
         }
     }
     m_player.update(dt);
+    m_poison.update(dt, m_world);
     m_screenElapsed += dt;
     if(m_screenElapsed >= 0.20)
     {
@@ -188,6 +190,7 @@ void GameState::update(double dt)
 void GameState::draw(sf::RenderWindow & window)
 {
     m_world.addDrawable(&m_player.getDrawable());
+    m_world.addDrawable(&m_poison.getDrawable());
     m_world.addDrawable(&m_screen);
     m_world.draw(window);
 	m_clickEffect.draw(window);
@@ -271,5 +274,18 @@ void GameState::reset()
     m_spawners.addPath(Path(1115.0f,235.0f,620.0f,200.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
+    //m_world.addDecors();
+
+    m_nextBonusPhaseIn = rand() % 3 + 5;
+    m_nextOverlayPhaseIn = rand() % 3 + 1;
+
+    m_poison = Poison(sf::Vector2f(900.0f, 620.0f));
+
+    return true;
+}
+
+bool GameState::onExit()
+{
+    return true;
 }
 
