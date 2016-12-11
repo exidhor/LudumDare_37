@@ -5,8 +5,8 @@
 #include "Memory/PoolAllocator.hpp"
 #include "Memory/Container.hpp"
 
-#define STARTING_SCALE 0.1f
-#define TIME_EFFECT 0.2f
+#define STARTING_SCALE 2.0f
+#define TIME_EFFECT 2.0f
 
 class ParticuleEffect
 {
