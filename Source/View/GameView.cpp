@@ -5,21 +5,23 @@
 /* explicit */ GameView::GameView(bool debug, InputHandler * inputHandler)
 : BasicInterface(debug, inputHandler)
 {
-    m_hitPoint.create("HIT_POINT", 400, 50, 25,
+    m_hitPoint.create("HIT_POINT", 1000, 50, 25,
                       Container<sf::Font>::Instance()->GetResource("FONT"),
-                      "HIT POINT : ", sf::Color::Black);
+                      "HIT POINT : ", sf::Color::Green);
 
-    m_money.create("MONEY", 400, 80, 25,
+    m_money.create("MONEY", 1000, 80, 25,
                       Container<sf::Font>::Instance()->GetResource("FONT"),
-                      "MONEY : ", sf::Color::Black);
+                      "MONEY : ", sf::Color::Green);
 
-    m_nextRoundIn.create("NEXT_ROUND_IN", 700, 50, 25,
+    m_nextRoundIn.create("NEXT_ROUND_IN", 1000, 140, 25,
                    Container<sf::Font>::Instance()->GetResource("FONT"),
                    "", sf::Color::Black);
 
-    m_difficulty.create("DIFFICULTY", 400, 110, 25,
+    m_difficulty.create("DIFFICULTY", 1000, 110, 25,
                    Container<sf::Font>::Instance()->GetResource("FONT"),
-                   "DIFFICULTY : ", sf::Color::Black);
+                   "DIFFICULTY : ", sf::Color::Green);
+
+
 
     m_exitButton.create("EXIT_BUTTON", 1160, 10,
                          Container<sf::Texture>::Instance()->GetResource("EXIT_BR"),
