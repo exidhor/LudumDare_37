@@ -18,10 +18,10 @@
 , m_world()
 , m_spawners(sf::Vector2f())
 , m_gamePhase(true)
-, m_nextRoundIn(0.0)
 , m_bonusPhase(false)
 , m_shopPhase(false)
 , m_overlayPhase(false)
+, m_nextRoundIn(0.0)
 , m_poison(sf::Vector2f(0,0))
 {
 
@@ -151,6 +151,7 @@ void GameState::update(double dt)
             {
                 m_overlayPhase = false;
                 m_nextOverlayPhaseIn = rand() % 3 + 1;
+                m_overlayKey = rand() % 36;
             }
             else
             {
@@ -171,10 +172,10 @@ void GameState::update(double dt)
                     m_bonusPhase = true;
             }
 
-            m_player.increaseMoney(250*(m_spawners.getDifficulty()+1));
+            m_player.increaseMoney(m_MONEY_PER_ROUND*(m_spawners.getDifficulty()+1));
             m_spawners.increaseDifficulty();
             // Shop phase duration
-            m_nextRoundIn = 10.0;
+            m_nextRoundIn = m_NEXT_ROUND_IN;
             m_gamePhase = false;
         }
     }
@@ -198,7 +199,7 @@ void GameState::update(double dt)
     m_player.update(dt);
     m_poison.update(dt, m_world);
     m_screenElapsed += dt;
-    if(m_screenElapsed >= 0.20)
+    if(m_screenElapsed >= m_TIME_SCREEN_SWAP)
     {
         m_screen.nextTexture();
         m_screenElapsed = 0.0;
@@ -244,6 +245,10 @@ bool GameState::onEnter()
 
 bool GameState::onExit()
 {
+    for(unsigned i = 0; i < m_demoniacObjects.size(); ++i)
+        delete m_demoniacObjects[i];
+    m_demoniacObjects.clear();
+
     return true;
 }
 
@@ -252,14 +257,14 @@ void GameState::reset()
     // Init the game
     for(unsigned i = 0; i < m_demoniacObjects.size(); ++i)
         delete m_demoniacObjects[i];
-
     m_demoniacObjects.clear();
+
     m_gamePhase = true;
-    m_nextBonusPhaseIn = rand() % 3 + 5;
+    m_nextBonusPhaseIn = rand() % (m_NEXT_BONUS_PHASE_MAX-m_NEXT_BONUS_PHASE_MIN+1) + m_NEXT_BONUS_PHASE_MIN;
     m_bonusPhase = false;
     m_overlayPhase = false;
-    m_nextOverlayPhaseIn = rand() % 3 + 1;
-    // m_overlayKey;
+    m_nextOverlayPhaseIn = rand() % (m_NEXT_OVERLAY_PHASE_MAX-m_NEXT_OVERLAY_PHASE_MIN+1) + m_NEXT_OVERLAY_PHASE_MIN;
+    m_overlayKey = rand() % 36;
     m_nextRoundIn = 0.0;
     m_screen = Drawable();
     m_screenElapsed = 0.0;
@@ -300,9 +305,5 @@ void GameState::reset()
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();
-
-    m_nextBonusPhaseIn = rand() % 3 + 5;
-    m_nextOverlayPhaseIn = rand() % 3 + 1;
-
     m_poison = Poison(sf::Vector2f(900.0f, 620.0f));
 }

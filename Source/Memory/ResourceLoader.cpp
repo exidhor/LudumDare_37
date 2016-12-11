@@ -8,6 +8,14 @@
 #define DRAW_PATH  ("Images/")
 #define MUSIC_PATH ("Music/")
 #define FONT_PATH  ("Font/")
+#define MONSTER_PATH ("Images/Monstres/")
+#define FOND_PATH ("Images/Fond/")
+#define MOUCHE_PATH ("Images/Monstres/Mouches/")
+#define PIZZA_PATH ("Images/Monstres/Pizzas/")
+#define MOTHER_PATH ("Images/Monstres/Mother/")
+#define TOWER_PATH ("Images/Tourelles/")
+#define POISON_PATH ("Images/Tourelles/Antimouche/")
+#define ION_PATH ("Images/Tourelles/Ion")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -30,32 +38,40 @@ void LoadAll()
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
     LoadTexture("SHOP_PAN", buildPath(RES_PATH, INTERFACE_PATH, "homePanel.png"));
 
-    LoadTexture("BACKGROUND", buildPath(RES_PATH, DRAW_PATH, "FondRempli.png"));
+    LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "FondRempli.png"));
     // Fly texture
-    LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
-    LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
-    LoadTexture("FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche45_3.png"));
-    LoadTexture("SMALL_FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche30.png"));
-    LoadTexture("SMALL_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche30_2.png"));
-    LoadTexture("SMALL_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche30_3.png"));
-    LoadTexture("FAT_FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche60.png"));
-    LoadTexture("FAT_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche60_2.png"));
-    LoadTexture("FAT_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche60_3.png"));
+    LoadTexture("FLY_1", buildPath(RES_PATH, MOUCHE_PATH, "mouche45.png"));
+    LoadTexture("FLY_2", buildPath(RES_PATH, MOUCHE_PATH, "mouche45_2.png"));
+    LoadTexture("FLY_3", buildPath(RES_PATH, MOUCHE_PATH, "mouche45_3.png"));
+    LoadTexture("SMALL_FLY_1", buildPath(RES_PATH, MOUCHE_PATH, "mouche30.png"));
+    LoadTexture("SMALL_FLY_2", buildPath(RES_PATH, MOUCHE_PATH, "mouche30_2.png"));
+    LoadTexture("SMALL_FLY_3", buildPath(RES_PATH, MOUCHE_PATH, "mouche30_3.png"));
+    LoadTexture("FAT_FLY_1", buildPath(RES_PATH, MOUCHE_PATH, "mouche60.png"));
+    LoadTexture("FAT_FLY_2", buildPath(RES_PATH, MOUCHE_PATH, "mouche60_2.png"));
+    LoadTexture("FAT_FLY_3", buildPath(RES_PATH, MOUCHE_PATH, "mouche60_3.png"));
 
     // Pizza texture
-    LoadTexture("PIZZA_1", buildPath(RES_PATH, DRAW_PATH, "Pizza_1.png"));
-    LoadTexture("PIZZA_2", buildPath(RES_PATH, DRAW_PATH, "Pizza_2.png"));
-    LoadTexture("PIZZA_3", buildPath(RES_PATH, DRAW_PATH, "Pizza_3.png"));
+    LoadTexture("SMALL_PIZZA_1", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_1.png"));
+    LoadTexture("SMALL_PIZZA_2", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_2.png"));
+    LoadTexture("SMALL_PIZZA_3", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_3.png"));
+    LoadTexture("PIZZA_1", buildPath(RES_PATH, PIZZA_PATH, "Pizzas80_1.png"));
+    LoadTexture("PIZZA_2", buildPath(RES_PATH, PIZZA_PATH, "Pizzas80_2.png"));
+    LoadTexture("PIZZA_3", buildPath(RES_PATH, PIZZA_PATH, "Pizzas80_3.png"));
+    LoadTexture("FAT_PIZZA_1", buildPath(RES_PATH, PIZZA_PATH, "Pizzas90_1.png"));
+    LoadTexture("FAT_PIZZA_2", buildPath(RES_PATH, PIZZA_PATH, "Pizzas90_2.png"));
+    LoadTexture("FAT_PIZZA_3", buildPath(RES_PATH, PIZZA_PATH, "Pizzas90_3.png"));
 
-    LoadTexture("SCREEN_1", buildPath(RES_PATH, DRAW_PATH, "matrix1.png"));
-    LoadTexture("SCREEN_2", buildPath(RES_PATH, DRAW_PATH, "matrix2.png"));
-    LoadTexture("GEEK_1", buildPath(RES_PATH, DRAW_PATH, "geekPose1.png"));
-    LoadTexture("GEEK_2", buildPath(RES_PATH, DRAW_PATH, "geekPose2.png"));
-    LoadTexture("TURRET_IDLE", buildPath(RES_PATH, DRAW_PATH, "poison180.png"));
-    LoadTexture("TURRET_SHOOT", buildPath(RES_PATH, DRAW_PATH, "poison180-2.png"));
-    LoadTexture("PSCHIT_1", buildPath(RES_PATH, DRAW_PATH, "pschit1.png"));
-    LoadTexture("PSCHIT_2", buildPath(RES_PATH, DRAW_PATH, "pschit2.png"));
-    LoadTexture("PSCHIT_3", buildPath(RES_PATH, DRAW_PATH, "pschit3.png"));
+    LoadTexture("SCREEN_1", buildPath(RES_PATH, FOND_PATH, "matrix1.png"));
+    LoadTexture("SCREEN_2", buildPath(RES_PATH, FOND_PATH, "matrix2.png"));
+    LoadTexture("GEEK_1", buildPath(RES_PATH, FOND_PATH, "geekPose1.png"));
+    LoadTexture("GEEK_2", buildPath(RES_PATH, FOND_PATH, "geekPose2.png"));
+
+    // Tower texture
+    LoadTexture("TURRET_IDLE", buildPath(RES_PATH, POISON_PATH, "poison180.png"));
+    LoadTexture("TURRET_SHOOT", buildPath(RES_PATH, POISON_PATH, "poison180-2.png"));
+    LoadTexture("PSCHIT_1", buildPath(RES_PATH, POISON_PATH, "pschit1.png"));
+    LoadTexture("PSCHIT_2", buildPath(RES_PATH, POISON_PATH, "pschit2.png"));
+    LoadTexture("PSCHIT_3", buildPath(RES_PATH, POISON_PATH, "pschit3.png"));
 
 	// clickEffect
 	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "testEffect-goodSize.png"));

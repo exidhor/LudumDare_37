@@ -83,6 +83,14 @@ private:
 
 	ClickEffect             m_clickEffect;
     Poison m_poison;
+
+    const int               m_MONEY_PER_ROUND = 250;
+    const double            m_NEXT_ROUND_IN = 10.0;
+    const double            m_TIME_SCREEN_SWAP = 0.2;
+    const int               m_NEXT_BONUS_PHASE_MAX = 7;
+    const int               m_NEXT_BONUS_PHASE_MIN = 5;
+    const int               m_NEXT_OVERLAY_PHASE_MAX = 5;
+    const int               m_NEXT_OVERLAY_PHASE_MIN = 3;
 };
 
 
