@@ -33,7 +33,7 @@
                         Container<sf::Font>::Instance()->GetResource("FONT"),
                         "", sf::Color::Black);
 
-    m_shop.create("SHOP_PAN", 400, 200,
+    m_shop.create("SHOP_PAN", 317, 104,
                   Container<sf::Texture>::Instance()->GetResource("SHOP_PAN"));
 
     // -- SHOP --
