@@ -14,8 +14,8 @@ Game::Game()
 void Game::Init()
 {
 	// init random
-	time_t t;
-	srand((unsigned)time(&t));
+	time_t* t = new time_t();
+	srand((unsigned)time(t));
 
     // Loading all resources ! >///<
     LoadAll();
