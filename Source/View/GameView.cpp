@@ -38,6 +38,21 @@
     m_shopEnter.create("SHOP_ENTER", 800, 10,
                       Container<sf::Texture>::Instance()->GetResource("EXIT_BR"),
                       Container<sf::Texture>::Instance()->GetResource("EXIT_BP"));
+    // -- SHOP --
+
+    m_overlay.create("OVERLAY", 69, 44,
+                        Container<sf::Texture>::Instance()->GetResource("OVERLAY_ALERT"));
+
+    m_overlayToPress.create("OVERLAY_PRESS", 860, 400, 100,
+                        Container<sf::Font>::Instance()->GetResource("FONT_OVERLAY"),
+                        "", sf::Color(210,0,0));
+
+    m_overlayRandomMessage.create("OVERLAY_MESSAGE", 700,150, 50,
+                        Container<sf::Font>::Instance()->GetResource("FONT_OVERLAY"),
+                        "",  sf::Color(210,0,0));
+
+    m_overlay.addComponent(&m_overlayRandomMessage);
+    m_overlay.addComponent(&m_overlayToPress);
 
     getContentPane()->addComponent(&m_hitPoint);
     getContentPane()->addComponent(&m_money);
@@ -124,3 +139,16 @@ void GameView::hideShop()
 {
     getContentPane()->removeComponent(m_shop.getShopPan());
 }
+
+void GameView::showOverlay(std::string toPress, std::string randomMessage)
+{
+    //m_overlayRandomMessage.setTexte(randomMessage);
+    m_overlayToPress.setTexte(toPress);
+    getContentPane()->addComponent(&m_overlay);
+}
+
+void GameView::hideOverlay()
+{
+    getContentPane()->removeComponent(&m_overlay);
+}
+

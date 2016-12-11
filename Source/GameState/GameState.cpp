@@ -20,7 +20,6 @@
 , m_gamePhase(true)
 , m_bonusPhase(false)
 , m_shopPhase(false)
-, m_overlayPhase(false)
 , m_nextRoundIn(0.0)
 {
 
@@ -65,7 +64,7 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         }
 
 		// click effect
-        if(m_gamePhase && !m_overlayPhase)
+        if(m_gamePhase && !m_overlay.isOverlayPhase())
         {
 			// todo : add more verif ? 
 			m_clickEffect.addEffect(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
@@ -82,12 +81,12 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
             {
                 if (m_bonusPhase)
                     m_player.increaseMoney(100);
-                else if (m_overlayPhase)
+                else if (m_overlay.isOverlayPhase())
                 {
-                    if (event.key.code == m_overlayKey)
+                    if (event.key.code == m_overlay.getKeycode())
                     {
-                        m_overlayPhase = false;
-                        m_player.increaseMoney(m_spawners.getDifficulty() * 100);
+                        m_overlay.endPhase();
+                        m_player.increaseMoney(m_spawners.getDifficulty() * Overlay::m_OVERLAY_REWARD);
                     }
                 }
             }
@@ -169,17 +168,13 @@ void GameState::update(double dt)
         // End of round
         if(m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
         {
-            if(m_overlayPhase)
+            if(m_overlay.isOverlayPhase())
             {
-                m_overlayPhase = false;
-                m_nextOverlayPhaseIn = rand() % 3 + 1;
-                m_overlayKey = rand() % 36;
+                m_overlay.prepareNextOverlayEvent();
             }
             else
             {
-                --m_nextOverlayPhaseIn;
-                if(m_nextOverlayPhaseIn == 0)
-                    m_overlayPhase = true;
+                m_overlay.updateOverlayCounter();
             }
 
             if(m_bonusPhase)
@@ -226,7 +221,6 @@ void GameState::update(double dt)
         m_screenElapsed = 0.0;
     }
 
-
     // VIEW
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
@@ -253,16 +247,17 @@ void GameState::draw(sf::RenderWindow & window)
 	m_clickEffect.draw(window);
     m_view.draw(&window);
     if(m_bonusPhase)
-    {
         m_view.showBonusPhase();
-    }
-    else if(m_overlayPhase)
-    {
-        // Todo display overlay
-    }
-
-    if(!m_bonusPhase)
+    else
         m_view.hideBonusPhase();
+    if(m_overlay.isOverlayPhase())
+    {
+        m_view.showOverlay(std::string(1, m_overlay.getCharFromKeyCode()), m_overlay.getRandomMessage());
+    }
+    else
+    {
+        m_view.hideOverlay();
+    }
 }
 
 bool GameState::onEnter()
@@ -293,12 +288,10 @@ void GameState::reset()
     m_gamePhase = true;
     m_nextBonusPhaseIn = rand() % (m_NEXT_BONUS_PHASE_MAX-m_NEXT_BONUS_PHASE_MIN+1) + m_NEXT_BONUS_PHASE_MIN;
     m_bonusPhase = false;
-    m_overlayPhase = false;
-    m_nextOverlayPhaseIn = rand() % (m_NEXT_OVERLAY_PHASE_MAX-m_NEXT_OVERLAY_PHASE_MIN+1) + m_NEXT_OVERLAY_PHASE_MIN;
-    m_overlayKey = rand() % 36;
     m_nextRoundIn = 0.0;
     m_screen = Drawable();
     m_screenElapsed = 0.0;
+    m_overlay.prepareNextOverlayEvent();
 
     // Init the player
     m_player = Player(150);

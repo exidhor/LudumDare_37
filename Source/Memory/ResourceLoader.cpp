@@ -45,6 +45,7 @@ void LoadAll()
 
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "Fond.png"));
+    LoadTexture("OVERLAY_ALERT", buildPath(RES_PATH, FOND_PATH, "Overlay_alerte.png"));
     // Fly texture
     LoadTexture("FLY_1", buildPath(RES_PATH, MOUCHE_PATH, "mouche45.png"));
     LoadTexture("FLY_2", buildPath(RES_PATH, MOUCHE_PATH, "mouche45_2.png"));
@@ -86,6 +87,7 @@ void LoadAll()
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 
     // Loading font
+    LoadFont("FONT_OVERLAY", buildPath(RES_PATH, FONT_PATH, "yugothib.ttf"));
     LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "PIXELADE.TTF"));
 }
 

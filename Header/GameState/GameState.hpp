@@ -11,6 +11,7 @@
 #include <World.hpp>
 #include <Interface/InputHandler.hpp>
 #include <View/GameView.hpp>
+#include <Overlay.hpp>
 #include "State.hpp"
 #include "Spawner.hpp"
 #include "Player/ClickEffect.hpp"
@@ -76,12 +77,10 @@ private:
     int                     m_nextBonusPhaseIn;
     bool                    m_bonusPhase;
     bool                    m_shopPhase;
-    bool                    m_overlayPhase;
-    int                     m_nextOverlayPhaseIn;
-    int                     m_overlayKey;
     double                  m_nextRoundIn;
     Drawable                m_screen;
     double                  m_screenElapsed;
+    Overlay                 m_overlay;
 
 	ClickEffect             m_clickEffect;
 
@@ -90,8 +89,6 @@ private:
     const double            m_TIME_SCREEN_SWAP = 0.2;
     const int               m_NEXT_BONUS_PHASE_MAX = 7;
     const int               m_NEXT_BONUS_PHASE_MIN = 5;
-    const int               m_NEXT_OVERLAY_PHASE_MAX = 5;
-    const int               m_NEXT_OVERLAY_PHASE_MIN = 3;
 };
 
 

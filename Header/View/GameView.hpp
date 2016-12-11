@@ -42,6 +42,8 @@ public:
     void showBonusPhase();
     void hideBonusPhase();
 
+    void showOverlay(std::string toPress, std::string randomMessage);
+    void hideOverlay();
 
     // SHOP
     void showShopButton();
@@ -63,6 +65,11 @@ private:
 
     // Shop
     Shop m_shop;
+
+    NPanel m_overlay;
+    NLabel m_overlayToPress;
+    NLabel m_overlayRandomMessage;
+
 };
 
 #endif // __GAME_VIEW_HPP

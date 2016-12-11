@@ -6,7 +6,7 @@
 #include "Memory/Container.hpp"
 
 #define STARTING_SCALE 0.1f
-#define TIME_EFFECT 0.5f
+#define TIME_EFFECT 0.3f
 
 class ParticuleEffect
 {
