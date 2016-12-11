@@ -69,6 +69,8 @@ private:
     Player                  m_player;
     World                   m_world;
     std::vector<DemoniacObject*> m_demoniacObjects;
+    std::vector<Turret>    m_turrets;
+    std::vector<Projectile*>    m_projectiles;
 	Spawner                 m_spawners;
     bool                    m_gamePhase;
     int                     m_nextBonusPhaseIn;
@@ -82,7 +84,6 @@ private:
     double                  m_screenElapsed;
 
 	ClickEffect             m_clickEffect;
-    Poison m_poison;
 
     const int               m_MONEY_PER_ROUND = 250;
     const double            m_NEXT_ROUND_IN = 10.0;

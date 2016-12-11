@@ -22,7 +22,6 @@
 , m_shopPhase(false)
 , m_overlayPhase(false)
 , m_nextRoundIn(0.0)
-, m_poison(sf::Vector2f(0,0))
 {
 
 }
@@ -145,6 +144,28 @@ void GameState::update(double dt)
             }
         }
 
+        // Turrets
+        for (int i = 0; i < (int) m_turrets.size(); i++)
+        {
+            m_turrets[i].update(dt, m_world);
+            Projectile *projectile = m_turrets[i].shoot();
+            if (projectile != nullptr)
+            {
+                m_projectiles.push_back(projectile);
+            }
+        }
+
+        for (int i = 0; i < (int) m_projectiles.size(); i++)
+        {
+            m_projectiles[i]->update(dt);
+            if (m_projectiles[i]->toRemove())
+            {
+                delete m_projectiles[i];
+                m_projectiles.erase(m_projectiles.begin() + i);
+                i--;
+            }
+        }
+
         // End of round
         if(m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
         {
@@ -198,7 +219,6 @@ void GameState::update(double dt)
         }
     }
     m_player.update(dt);
-    m_poison.update(dt, m_world);
     m_screenElapsed += dt;
     if(m_screenElapsed >= m_TIME_SCREEN_SWAP)
     {
@@ -217,7 +237,17 @@ void GameState::update(double dt)
 void GameState::draw(sf::RenderWindow & window)
 {
     m_world.addDrawable(&m_player.getDrawable());
-    m_world.addDrawable(&m_poison.getDrawable());
+
+    for (int i = 0; i < (int) m_turrets.size(); i++)
+    {
+        m_world.addDrawable(&m_turrets[i].getDrawable());
+    }
+
+    for (int i = 0; i < (int) m_projectiles.size(); i++)
+    {
+        m_world.addDrawable(&m_projectiles[i]->getDrawable());
+    }
+
     m_world.addDrawable(&m_screen);
     m_world.draw(window);
 	m_clickEffect.draw(window);
@@ -305,6 +335,4 @@ void GameState::reset()
     m_spawners.addPath(Path(1115.0f,235.0f,620.0f,200.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
-    //m_world.addDecors();
-    m_poison = Poison(sf::Vector2f(900.0f, 620.0f));
 }

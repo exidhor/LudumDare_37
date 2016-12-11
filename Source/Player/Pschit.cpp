@@ -2,16 +2,15 @@
 // Created by renaud on 11/12/16.
 //
 
-#include <Memory/PoolAllocator.hpp>
 #include <Memory/Container.hpp>
 #include "Player/Pschit.hpp"
 
 Pschit::Pschit()
-    : Projectile(SPEED, DAMAGE, TIME_BETWEEN_SWAP)
+    : Projectile(SPEED, DAMAGE)
 {
     getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_1"));
-	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_2"));
-	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_3"));
+    getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_2"));
+    getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_3"));
 	getDrawable().nextTexture();
 }
 

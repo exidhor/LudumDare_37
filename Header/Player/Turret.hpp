@@ -13,7 +13,7 @@ public :
 	Turret(float m_timeBetWeenShoot, float targetingRange, float shootingRange);
 
     void update(double time, const World world);
-    Projectile* shoot(sf::Vector2f const& target);
+    Projectile* shoot();
 
     Projectile *getProjectile(sf::Vector2f const &target);
 
@@ -25,7 +25,8 @@ private:
 
     float m_timeUntilShoot;
     bool m_isTimeToShoot;
-	bool m_isShooting;
+    bool m_hasATarget;
+    sf::Vector2f m_nearestTargetPosition;
 
     float m_timeBetweenShoot;
     float m_targetingRange;
