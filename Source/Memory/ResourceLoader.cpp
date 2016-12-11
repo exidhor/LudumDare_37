@@ -17,6 +17,7 @@
 #define POISON_PATH ("Images/Tourelles/Antimouche/")
 #define ION_PATH ("Images/Tourelles/Ion")
 #define SHOP_PATH ("Images/Shop/")
+#define BUTTON_PATH ("Images/Buttons/")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -38,11 +39,13 @@ void LoadAll()
     LoadTexture("OPT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_1.png"));
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
     LoadTexture("SHOP_PAN", buildPath(RES_PATH, SHOP_PATH, "shop_overlay.png"));
-    LoadTexture("SHOP_EXIT", buildPath(RES_PATH, SHOP_PATH, "close_button.png"));
+
+    LoadTexture("SHOP_EXIT_R", buildPath(RES_PATH, BUTTON_PATH, "RedCrossR.png"));
+    LoadTexture("SHOP_EXIT_P", buildPath(RES_PATH, BUTTON_PATH, "RedCrossP.png"));
+
     LoadTexture("SHOP_BUY", buildPath(RES_PATH, SHOP_PATH, "buy_button.png"));
     LoadTexture("ITEM_BG", buildPath(RES_PATH, SHOP_PATH, "defense_overlay.png"));
     LoadTexture("FLY_COUNTER", buildPath(RES_PATH, SHOP_PATH, "antimouche_overlay.png"));
-
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "Fond.png"));
     LoadTexture("OVERLAY_ALERT", buildPath(RES_PATH, FOND_PATH, "Overlay_alerte.png"));
