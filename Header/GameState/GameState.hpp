@@ -73,8 +73,11 @@ private:
     int                     m_nextOverlayPhaseIn;
     int                     m_overlayKey;
     double                  m_nextRoundIn;
+    Drawable                m_screen;
+    double                  m_screenElapsed;
 
 	Drawable                m_clickEffect;
+
 };
 
 

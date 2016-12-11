@@ -164,6 +164,12 @@ void GameState::update(double dt)
         }
     }
     m_player.update(dt);
+    m_screenElapsed += dt;
+    if(m_screenElapsed >= 0.10)
+    {
+        m_screen.nextSprite();
+        m_screenElapsed = 0.0;
+    }
 
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
@@ -174,6 +180,7 @@ void GameState::update(double dt)
 void GameState::draw(sf::RenderWindow & window)
 {
     m_world.addDrawable(&m_player);
+    m_world.addDrawable(&m_screen);
     m_world.draw(window);
     m_view.draw(&window);
     if(m_bonusPhase)
@@ -207,6 +214,17 @@ bool GameState::onEnter()
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_2"));
     m_player.addSprite(sprite);
     m_player.nextSprite();
+
+    // Micro animation for screen
+    sf::Sprite* spriteScreen = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    spriteScreen->setPosition(sf::Vector2f(603.0f,139.0f));
+    spriteScreen->setTexture(*Container<sf::Texture>::Instance()->GetResource("SCREEN_1"));
+    m_screen.addSprite(spriteScreen);
+    spriteScreen = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    spriteScreen->setPosition(sf::Vector2f(603.0f,139.0f));
+    spriteScreen->setTexture(*Container<sf::Texture>::Instance()->GetResource("SCREEN_2"));
+    m_screen.addSprite(spriteScreen);
+    m_screen.nextSprite();
 
 	m_spawners = Spawner(m_player.getPosition());
     m_spawners.giveToken();

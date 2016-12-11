@@ -40,6 +40,8 @@ void LoadAll()
     LoadTexture("FAT_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche60_2.png"));
     LoadTexture("FAT_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche60_3.png"));
 
+    LoadTexture("SCREEN_1", buildPath(RES_PATH, DRAW_PATH, "matrix1.png"));
+    LoadTexture("SCREEN_2", buildPath(RES_PATH, DRAW_PATH, "matrix2.png"));
     LoadTexture("GEEK_1", buildPath(RES_PATH, DRAW_PATH, "geekPose1.png"));
     LoadTexture("GEEK_2", buildPath(RES_PATH, DRAW_PATH, "geekPose2.png"));
     LoadTexture("TURRET_IDLE", buildPath(RES_PATH, DRAW_PATH, "poison180.png"));
