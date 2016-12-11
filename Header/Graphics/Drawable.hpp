@@ -5,6 +5,8 @@
 #ifndef LUDUMDARE_DRAWABLE_HPP
 #define LUDUMDARE_DRAWABLE_HPP
 
+#define DEFAULT_LAYER 10
+#define DEATH_LAYER 0
 
 #include <vector>
 #include <SFML/Graphics/Sprite.hpp>
@@ -25,6 +27,9 @@ public:
     void                setDeathTexture        (sf::Texture * texture);
     void                activeDeathSprite     ();
 
+	unsigned            getLayer() const;
+	void                setLayer(unsigned layer);
+
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
     //------------------------------------------------------------------------------------------------------------------
@@ -41,6 +46,7 @@ private:
     unsigned                 m_textureId;
 	sf::Texture*             m_deathTexture;
 	bool                     isDead;
+	unsigned                 m_layer; // NON CE NEST PAS LE LAYER QUE TU CONNAIS JORDAN
 };
 
 

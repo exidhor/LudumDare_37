@@ -20,6 +20,7 @@ void World::prepare()
 {
 	m_activeEnemies.clear();
 	m_drawables.clear();
+	m_corpses.clear();
 
 	addDecorsToDrawable();
 }
@@ -40,7 +41,16 @@ void World::draw(sf::RenderTarget & target)
 void World::addDemoniacObject(DemoniacObject * demoniacObject)
 {
 	m_activeEnemies.push_back(demoniacObject);
-	m_drawables.push_back(&demoniacObject->getDrawable());
+
+	if (demoniacObject->getDrawable().getLayer() == DEATH_LAYER)
+	{
+		// we handle them into the corpses vector
+		m_corpses.push_back(&demoniacObject->getDrawable());
+	}
+	else
+	{
+		m_drawables.push_back(&demoniacObject->getDrawable());
+	}
 }
 
 void World::addDrawable(Drawable * drawable)
@@ -72,19 +82,23 @@ void World::addBackground(sf::Texture *texture)
 
 void World::getSortedDrawables(std::vector<Drawable*> & output)
 {
+	for (unsigned i = 0; i < m_decors.size(); i++)
+	{
+		output.push_back(&m_decors[i]);
+	}
+
+	sort(m_corpses);
+	sort(m_drawables);
+
+	for (unsigned i = 0; i < m_corpses.size(); i++)
+	{
+		output.push_back(m_corpses[i]);
+	}
+
 	for (unsigned i = 0; i < m_drawables.size(); i++)
 	{
 		output.push_back(m_drawables[i]);
 	}
-
-    for (unsigned i = 0; i < m_decors.size(); i++)
-    {
-        output.push_back(&m_decors[i]);
-    }
-
-    //output.push_back(&m_background);
-
-	sort(output);
 }
 
 void World::getDemoniacObjectIn(sf::Vector2f const& position,

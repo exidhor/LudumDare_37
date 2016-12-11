@@ -69,6 +69,7 @@ private:
 
 	std::vector<DemoniacObject*> m_activeEnemies;
 	std::vector<Drawable*> m_drawables;
+	std::vector<Drawable*> m_corpses;
 	std::vector<Drawable> m_decors;
     Drawable m_background;
 };
