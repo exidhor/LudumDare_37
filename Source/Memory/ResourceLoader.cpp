@@ -16,7 +16,7 @@
 #define TOWER_PATH ("Images/Tourelles/")
 #define POISON_PATH ("Images/Tourelles/Antimouche/")
 #define ION_PATH ("Images/Tourelles/Ion")
-#define SHOP_PATH ("Images/Shop/shop_overlay.png")
+#define SHOP_PATH ("Images/Shop/")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
