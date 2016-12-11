@@ -40,10 +40,10 @@ public :
 
 	Drawable & getDrawable();
 
-protected :
+
 	double m_elapsedSinceLastSpriteSwap;
 
-private :
+protected:
 	Drawable m_drawable;
 
 	int m_damage;

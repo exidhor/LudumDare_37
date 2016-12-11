@@ -17,9 +17,19 @@ Mom::Mom()
 
 void Mom::update(double dt)
 {
-	DemoniacObject::update(dt);
-
 	// compute mom speed to simulate the walk
-	float speed = 1 - (MOM_SPRITESWAP - m_elapsedSinceLastSpriteSwap) * MOM_SPEED;
+	
+	float coef = (MOM_SPRITESWAP - m_elapsedSinceLastSpriteSwap) / MOM_SPRITESWAP;
+
+	if (coef < 0.3)
+		coef = 0.3;
+
+	if (coef > 1)
+		coef = 1;
+
+	float speed = coef * MOM_SPEED;
+
 	setSpeed(speed);
+
+	DemoniacObject::update(dt);
 }
