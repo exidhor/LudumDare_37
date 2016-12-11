@@ -118,12 +118,12 @@ VisualObject * o) {
 		m_mouseState = true;
 		m_pressedId = o->eventMousePressed(e);
 
-		if(m_debug) {
+		/*if(m_debug) {
 			std::cout << "- Event ID : mousePressed" << std::endl;
 			std::cout << "- Compo ID : " << m_pressedId << std::endl;
 			std::cout << "- Mouse x  : " << e->mouseButton.x << std::endl;
 			std::cout << "- Mouse y  : " << e->mouseButton.y << std::endl;
-		}
+		}*/
 	}
 }
 
@@ -156,10 +156,10 @@ VisualObject * o) {
 	m_keyCode = e->text.unicode;
 	o->eventTextEntered(e);
 
-	if(m_debug) {
+	/*if(m_debug) {
 		std::cout << "- Event ID : textEntered" << std::endl;
 		std::cout << "- Key code : " << m_keyCode << std::endl;
-	}
+	}*/
 }
 
 /*!

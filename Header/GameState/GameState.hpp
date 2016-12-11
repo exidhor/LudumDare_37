@@ -51,6 +51,8 @@ public:
      */
     virtual bool onExit();
 
+    void         reset();
+
     virtual void update(double dt);
 
     //------------------------------------------------------------------------------------------------------------------
@@ -62,8 +64,6 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
-	void updateClickEffect(double dt);
-
     GameView                m_view;
     Player                  m_player;
     World                   m_world;

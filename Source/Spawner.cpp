@@ -9,6 +9,7 @@ Spawner::Spawner(sf::Vector2f const& target)
 	, m_timeUntilSpawn(DEFAULT_STARTING_SPAWN_TIME)
 	, m_timeBetweenSpawn(DEFAULT_STARTING_SPAWN_TIME)
 	, m_target(target)
+    , m_token(0)
 {
 	// nothing
 }
