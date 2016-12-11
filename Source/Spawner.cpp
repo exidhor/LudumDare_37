@@ -119,13 +119,13 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
     switch(token)
     {
         case 1 :
-            return PoolAllocator<Fly>::Instance()->Allocate();
+			return new Fly();
         case 5 :
-            return PoolAllocator<FatFly>::Instance()->Allocate();
+            return new FatFly();
         case 15 :
-            return PoolAllocator<SmallFly>::Instance()->Allocate();
+            return new SmallFly();
         default:
-            return PoolAllocator<Fly>::Instance()->Allocate();
+			return new Fly();
     }
 }
 

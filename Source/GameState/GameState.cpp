@@ -59,6 +59,7 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 		// click effect
         if(m_gamePhase && !m_overlayPhase)
         {
+			// todo : add more verif ? 
 			m_clickEffect.addEffect(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
         }
     }
@@ -90,6 +91,8 @@ void GameState::update(double dt)
 {
 	// None
 	m_world.prepare();
+
+	m_clickEffect.update(dt);
 
     if(m_gamePhase)
     {
@@ -172,7 +175,7 @@ void GameState::update(double dt)
     m_screenElapsed += dt;
     if(m_screenElapsed >= 0.20)
     {
-        m_screen.nextSprite();
+        m_screen.nextTexture();
         m_screenElapsed = 0.0;
     }
 
@@ -184,9 +187,10 @@ void GameState::update(double dt)
 
 void GameState::draw(sf::RenderWindow & window)
 {
-    m_world.addDrawable(&m_player);
+    m_world.addDrawable(&m_player.getDrawable());
     m_world.addDrawable(&m_screen);
     m_world.draw(window);
+	m_clickEffect.draw(window);
     m_view.draw(&window);
     if(m_bonusPhase)
     {
@@ -210,26 +214,17 @@ bool GameState::onEnter()
     m_world = World();
 
     //m_world.addDecors(); // todo
-    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(617.0f,237.0f));
-    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_1"));
-    m_player.addSprite(sprite);
-    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(617.0f,237.0f));
-    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_2"));
-    m_player.addSprite(sprite);
-    m_player.nextSprite();
+
+    m_player.getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("GEEK_1"));
+	m_player.getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("GEEK_2"));
+	m_player.getDrawable().nextTexture();
+	m_player.getDrawable().getSprite().setPosition(sf::Vector2f(617.0f, 237.0f));
 
     // Micro animation for screen
-    sf::Sprite* spriteScreen = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    spriteScreen->setPosition(sf::Vector2f(603.0f,139.0f));
-    spriteScreen->setTexture(*Container<sf::Texture>::Instance()->GetResource("SCREEN_1"));
-    m_screen.addSprite(spriteScreen);
-    spriteScreen = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    spriteScreen->setPosition(sf::Vector2f(603.0f,139.0f));
-    spriteScreen->setTexture(*Container<sf::Texture>::Instance()->GetResource("SCREEN_2"));
-    m_screen.addSprite(spriteScreen);
-    m_screen.nextSprite();
+    m_screen.addTexture(Container<sf::Texture>::Instance()->GetResource("SCREEN_1"));
+	m_screen.addTexture(Container<sf::Texture>::Instance()->GetResource("SCREEN_2"));
+    m_screen.nextTexture();
+	m_screen.getSprite().setPosition(sf::Vector2f(603.0f, 139.0f));
 
 	m_spawners = Spawner(m_player.getPosition());
     m_spawners.giveToken();

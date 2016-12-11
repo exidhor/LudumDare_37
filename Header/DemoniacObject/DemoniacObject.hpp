@@ -7,10 +7,10 @@
 #include "Graphics/Drawable.hpp"
 
 
-class DemoniacObject : public Unit, public PathFollower, public Suicidable, public Drawable, public Updatable
+class DemoniacObject : public Unit, public PathFollower, public Suicidable, public Updatable
 {
 public :
-	DemoniacObject(sf::Vector2f const& startPosition, 
+	DemoniacObject(sf::Vector2f const& startPosition,
 				   int life, 
 				   float speed, 
 				   int strength, 
@@ -38,7 +38,11 @@ public :
 
 	bool toRemove();
 
+	Drawable & getDrawable();
+
 private :
+	Drawable m_drawable;
+
 	int m_damage;
 	int m_armor;
 	float m_speed;

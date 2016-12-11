@@ -17,7 +17,7 @@ void Turret::update(double time, const World world)
     m_isTimeToShoot = m_timeUntilShoot <= 0;
 
     std::vector<DemoniacObject*> targets;
-    world.getDemoniacObjectIn(currentSprite->getPosition(), m_targetingRange, targets);
+    world.getDemoniacObjectIn(m_drawable.getSprite().getPosition(), m_targetingRange, targets);
 
     std::vector<sf::Vector2f> points;
     for (int i = 0; i < (int) targets.size(); i++)
@@ -25,7 +25,7 @@ void Turret::update(double time, const World world)
         points.push_back(targets[i]->getCurrentPosition());
     }
 
-    int nearest = MathHelper::getClosestPoint(currentSprite->getPosition(), points);
+    int nearest = MathHelper::getClosestPoint(m_drawable.getSprite().getPosition(), points);
     shoot(points[nearest]);
 }
 
@@ -40,4 +40,9 @@ Projectile* Turret::shoot(sf::Vector2f const &target)
     }
 
     return nullptr;
+}
+
+Drawable & Turret::getDrawable()
+{
+	return m_drawable;
 }

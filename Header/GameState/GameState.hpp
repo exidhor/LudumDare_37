@@ -15,6 +15,8 @@
 #include "Spawner.hpp"
 #include "Player/ClickEffect.hpp"
 
+#define NUMBER_SPRITE 400
+
 class GameState : public State, public InputHandler, public Singleton < GameState >
 {
     //------------------------------------------------------------------------------------------------------------------
@@ -78,7 +80,6 @@ private:
     double                  m_screenElapsed;
 
 	ClickEffect             m_clickEffect;
-
 };
 
 

@@ -9,19 +9,10 @@
 Pschit::Pschit()
     : Projectile(SPEED, DAMAGE, TIME_BETWEEN_SWAP)
 {
-    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("PSCHIT_1"));
-    addSprite(sprite);
-
-    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("PSCHIT_2"));
-    addSprite(sprite);
-
-    sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("PSCHIT_3"));
-    addSprite(sprite);
-
-    nextSprite();
+    getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_1"));
+	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_2"));
+	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PSCHIT_3"));
+	getDrawable().nextTexture();
 }
 
 sf::Vector2f Pschit::move(sf::Vector2f const &position, float speed)

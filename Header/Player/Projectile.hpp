@@ -3,7 +3,7 @@
 #include "Graphics/Drawable.hpp"
 #include "Behavior/Movable.hpp"
 
-class Projectile : public Movable, public Drawable
+class Projectile : public Movable
 {
 public :
 	Projectile(float speed, int damage, double timeBetweenSwap);
@@ -13,7 +13,10 @@ public :
 
 	float getDamage() const;
 
+	Drawable & getDrawable();
+
 private:
+	Drawable m_drawable;
 	float m_speed;
 	int m_damage;
 	double m_elapsedSinceLastSpriteSwap;

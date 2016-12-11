@@ -8,7 +8,7 @@
 #include "Graphics/Drawable.hpp"
 #include <Behavior/Unit.hpp>
 
-class Player : public Unit, public Drawable
+class Player : public Unit
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members
@@ -25,6 +25,9 @@ public:
     virtual sf::Vector2f getPosition        () const;
 
     void update(double dt);
+
+	Drawable & getDrawable();
+
     //------------------------------------------------------------------------------------------------------------------
     /// Protected members
     //------------------------------------------------------------------------------------------------------------------
@@ -34,6 +37,8 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
+	Drawable            m_drawable;
+
     unsigned long long  m_$lotOfMoney$;
     float               m_clickRadius;
     int                 m_damage;

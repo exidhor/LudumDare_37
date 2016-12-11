@@ -9,11 +9,11 @@ World::World(unsigned reserveSize)
 
 World::~World()
 {
-    for (auto object : m_decors)
-    {
-        PoolAllocator<sf::Sprite>::Instance()->Deallocate(object.currentSprite);
-    }
-    PoolAllocator<sf::Sprite>::Instance()->Deallocate(m_background.currentSprite);
+    //for (auto object : m_decors)
+    //{
+     //   PoolAllocator<sf::Sprite>::Instance()->Deallocate(object.currentSprite);
+    //}
+    //PoolAllocator<sf::Sprite>::Instance()->Deallocate(m_background.currentSprite);
 }
 
 void World::prepare()
@@ -29,18 +29,18 @@ void World::draw(sf::RenderTarget & target)
 	std::vector<Drawable*> toDraw;
 	getSortedDrawables(toDraw);
 
-	target.draw(*m_background.currentSprite);
+	target.draw(m_background.getSprite());
 
 	for(unsigned int i = 0; i < toDraw.size(); i++)
 	{
-		target.draw(*toDraw[i]->currentSprite);
+		target.draw(toDraw[i]->getSprite());
 	}
 }
 
 void World::addDemoniacObject(DemoniacObject * demoniacObject)
 {
 	m_activeEnemies.push_back(demoniacObject);
-	m_drawables.push_back(demoniacObject);
+	m_drawables.push_back(&demoniacObject->getDrawable());
 }
 
 void World::addDrawable(Drawable * drawable)
@@ -50,24 +50,22 @@ void World::addDrawable(Drawable * drawable)
 
 void World::addDecors(sf::Vector2f const& position, sf::Texture *texture)
 {
-	sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(position);
-    sprite->setTexture(*texture);
-    Drawable drawable;
-    drawable.addSprite(sprite);
-    drawable.nextSprite();
+	//sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    //sprite->setPosition(position);
+    //sprite->setTexture(*texture);
+    //Drawable drawable;
+    //drawable.addTexture(sprite);
+    //drawable.nextTexture();
 
-    m_decors.push_back(drawable);
+    //m_decors.push_back(drawable);
 }
 
 void World::addBackground(sf::Texture *texture)
 {
-    sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setTexture(*texture);
-    m_background.addSprite(sprite);
-    m_background.nextSprite();
+    m_background.addTexture(texture);
+    m_background.nextTexture();
 
-	m_background.currentSprite->setOrigin(0, 0);
+	m_background.getSprite().setOrigin(0, 0);
 
     //m_drawables.push_back(&m_background);
 }
@@ -96,7 +94,7 @@ void World::getDemoniacObjectIn(sf::Vector2f const& position,
 	for (unsigned i = 0; i < m_activeEnemies.size(); i++)
 	{
 		if (!m_activeEnemies[i]->isDead() &&
-			MathHelper::isColliding(m_activeEnemies[i]->currentSprite->getGlobalBounds(),
+			MathHelper::isColliding(m_activeEnemies[i]->getDrawable().getSprite().getGlobalBounds(),
 			                        position,
 			                        radius))
 		{
@@ -111,10 +109,10 @@ void World::sort(std::vector<Drawable*>& vector) const
 	{
 		bool operator()(Drawable* a, Drawable* b)
 		{
-			sf::Vector2f const& a_position = a->currentSprite->getPosition() + sf::Vector2f(a->currentSprite->getGlobalBounds().width / 2,
-																							a->currentSprite->getGlobalBounds().height / 2);
-			sf::Vector2f const& b_position = b->currentSprite->getPosition() + sf::Vector2f(b->currentSprite->getGlobalBounds().width / 2,
-																							b->currentSprite->getGlobalBounds().height / 2);;
+			sf::Vector2f const& a_position = a->getSprite().getPosition() + sf::Vector2f(a->getSprite().getGlobalBounds().width / 2,
+																							a->getSprite().getGlobalBounds().height / 2);
+			sf::Vector2f const& b_position = b->getSprite().getPosition() + sf::Vector2f(b->getSprite().getGlobalBounds().width / 2,
+																							b->getSprite().getGlobalBounds().height / 2);;
 
 			if (a_position.y < b_position.y)
 			{

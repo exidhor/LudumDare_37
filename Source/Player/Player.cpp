@@ -46,7 +46,7 @@ unsigned long long Player::get$Money$()
 
 sf::Vector2f Player::getPosition() const
 {
-    return currentSprite->getPosition();
+    return m_drawable.getSprite().getPosition();
 }
 
 float Player::getClickRadius()
@@ -64,7 +64,12 @@ void Player::update(double dt)
     m_elapsedSinceLastSpriteSwap+=dt;
     if(m_elapsedSinceLastSpriteSwap >= m_spriteSwapTreshold)
     {
-        nextSprite();
+		m_drawable.nextTexture();
         m_elapsedSinceLastSpriteSwap = 0.0;
     }
+}
+
+Drawable & Player::getDrawable()
+{
+	return m_drawable;
 }

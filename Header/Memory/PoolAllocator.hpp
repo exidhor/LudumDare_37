@@ -4,6 +4,8 @@
 /// \author  Aredhele
 /// \version 0.1.0
 
+/*
+
 #ifndef __POOL_ALLOCATOR_HPP
 #define __POOL_ALLOCATOR_HPP
 
@@ -44,3 +46,5 @@ private :
 #include "Memory/PoolAllocator.inl"
 
 #endif // __POOL_ALLOCATOR_HPP
+
+*/

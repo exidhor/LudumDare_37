@@ -16,7 +16,7 @@ void Game::Init()
     // Loading all resources ! >///<
     LoadAll();
 
-    PoolAllocator<sf::Sprite>::Instance()->Init(100);
+    //PoolAllocator<sf::Sprite>::Instance()->Init(100);
 
     // Singleton, bitch please
     MenuState::Instance()->init();

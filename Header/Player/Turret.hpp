@@ -7,7 +7,7 @@
 #include "Graphics/Drawable.hpp"
 #include "Player/Projectile.hpp"
 
-class Turret : public Drawable
+class Turret
 {
 public :
 	Turret(float m_timeBetWeenShoot, float targetingRange, float shootingRange);
@@ -17,7 +17,12 @@ public :
 
     virtual Projectile *getProjetile(sf::Vector2f const &target) = 0;
 
+	Drawable & getDrawable();
+
 private:
+	
+	Drawable m_drawable;
+
     float m_timeUntilShoot;
     bool m_isTimeToShoot;
 	bool m_isShooting;

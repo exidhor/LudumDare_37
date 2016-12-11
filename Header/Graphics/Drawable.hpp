@@ -18,10 +18,11 @@ public:
     explicit            Drawable              ();
     virtual             ~Drawable             ();
 
-    void                addSprite             (sf::Sprite* sprite);
-    sf::Sprite*         currentSprite;
-    void                nextSprite            ();
-    void                setDeathSprite        (sf::Sprite* sprite);
+    void                addTexture             (sf::Texture * texture);
+	sf::Sprite&         getSprite();
+	sf::Sprite const&   getSprite() const;
+    void                nextTexture            ();
+    void                setDeathTexture        (sf::Texture * texture);
     void                activeDeathSprite     ();
 
     //------------------------------------------------------------------------------------------------------------------
@@ -32,9 +33,14 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
-    std::vector<sf::Sprite*> m_pSprites;
-    unsigned                 m_spriteId;
-    sf::Sprite*              m_deathSprite;
+
+	void centerOrigin();
+
+	sf::Sprite               m_sprite;
+    std::vector<sf::Texture*> m_pTextures;
+    unsigned                 m_textureId;
+	sf::Texture*             m_deathTexture;
+	bool                     isDead;
 };
 
 

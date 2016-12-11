@@ -13,17 +13,22 @@ void Projectile::update(double time)
 {
     m_elapsedSinceLastSpriteSwap += time;
 
-    sf::Vector2f position = currentSprite->getPosition();
+    sf::Vector2f position = m_drawable.getSprite().getPosition();
     if (m_elapsedSinceLastSpriteSwap >= m_spriteSwapTreshold)
     {
-        nextSprite();
+		m_drawable.nextTexture();
         m_elapsedSinceLastSpriteSwap = 0;
     }
     sf::Vector2f movement = move(position, m_speed);
-    currentSprite->setPosition(movement);
+	m_drawable.getSprite().setPosition(movement);
 }
 
 float Projectile::getDamage() const
 {
     return m_damage;
+}
+
+Drawable & Projectile::getDrawable()
+{
+	return m_drawable;
 }

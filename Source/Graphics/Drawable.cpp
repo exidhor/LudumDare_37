@@ -6,47 +6,61 @@
 #include "Graphics/Drawable.hpp"
 
 /* Explicit */ Drawable::Drawable()
-: currentSprite(nullptr)
-, m_spriteId(0)
-, m_deathSprite(nullptr)
+: m_textureId(0)
+, m_deathTexture(nullptr)
+, isDead(false)
 {
     // None
 }
 
 /* Virtual */ Drawable::~Drawable()
 {
-    for (sf::Sprite *sprite : m_pSprites)
-    {
-        PoolAllocator<sf::Sprite>::Instance()->Deallocate(sprite);
-    }
-    PoolAllocator<sf::Sprite>::Instance()->Deallocate(m_deathSprite);
+
 }
 
-void Drawable::addSprite(sf::Sprite* sprite)
+void Drawable::addTexture(sf::Texture * texture)
 {
-    m_pSprites.push_back(sprite);
+	m_pTextures.push_back(texture);
 }
 
-void Drawable::nextSprite()
+sf::Sprite& Drawable::getSprite()
 {
-    ++m_spriteId;
-    if(m_spriteId >= m_pSprites.size())
-        m_spriteId = 0;
-    currentSprite = m_pSprites[m_spriteId];
-	currentSprite->setOrigin(currentSprite->getGlobalBounds().width / 2,
-							 currentSprite->getGlobalBounds().height / 2);
+	return m_sprite;
 }
 
-void Drawable::setDeathSprite(sf::Sprite* sprite)
+sf::Sprite const& Drawable::getSprite() const
 {
-    m_deathSprite = sprite;
-    m_deathSprite->setOrigin(m_deathSprite->getGlobalBounds().width / 2,
-                             m_deathSprite->getGlobalBounds().height / 2);
+	return m_sprite;
+}
+
+void Drawable::nextTexture()
+{
+	if(!isDead)
+	{
+		++m_textureId;
+		if (m_textureId >= m_pTextures.size())
+			m_textureId = 0;
+
+		m_sprite.setTexture(*m_pTextures[m_textureId]);
+
+		centerOrigin();
+	}
+}
+
+void Drawable::setDeathTexture(sf::Texture * texture)
+{
+	m_deathTexture = texture;
 }
 
 void Drawable::activeDeathSprite()
 {
-    sf::Vector2f const& position = currentSprite->getPosition();
-    m_deathSprite->setPosition(position);
-    currentSprite = m_deathSprite;
+	isDead = true;
+	m_sprite.setTexture(*m_deathTexture);
+	centerOrigin();
+}
+
+void Drawable::centerOrigin()
+{
+	m_sprite.setOrigin(m_sprite.getGlobalBounds().width / 2,
+					   m_sprite.getGlobalBounds().height / 2);
 }

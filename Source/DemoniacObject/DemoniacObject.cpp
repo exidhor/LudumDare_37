@@ -88,15 +88,15 @@ void DemoniacObject::update(double dt)
 		m_elapsedSinceLastSpriteSwap+=dt;
 		if(m_elapsedSinceLastSpriteSwap >= m_spriteSwapTreshold)
 		{
-			nextSprite();
+			m_drawable.nextTexture();
 			m_elapsedSinceLastSpriteSwap = 0.0;
 		}
 		sf::Vector2f movement = move(getCurrentPosition(),getSpeed());
 
-		currentSprite->setPosition(getCurrentPosition());
+		m_drawable.getSprite().setPosition(getCurrentPosition());
 
 	#define PI 3.141592653589793
-		currentSprite->setRotation(Movement::getOrientation(movement)*180/PI);
+		m_drawable.getSprite().setRotation(Movement::getOrientation(movement)*180/PI);
 
 		if (getCurrentPath() == nullptr)
 		{
@@ -105,11 +105,16 @@ void DemoniacObject::update(double dt)
 	}
 	else
 	{
-		activeDeathSprite();
+		m_drawable.activeDeathSprite();
 		m_deathElapsed+=dt;
 		if(m_deathElapsed >= m_deathTreshold)
 		{
 			m_toRemove = true;
 		}
 	}
+}
+
+Drawable & DemoniacObject::getDrawable()
+{
+	return m_drawable;
 }

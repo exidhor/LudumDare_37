@@ -1,10 +1,17 @@
 #include "Player/ClickEffect.hpp"
 
 
-ParticuleEffect::ParticuleEffect()
+ParticuleEffect::ParticuleEffect(sf::Vector2f const& position)
 {
+	m_position = position;
+	m_currentTime = 0;
 	m_timeToDie = TIME_EFFECT;
 	m_increaseScaleSpeed = (1 - STARTING_SCALE) / TIME_EFFECT;
+}
+
+ParticuleEffect::~ParticuleEffect()
+{
+	
 }
 
 void ParticuleEffect::update(double dt)
@@ -14,13 +21,23 @@ void ParticuleEffect::update(double dt)
 
 	sf::Vector2f newScale(m_currentScale, m_currentScale);
 
-	currentSprite->setScale(newScale);
+	m_drawable.getSprite().setScale(newScale);
+	m_drawable.getSprite().setOrigin(0, 0);
+	m_drawable.getSprite().setPosition(m_position - 
+									       sf::Vector2f(m_drawable.getSprite().getGlobalBounds().width / 2,
+									                    m_drawable.getSprite().getGlobalBounds().height / 2));
 }
 
 bool ParticuleEffect::isDead() const
 {
 	return m_currentTime > m_timeToDie;
 }
+
+Drawable & ParticuleEffect::getDrawable()
+{
+	return m_drawable;
+}
+
 
 // ------------------------------------------------------
 
@@ -45,21 +62,16 @@ void ClickEffect::update(double time)
 
 void ClickEffect::addEffect(sf::Vector2f const& position)
 {
-	sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-	sprite->setPosition(position);
-	sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("CLICK_EFFECT"));
-	sprite->setScale(STARTING_SCALE, STARTING_SCALE);
+	m_particules.push_back(ParticuleEffect(position));
 
-	m_particules.push_back(ParticuleEffect());
-
-	m_particules.back().addSprite(sprite);
-	m_particules.back().nextSprite();
+	m_particules.back().getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("CLICK_EFFECT"));
+	m_particules.back().getDrawable().nextTexture();
 }
 
 void ClickEffect::draw(sf::RenderTarget & target)
 {
 	for(unsigned i = 0; i < m_particules.size(); i++)
 	{
-		target.draw(*m_particules[i].currentSprite);
+		target.draw(m_particules[i].getDrawable().getSprite());
 	}
 }

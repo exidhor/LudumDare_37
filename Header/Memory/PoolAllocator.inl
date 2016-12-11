@@ -1,5 +1,6 @@
+/*
 template <typename T>
-/* explicit */ inline PoolAllocator<T>::PoolAllocator()
+/* explicit *//* inline PoolAllocator<T>::PoolAllocator()
 {
     // None
 }
@@ -28,6 +29,7 @@ T * PoolAllocator<T>::Allocate()
         if(res->IsAvailable())
         {
             res->SetAvailable(false);
+			(*res->GetResource()) = T(); // todo : added
             return res->GetResource();
         }
     }
@@ -51,3 +53,4 @@ void PoolAllocator<T>::Deallocate(T * resource)
         }
     }
 }
+*/
