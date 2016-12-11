@@ -21,23 +21,21 @@
                    Container<sf::Font>::Instance()->GetResource("FONT"),
                    "DIFFICULTY : ", sf::Color::Green);
 
+    m_soundOn.create("SOUND_BUTTON_ON", 398, 75,
+                         Container<sf::Texture>::Instance()->GetResource("SOUND_ON_R"),
+                         Container<sf::Texture>::Instance()->GetResource("SOUND_ON_P"));
 
-
-    m_exitButton.create("EXIT_BUTTON", 1160, 10,
-                         Container<sf::Texture>::Instance()->GetResource("EXIT_BR"),
-                         Container<sf::Texture>::Instance()->GetResource("EXIT_BP"));
-
-    m_optButton.create("OPT_BUTTON", 1030, 10,
-                         Container<sf::Texture>::Instance()->GetResource("OPT_BR"),
-                         Container<sf::Texture>::Instance()->GetResource("OPT_BP"));
+    m_soundOff.create("SOUND_BUTTON_OFF", 398, 75,
+                       Container<sf::Texture>::Instance()->GetResource("SOUND_OFF_R"),
+                       Container<sf::Texture>::Instance()->GetResource("SOUND_OFF_P"));
 
     m_BonusPhase.create("BONUS_PHASE", 700,80, 25,
                         Container<sf::Font>::Instance()->GetResource("FONT"),
                         "", sf::Color::Black);
 
-    m_shopEnter.create("SHOP_ENTER", 800, 10,
-                      Container<sf::Texture>::Instance()->GetResource("EXIT_BR"),
-                      Container<sf::Texture>::Instance()->GetResource("EXIT_BP"));
+    m_shopEnter.create("SHOP_ENTER", 775, 82,
+                      Container<sf::Texture>::Instance()->GetResource("SHOP_ENTER_P"),
+                      Container<sf::Texture>::Instance()->GetResource("SHOP_ENTER_R"));
     // -- SHOP --
 
     m_overlay.create("OVERLAY", 69, 44,
@@ -58,8 +56,7 @@
     getContentPane()->addComponent(&m_money);
     getContentPane()->addComponent(&m_nextRoundIn);
     getContentPane()->addComponent(&m_difficulty);
-    getContentPane()->addComponent(&m_exitButton);
-    getContentPane()->addComponent(&m_optButton);
+    getContentPane()->addComponent(&m_soundOn);
     getContentPane()->addComponent(&m_BonusPhase);
 }
 
@@ -161,3 +158,14 @@ ShopItem * GameView::getShopItem(unsigned int index)
     return m_shop.getItem(index);
 }
 
+void GameView::EnableSound()
+{
+    getContentPane()->removeComponent(&m_soundOff);
+    getContentPane()->addComponent(&m_soundOn);
+}
+
+void GameView::DisableSound()
+{
+    getContentPane()->removeComponent(&m_soundOn);
+    getContentPane()->addComponent(&m_soundOff);
+}

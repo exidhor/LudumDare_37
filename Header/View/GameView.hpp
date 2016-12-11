@@ -53,6 +53,9 @@ public:
 
     ShopItem *getShopItem(unsigned int index);
 
+    void EnableSound();
+    void DisableSound();
+
 private:
 
     NLabel m_money;
@@ -61,8 +64,8 @@ private:
     NLabel m_difficulty;
     NLabel m_BonusPhase;
 
-    NButton m_exitButton;
-    NButton m_optButton;
+    NButton m_soundOn;
+    NButton m_soundOff;
     NButton m_shopEnter;
 
     // Shop
@@ -71,7 +74,6 @@ private:
     NPanel m_overlay;
     NLabel m_overlayToPress;
     NLabel m_overlayRandomMessage;
-
 };
 
 #endif // __GAME_VIEW_HPP

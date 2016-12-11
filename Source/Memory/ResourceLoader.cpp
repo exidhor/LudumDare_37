@@ -43,13 +43,14 @@ void LoadAll()
     LoadTexture("SHOP_EXIT_R", buildPath(RES_PATH, BUTTON_PATH, "RedCrossR.png"));
     LoadTexture("SHOP_EXIT_P", buildPath(RES_PATH, BUTTON_PATH, "RedCrossP.png"));
 
-    LoadTexture("SOUND_ON_R", buildPath(RES_PATH, BUTTON_PATH, "SoundOnR.png"));
-    LoadTexture("SOUND_ON_P", buildPath(RES_PATH, BUTTON_PATH, "SoundOnP.png"));
+
+    LoadTexture("SHOP_ENTER_P", buildPath(RES_PATH, BUTTON_PATH, "ShopButtonP.png"));
+    LoadTexture("SHOP_ENTER_R", buildPath(RES_PATH, BUTTON_PATH, "ShopButtonR.png"));
+
+    LoadTexture("SOUND_ON_R",  buildPath(RES_PATH, BUTTON_PATH,  "SoundOnR.png"));
+    LoadTexture("SOUND_ON_P",  buildPath(RES_PATH, BUTTON_PATH,  "SoundOnP.png"));
     LoadTexture("SOUND_OFF_R", buildPath(RES_PATH, BUTTON_PATH, "SoundOffR.png"));
     LoadTexture("SOUND_OFF_P", buildPath(RES_PATH, BUTTON_PATH, "SoundOffP.png"));
-
-
-
 
 
 

@@ -34,13 +34,15 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 {
     m_view.processInput(event);
 
-    if(getComponentId() == "EXIT_BUTTON")
-    {
-        StateMachine::Instance()->popState();
-    }
-    else if(getComponentId() == "OPT_BUTTON")
+    if(getComponentId() == "SOUND_BUTTON_ON")
     {
         MusicManager::Instance()->PauseCurrent();
+        m_view.EnableSound();
+    }
+    else if(getComponentId() == "SOUND_BUTTON_OFF")
+    {
+        MusicManager::Instance()->PauseCurrent();
+        m_view.DisableSound();
     }
     else if(getComponentId() == "SHOP_EXIT")
     {
@@ -63,7 +65,6 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
             {
                 // Making course
                 m_player.setMoney(m_player.get$Money$() - item->getPrice());
-                std::cout << "Bought turret !" << std::endl;
 
                 // Closing store
                 m_view.hideShop();
@@ -230,10 +231,11 @@ void GameState::update(double dt)
         if(!m_shopPhase)
         {
             m_shopPhase = true;
-            m_view.showShop();
             m_view.showShopButton();
+            m_view.showShop();
         }
     }
+
     m_player.update(dt);
     m_screenElapsed += dt;
     if(m_screenElapsed >= m_TIME_SCREEN_SWAP)
