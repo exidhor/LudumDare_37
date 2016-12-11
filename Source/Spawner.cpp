@@ -101,7 +101,9 @@ bool Spawner::outOfToken()
 void Spawner::giveToken()
 {
     m_token = (long) (10 + m_difficulty * 10);
-    m_timeBetweenSpawn -= 0.05;
+
+    if(m_timeBetweenSpawn > 0.1)
+        m_timeBetweenSpawn -= 0.05;
 }
 
 int Spawner::getHighestTokenCost(int token)
