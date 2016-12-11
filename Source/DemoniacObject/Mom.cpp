@@ -21,8 +21,8 @@ void Mom::update(double dt)
 	
 	float coef = (MOM_SPRITESWAP - m_elapsedSinceLastSpriteSwap) / MOM_SPRITESWAP;
 
-	if (coef < 0.3)
-		coef = 0.3;
+	if (coef < 0.2)
+		coef = 0.2;
 
 	if (coef > 1)
 		coef = 1;
