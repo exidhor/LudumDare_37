@@ -76,6 +76,10 @@ void LoadAll()
 	LoadTexture("PAPER_PLANE_2", buildPath(RES_PATH, MONSTER_PATH, "paperplane-veridict-2.png"));
 	LoadTexture("PAPER_PLANE_3", buildPath(RES_PATH, MONSTER_PATH, "paperplane_death.png"));
 
+	// mother texture
+	LoadTexture("MOTHER_1", buildPath(RES_PATH, MOTHER_PATH, "motherPose1-resized.png"));
+	LoadTexture("MOTHER_2", buildPath(RES_PATH, MOTHER_PATH, "motherPose2-resized.png"));
+
     // Pizza texture
     LoadTexture("SMALL_PIZZA_1", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_1.png"));
     LoadTexture("SMALL_PIZZA_2", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_2.png"));

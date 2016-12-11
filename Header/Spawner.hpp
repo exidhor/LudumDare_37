@@ -1,6 +1,10 @@
 #pragma once
 #include "DemoniacObject/DemoniacObject.hpp"
 #include "DemoniacObject/Fly.hpp"
+#include <iostream>
+#include <DemoniacObject/PizzaZombie.hpp>
+#include "DemoniacObject/PaperPlane.hpp"
+#include "DemoniacObject/Mom.hpp"
 
 class Spawner
 {

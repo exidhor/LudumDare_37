@@ -40,13 +40,15 @@ public :
 
 	Drawable & getDrawable();
 
+protected :
+	double m_elapsedSinceLastSpriteSwap;
+
 private :
 	Drawable m_drawable;
 
 	int m_damage;
 	int m_armor;
 	float m_speed;
-	double m_elapsedSinceLastSpriteSwap;
 	double m_spriteSwapTreshold;
 	double m_deathTreshold;
 	double m_deathElapsed;

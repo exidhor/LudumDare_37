@@ -1,7 +1,5 @@
 #include "Spawner.hpp"
-#include <iostream>
-#include <DemoniacObject/PizzaZombie.hpp>
-#include "DemoniacObject/PaperPlane.hpp"
+
 
 Spawner::Spawner(sf::Vector2f const& target)
 	: m_difficulty(0)
@@ -119,10 +117,12 @@ int Spawner::getHighestTokenCost(int token)
         return 30;
 	if (token >= 20)
 		return 20;
-    if(token >= 15)
-        return 15;
-    else if(token >= 5)
-        return 5;
+	if (token >= 15)
+		return 15;
+	else if (token >= 5)
+		return 5;
+	else if (token >= 2)
+		return 2;
     else
         return 1;
 }
@@ -133,6 +133,8 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
     {
         case 1 :
 			return new Fly();
+		case 2 :
+			return new Mom();
         case 5 :
             return new FatFly();
         case 15 :
@@ -145,6 +147,7 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
             return new SmallPizzaZombie();
         case 60 :
             return new FatPizzaZombie();
+		
         default:
         std::cerr<< "Unknown token value : " << token << std::endl;
 			return new Fly();
