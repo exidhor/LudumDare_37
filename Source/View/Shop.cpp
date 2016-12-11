@@ -14,8 +14,8 @@
 
     // Exit button
     m_shopExit.create("SHOP_EXIT",
-                      SHOP_PAN_POS_X,
-                      SHOP_PAN_POS_Y,
+                      SHOP_PAN_POS_X + 605,
+                      SHOP_PAN_POS_Y + 8,
                       pTContainer->GetResource("SHOP_EXIT"),
                       pTContainer->GetResource("SHOP_EXIT"));
 
@@ -51,6 +51,9 @@
     // Adding items
     for(unsigned i = 0; i < m_items.size(); ++i)
         m_shop.addComponent(m_items[i]->getItemPan());
+
+    // Add exit button
+    m_shop.addComponent(&m_shopExit);
 }
 
 /* explicit */ Shop::~Shop()

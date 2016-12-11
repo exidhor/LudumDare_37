@@ -36,7 +36,7 @@
 
 /* virtual */ ShopItem::~ShopItem()
 {
-
+    // None
 }
 
 NPanel * ShopItem::getItemPan()
