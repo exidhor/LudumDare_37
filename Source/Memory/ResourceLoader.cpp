@@ -28,6 +28,7 @@ void LoadAll()
     LoadTexture("EXIT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarExitButton_2.png"));
     LoadTexture("OPT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_1.png"));
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
+    LoadTexture("SHOP_PAN", buildPath(RES_PATH, INTERFACE_PATH, "homePanel.png"));
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, DRAW_PATH, "FondRempli.png"));
     // Fly texture

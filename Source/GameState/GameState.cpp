@@ -43,6 +43,14 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     {
         MusicManager::Instance()->PauseCurrent();
     }
+    else if(getComponentId() == "SHOP_EXIT")
+    {
+        m_view.hideShop();
+    }
+    else if(getComponentId() == "SHOP_ENTER")
+    {
+        m_view.showShop();
+    }
 
     // Process player shoot
     if (event.type == sf::Event::MouseButtonPressed)
@@ -89,6 +97,7 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
 
 void GameState::update(double dt)
 {
+
 	// None
 	m_world.prepare();
 
@@ -280,12 +289,4 @@ void GameState::reset()
     m_nextOverlayPhaseIn = rand() % 3 + 1;
 
     m_poison = Poison(sf::Vector2f(900.0f, 620.0f));
-
-    return true;
 }
-
-bool GameState::onExit()
-{
-    return true;
-}
-
