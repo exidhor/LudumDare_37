@@ -6,9 +6,10 @@
 #define LUDUMDARE_GAMEOVERSTATE_HPP
 
 #include <Utils/Singleton.hpp>
+#include <View/GameOverView.hpp>
 #include "State.hpp"
 
-class GameOverState : public State, public Singleton < GameOverState >
+class GameOverState : public State, public Singleton < GameOverState >, public InputHandler
 {
     //------------------------------------------------------------------------------------------------------------------
     /// Public members
@@ -53,6 +54,7 @@ protected:
     /// Private members
     //------------------------------------------------------------------------------------------------------------------
 private:
+    GameOverView m_view;
 };
 
 

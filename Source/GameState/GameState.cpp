@@ -245,7 +245,7 @@ void GameState::update(double dt)
     // VIEW
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
-    m_view.setDifficulty(m_spawners.getDifficulty());
+    m_view.setDifficulty(m_spawners.getDifficulty()+1);
     m_view.update(dt);
 }
 

@@ -109,11 +109,11 @@ int Spawner::getHighestTokenCost(int token)
 
     if(token >= 60)
         return 60;
-    if(token >= 40)
+    else if(token >= 40)
         return 40;
-    if(token >= 30)
+    else if(token >= 30)
         return 30;
-    if(token >= 15)
+    else if(token >= 15)
         return 15;
     else if(token >= 5)
         return 5;

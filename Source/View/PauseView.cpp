@@ -8,18 +8,6 @@
                         Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
                         Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
 
-    m_len1.create("LEL", 100, 200,
-                    Container<sf::Texture>::Instance()->GetResource("CSOUND"),
-                    Container<sf::Texture>::Instance()->GetResource("CSOUND"));
-
-    m_len2.create("LEL", 700, 300,
-                    Container<sf::Texture>::Instance()->GetResource("CSOUND"),
-                    Container<sf::Texture>::Instance()->GetResource("CSOUND"));
-
-    m_len3.create("LEL", 900, 500,
-                    Container<sf::Texture>::Instance()->GetResource("CSOUND"),
-                    Container<sf::Texture>::Instance()->GetResource("CSOUND"));
-
     m_backToMainMenu.create("BACK_TO_MAIN_MENU", 500, 500,
                   Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
                   Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
