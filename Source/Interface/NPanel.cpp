@@ -162,3 +162,16 @@ void NPanel::removeComponent(VisualObject * component)
 		}
 	}
 }
+
+VisualObject * NPanel::getComponent(VisualObject *component)
+{
+	for(unsigned i = 0; i < m_vObjectList.size(); ++i)
+	{
+		if (component == m_vObjectList[i])
+		{
+			return m_vObjectList[i];
+        }
+	}
+
+    return nullptr;
+}

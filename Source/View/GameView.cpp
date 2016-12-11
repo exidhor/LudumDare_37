@@ -113,7 +113,9 @@ void GameView::hideShopButton()
 
 void GameView::showShop()
 {
-    getContentPane()->addComponent(m_shop.getShopPan());
+    // Checking for it
+    if(getContentPane()->getComponent(m_shop.getShopPan()) == nullptr)
+        getContentPane()->addComponent(m_shop.getShopPan());
 }
 
 void GameView::hideShop()

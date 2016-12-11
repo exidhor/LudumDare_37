@@ -86,7 +86,7 @@ void LoadAll()
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 
     // Loading font
-    LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "GEEKT___.TTF"));
+    LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "PIXELADE.TTF"));
 }
 
 std::string buildPath(std::string const& base, std::string const& path,

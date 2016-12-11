@@ -41,6 +41,8 @@ class NPanel : public VisualObject
 	    void removeComponent(VisualObject * component);
 		int getNumberOfComponents();
 		VisualObject * getLastComponent();
+
+    VisualObject *getComponent(VisualObject *component);
 };
 
 #endif // DEF_NPANEL_HPP
