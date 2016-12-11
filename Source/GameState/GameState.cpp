@@ -56,7 +56,11 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
             demoniacObjectsHit[i]->hit(m_player.getDamage());
         }
 
-        // Todo Animation
+		// click effect
+        if(m_gamePhase && !m_overlayPhase)
+        {
+			m_clickEffect.addEffect(sf::Vector2f(event.mouseButton.x, event.mouseButton.y));
+        }
     }
     // Process money generation
     else if(event.type == sf::Event::KeyReleased)

@@ -1,15 +1,12 @@
 #pragma once
 
-#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics.hpp>
 #include "Graphics/Drawable.hpp"
 #include "Memory/PoolAllocator.hpp"
 #include "Memory/Container.hpp"
 
 #define STARTING_SCALE 0.1f
 #define TIME_EFFECT 0.2f
-
-//(1-STARTING_SCALE) / TIME_EFFECT
-#define INCREASE_SCALE_SPEED  // end scale -> 1
 
 class ParticuleEffect : public Drawable
 {
