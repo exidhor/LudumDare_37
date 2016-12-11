@@ -73,6 +73,7 @@ private:
     bool                    m_gamePhase;
     int                     m_nextBonusPhaseIn;
     bool                    m_bonusPhase;
+    bool                    m_shopPhase;
     bool                    m_overlayPhase;
     int                     m_nextOverlayPhaseIn;
     int                     m_overlayKey;

@@ -20,6 +20,7 @@
 , m_gamePhase(true)
 , m_nextRoundIn(0.0)
 , m_bonusPhase(false)
+, m_shopPhase(false)
 , m_overlayPhase(false)
 , m_poison(sf::Vector2f(0,0))
 {
@@ -105,6 +106,13 @@ void GameState::update(double dt)
 
     if(m_gamePhase)
     {
+        // Shop phase
+        if(m_shopPhase)
+        {
+            m_shopPhase = false;
+            m_view.hideShopButton();
+        }
+
         // Round phase
 
         m_view.hideNextRoundIn();
@@ -173,6 +181,12 @@ void GameState::update(double dt)
     else
     {
         // Shop phase
+        if(!m_shopPhase)
+        {
+            m_shopPhase = true;
+            m_view.showShopButton();
+        }
+
         m_nextRoundIn -= dt;
         m_view.setNextRoundIn(m_nextRoundIn > 0.0 ? (int)m_nextRoundIn : 0.0);
         if(m_nextRoundIn <= 0)
@@ -190,6 +204,8 @@ void GameState::update(double dt)
         m_screenElapsed = 0.0;
     }
 
+
+    // VIEW
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
     m_view.setDifficulty(m_spawners.getDifficulty());
