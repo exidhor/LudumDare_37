@@ -29,7 +29,7 @@ void LoadAll()
     LoadTexture("OPT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_1.png"));
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
 
-    LoadTexture("BACKGROUND", buildPath(RES_PATH, DRAW_PATH, "Fond.png"));
+    LoadTexture("BACKGROUND", buildPath(RES_PATH, DRAW_PATH, "FondRempli.png"));
     LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
     LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
     LoadTexture("FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche45_3.png"));
@@ -40,6 +40,8 @@ void LoadAll()
     LoadTexture("FAT_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche60_2.png"));
     LoadTexture("FAT_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche60_3.png"));
 
+    LoadTexture("SCREEN_1", buildPath(RES_PATH, DRAW_PATH, "matrix1.png"));
+    LoadTexture("SCREEN_2", buildPath(RES_PATH, DRAW_PATH, "matrix2.png"));
     LoadTexture("GEEK_1", buildPath(RES_PATH, DRAW_PATH, "geekPose1.png"));
     LoadTexture("GEEK_2", buildPath(RES_PATH, DRAW_PATH, "geekPose2.png"));
     LoadTexture("TURRET_IDLE", buildPath(RES_PATH, DRAW_PATH, "poison180.png"));

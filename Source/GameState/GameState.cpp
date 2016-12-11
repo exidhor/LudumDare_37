@@ -20,6 +20,8 @@
 , m_spawners(sf::Vector2f())
 , m_gamePhase(true)
 , m_nextRoundIn(0.0)
+, m_bonusPhase(false)
+, m_overlayPhase(false)
 {
 
 }
@@ -46,8 +48,8 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     if (event.type == sf::Event::MouseButtonPressed)
     {
         std::vector<DemoniacObject*> demoniacObjectsHit;
-        m_world.getDemoniacObjectIn(sf::Vector2f(event.mouseButton.x,event.mouseButton.y),m_player.getClickRadius(),
-                                      demoniacObjectsHit);
+        m_world.getDemoniacObjectIn(sf::Vector2f(event.mouseButton.x,event.mouseButton.y),
+                                    m_player.getClickRadius(), demoniacObjectsHit);
 
         for(unsigned i = 0; i < demoniacObjectsHit.size(); ++i)
         {
@@ -62,8 +64,21 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
         if(event.key.code == 36)
             StateMachine::Instance()->pushState(PauseState::Instance());
         else
+        {
             if(m_gamePhase)
-                m_player.increaseMoney(100);
+            {
+                if (m_bonusPhase)
+                    m_player.increaseMoney(100);
+                else if (m_overlayPhase)
+                {
+                    if (event.key.code == m_overlayKey)
+                    {
+                        m_overlayPhase = false;
+                        m_player.increaseMoney(m_spawners.getDifficulty() * 100);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -74,8 +89,10 @@ void GameState::update(double dt)
 
     if(m_gamePhase)
     {
+        // Round phase
+
         m_view.hideNextRoundIn();
-        // 8f20
+
         // Update spawners
         m_spawners.updateTime(dt);
 
@@ -102,15 +119,43 @@ void GameState::update(double dt)
             }
         }
 
+        // End of round
         if(m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
         {
+            if(m_overlayPhase)
+            {
+                m_overlayPhase = false;
+                m_nextOverlayPhaseIn = rand() % 3 + 1;
+            }
+            else
+            {
+                --m_nextOverlayPhaseIn;
+                if(m_nextOverlayPhaseIn == 0)
+                    m_overlayPhase = true;
+            }
+
+            if(m_bonusPhase)
+            {
+                m_bonusPhase = false;
+                m_nextBonusPhaseIn = rand() % 3 + 5;
+            }
+            else
+            {
+                --m_nextBonusPhaseIn;
+                if(m_nextBonusPhaseIn == 0)
+                    m_bonusPhase = true;
+            }
+
+            m_player.increaseMoney(250*(m_spawners.getDifficulty()+1));
             m_spawners.increaseDifficulty();
+            // Shop phase duration
             m_nextRoundIn = 10.0;
             m_gamePhase = false;
         }
     }
     else
     {
+        // Shop phase
         m_nextRoundIn -= dt;
         m_view.setNextRoundIn(m_nextRoundIn > 0.0 ? (int)m_nextRoundIn : 0.0);
         if(m_nextRoundIn <= 0)
@@ -120,25 +165,41 @@ void GameState::update(double dt)
         }
     }
     m_player.update(dt);
+    m_screenElapsed += dt;
+    if(m_screenElapsed >= 0.20)
+    {
+        m_screen.nextSprite();
+        m_screenElapsed = 0.0;
+    }
 
     m_view.setHitPoint(m_player.getLife());
     m_view.setMoney(m_player.get$Money$());
     m_view.setDifficulty(m_spawners.getDifficulty());
     m_view.update(dt);
-	
-	// todo : gestion de la difficulté
 }
 
 void GameState::draw(sf::RenderWindow & window)
 {
     m_world.addDrawable(&m_player);
+    m_world.addDrawable(&m_screen);
     m_world.draw(window);
     m_view.draw(&window);
+    if(m_bonusPhase)
+    {
+        m_view.showBonusPhase();
+    }
+    else if(m_overlayPhase)
+    {
+        // Todo display overlay
+    }
+
+    if(!m_bonusPhase)
+        m_view.hideBonusPhase();
 }
 
 bool GameState::onEnter()
 {
-    MusicManager::Instance()->FadeInOut(3.0, "MENU");
+    MusicManager::Instance()->FadeInOut(10.0, "MENU");
 
     // Init the player
     m_player = Player(150);
@@ -146,14 +207,25 @@ bool GameState::onEnter()
 
     //m_world.addDecors(); // todo
     sf::Sprite *sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(620.0f,220.0f));
+    sprite->setPosition(sf::Vector2f(617.0f,237.0f));
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_1"));
     m_player.addSprite(sprite);
     sprite = PoolAllocator<sf::Sprite>::Instance()->Allocate();
-    sprite->setPosition(sf::Vector2f(620.0f,220.0f));
+    sprite->setPosition(sf::Vector2f(617.0f,237.0f));
     sprite->setTexture(*Container<sf::Texture>::Instance()->GetResource("GEEK_2"));
     m_player.addSprite(sprite);
     m_player.nextSprite();
+
+    // Micro animation for screen
+    sf::Sprite* spriteScreen = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    spriteScreen->setPosition(sf::Vector2f(603.0f,139.0f));
+    spriteScreen->setTexture(*Container<sf::Texture>::Instance()->GetResource("SCREEN_1"));
+    m_screen.addSprite(spriteScreen);
+    spriteScreen = PoolAllocator<sf::Sprite>::Instance()->Allocate();
+    spriteScreen->setPosition(sf::Vector2f(603.0f,139.0f));
+    spriteScreen->setTexture(*Container<sf::Texture>::Instance()->GetResource("SCREEN_2"));
+    m_screen.addSprite(spriteScreen);
+    m_screen.nextSprite();
 
 	m_spawners = Spawner(m_player.getPosition());
     m_spawners.giveToken();
@@ -176,6 +248,9 @@ bool GameState::onEnter()
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
     //m_world.addDecors();
+
+    m_nextBonusPhaseIn = rand() % 3 + 5;
+    m_nextOverlayPhaseIn = rand() % 3 + 1;
 
     return true;
 }

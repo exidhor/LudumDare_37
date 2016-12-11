@@ -38,12 +38,17 @@ public:
     // TODO
     void setDifficulty(unsigned int diff);
 
+    void showBonusPhase();
+
+    void hideBonusPhase();
+
 private:
 
     NLabel m_money;
     NLabel m_hitPoint;
     NLabel m_nextRoundIn;
     NLabel m_difficulty;
+    NLabel m_BonusPhase;
 
     NButton m_exitButton;
     NButton m_optButton;
