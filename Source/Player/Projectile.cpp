@@ -1,8 +1,7 @@
 #include "Player/Projectile.hpp"
 
-Projectile::Projectile(float speed, int damage)
+Projectile::Projectile(float speed)
 	: m_speed(speed),
-	  m_damage(damage),
       m_timeTreshold(0.3),
       m_timeElapsed(0),
       m_toRemove(false)
@@ -22,11 +21,6 @@ void Projectile::update(double time)
     {
         m_toRemove = true;
     }
-}
-
-float Projectile::getDamage() const
-{
-    return m_damage;
 }
 
 Drawable & Projectile::getDrawable()

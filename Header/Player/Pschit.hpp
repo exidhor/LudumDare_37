@@ -18,6 +18,7 @@ public:
     virtual ~Pschit() {};
 
     sf::Vector2f move(sf::Vector2f const& position, float speed);
+    void killDemoniacObject(const World world);
 };
 
 #endif //LUDUMDARE_PSCHIT_HPP

@@ -178,6 +178,7 @@ void GameState::update(double dt)
         for (int i = 0; i < (int) m_projectiles.size(); i++)
         {
             m_projectiles[i]->update(dt);
+            m_projectiles[i]->killDemoniacObject(m_world);
             if (m_projectiles[i]->toRemove())
             {
                 delete m_projectiles[i];
@@ -351,4 +352,6 @@ void GameState::reset()
     m_spawners.addPath(Path(1115.0f,235.0f,620.0f,200.0f));
 
     m_world.addBackground(Container<sf::Texture>::Instance()->GetResource("BACKGROUND"));
+
+    m_turrets.push_back(Poison(sf::Vector2f(250, 530)));
 }
