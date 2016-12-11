@@ -30,6 +30,7 @@ void LoadAll()
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, DRAW_PATH, "FondRempli.png"));
+    // Fly texture
     LoadTexture("FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche45.png"));
     LoadTexture("FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche45_2.png"));
     LoadTexture("FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche45_3.png"));
@@ -39,6 +40,11 @@ void LoadAll()
     LoadTexture("FAT_FLY_1", buildPath(RES_PATH, DRAW_PATH, "mouche60.png"));
     LoadTexture("FAT_FLY_2", buildPath(RES_PATH, DRAW_PATH, "mouche60_2.png"));
     LoadTexture("FAT_FLY_3", buildPath(RES_PATH, DRAW_PATH, "mouche60_3.png"));
+
+    // Pizza texture
+    LoadTexture("PIZZA_1", buildPath(RES_PATH, DRAW_PATH, "Pizza_1.png"));
+    LoadTexture("PIZZA_2", buildPath(RES_PATH, DRAW_PATH, "Pizza_2.png"));
+    LoadTexture("PIZZA_3", buildPath(RES_PATH, DRAW_PATH, "Pizza_3.png"));
 
     LoadTexture("SCREEN_1", buildPath(RES_PATH, DRAW_PATH, "matrix1.png"));
     LoadTexture("SCREEN_2", buildPath(RES_PATH, DRAW_PATH, "matrix2.png"));
