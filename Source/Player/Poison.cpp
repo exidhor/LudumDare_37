@@ -2,7 +2,6 @@
 // Created by renaud on 10/12/16.
 //
 
-#include <Memory/PoolAllocator.hpp>
 #include <Memory/Container.hpp>
 #include <Player/Pschit.hpp>
 #include "Player/Poison.hpp"
@@ -16,7 +15,7 @@ Poison::Poison(sf::Vector2f const &position)
 	getDrawable().getSprite().setPosition(position);
 }
 
-Projectile* Turret::getProjetile(sf::Vector2f const &target)
+Projectile* Turret::getProjectile(sf::Vector2f const &target)
 {
     Projectile *projectile = new Pschit();
 

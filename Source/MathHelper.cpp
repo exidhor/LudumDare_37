@@ -77,7 +77,7 @@ unsigned MathHelper::getClosestPoint(sf::Vector2f const& pointToCompare,
 		}
 	}
 
-	if(bestIndex == 0)
+	if(bestIndex == -1)
 	{
 		std::cerr << "ERROR : best value not found !" << std::endl;
 	}

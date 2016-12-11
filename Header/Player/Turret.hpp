@@ -15,9 +15,9 @@ public :
     void update(double time, const World world);
     Projectile* shoot(sf::Vector2f const& target);
 
-    virtual Projectile *getProjetile(sf::Vector2f const &target) = 0;
+    Projectile *getProjectile(sf::Vector2f const &target);
 
-	Drawable & getDrawable();
+	Drawable& getDrawable();
 
 private:
 	

@@ -14,6 +14,7 @@
 #include "State.hpp"
 #include "Spawner.hpp"
 #include "Player/ClickEffect.hpp"
+#include "Player/Poison.hpp"
 
 #define NUMBER_SPRITE 400
 
@@ -80,6 +81,7 @@ private:
     double                  m_screenElapsed;
 
 	ClickEffect             m_clickEffect;
+    Poison m_poison;
 };
 
 
