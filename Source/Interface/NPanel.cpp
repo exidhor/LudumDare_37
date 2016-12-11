@@ -150,3 +150,15 @@ void NPanel::update(double frameTime) {
 int NPanel::getNumberOfComponents() {
 	return m_vObjectList.size();
 }
+
+void NPanel::removeComponent(VisualObject * component)
+{
+	for(unsigned i = 0; i < m_vObjectList.size(); ++i)
+	{
+		if (component == m_vObjectList[i])
+		{
+			m_vObjectList.erase(m_vObjectList.begin() + i);
+			break;
+		}
+	}
+}

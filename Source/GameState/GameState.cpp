@@ -111,6 +111,7 @@ void GameState::update(double dt)
         {
             m_shopPhase = false;
             m_view.hideShopButton();
+            m_view.hideShop();
         }
 
         // Round phase

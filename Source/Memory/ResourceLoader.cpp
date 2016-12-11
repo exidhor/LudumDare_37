@@ -16,6 +16,7 @@
 #define TOWER_PATH ("Images/Tourelles/")
 #define POISON_PATH ("Images/Tourelles/Antimouche/")
 #define ION_PATH ("Images/Tourelles/Ion")
+#define SHOP_PATH ("Images/Shop/shop_overlay.png")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -36,7 +37,7 @@ void LoadAll()
     LoadTexture("EXIT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarExitButton_2.png"));
     LoadTexture("OPT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_1.png"));
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
-    LoadTexture("SHOP_PAN", buildPath(RES_PATH, INTERFACE_PATH, "homePanel.png"));
+    LoadTexture("SHOP_PAN", buildPath(RES_PATH, SHOP_PATH, "shop_overlay.png"));
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "FondRempli.png"));
     // Fly texture

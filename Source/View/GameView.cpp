@@ -33,10 +33,8 @@
                         Container<sf::Font>::Instance()->GetResource("FONT"),
                         "", sf::Color::Black);
 
-
     m_shop.create("SHOP_PAN", 400, 200,
                   Container<sf::Texture>::Instance()->GetResource("SHOP_PAN"));
-
 
     // -- SHOP --
     m_shopExit.create("SHOP_EXIT", 600, 400,
@@ -121,7 +119,7 @@ void GameView::showShopButton()
 
 void GameView::hideShopButton()
 {
-    getContentPane()->removeLastComponent();
+    getContentPane()->removeComponent(&m_shopEnter);
 }
 
 void GameView::showShop()
@@ -131,5 +129,5 @@ void GameView::showShop()
 
 void GameView::hideShop()
 {
-    getContentPane()->removeLastComponent();
+    getContentPane()->removeComponent(&m_shop);
 }

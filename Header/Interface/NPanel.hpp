@@ -38,6 +38,7 @@ class NPanel : public VisualObject
 
 		void addComponent(VisualObject * component);
 		void removeLastComponent();
+	    void removeComponent(VisualObject * component);
 		int getNumberOfComponents();
 		VisualObject * getLastComponent();
 };
