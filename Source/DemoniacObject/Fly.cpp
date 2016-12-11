@@ -13,11 +13,9 @@ Fly::Fly()
 					 FLY_ARMOR,
 					 FLY_SPRITESWAP)
 {
-	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PAPER_PLANE_1"));
-	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PAPER_PLANE_2"));
-	//getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FLY_1"));
-	//getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FLY_2"));
-	getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("PAPER_PLANE_3"));
+	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FLY_1"));
+	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FLY_2"));
+	getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("FLY_3"));
 	getDrawable().nextTexture();
 }
 
