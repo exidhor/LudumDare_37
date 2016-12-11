@@ -1,10 +1,13 @@
-#include <Memory/Container.hpp>
+#include <Utils/Patch.hpp>
 #include "View/ShopItem.hpp"
+#include <Memory/Container.hpp>
+
 
 /* explicit */ ShopItem::ShopItem(int x, int y,
     unsigned price, std::string const& key, std::string const& index)
 {
     // Buffering pointer
+    Container<sf::Font> * pFContainer = Container<sf::Font>::Instance();
     Container<sf::Texture> * pTContainer = Container<sf::Texture>::Instance();
 
     // Creating main pan
@@ -15,13 +18,20 @@
     m_image.create("PAN_IMAGE", x, y, pTContainer->GetResource(key));
 
     // Price
-    // TODO
+    m_price.create("PAN_PRICE", x + 30, y + 140, 25,
+                   pFContainer->GetResource("FONT"),
+                   fix::to_string(price), sf::Color::White);
 
     // Button
-    // TODO
+    m_buy.create(std::string("BUY_") + fix::to_string(index),
+                 x + 10, y + 180,
+                 pTContainer->GetResource("SHOP_BUY"),
+                 pTContainer->GetResource("SHOP_BUY"));
 
     // Pushing them back into the panel
     m_item.addComponent(&m_image);
+    m_item.addComponent(&m_price);
+    m_item.addComponent(&m_buy);
 }
 
 /* virtual */ ShopItem::~ShopItem()
