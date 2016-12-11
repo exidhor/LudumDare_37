@@ -57,6 +57,9 @@ void LoadAll()
     LoadTexture("FAT_FLY_2", buildPath(RES_PATH, MOUCHE_PATH, "mouche60_2.png"));
     LoadTexture("FAT_FLY_3", buildPath(RES_PATH, MOUCHE_PATH, "mouche60_3.png"));
 
+	// paper plane texture
+	LoadTexture("PAPER_PLANE_1", buildPath(RES_PATH, MONSTER_PATH, "paperplane.png"));
+
     // Pizza texture
     LoadTexture("SMALL_PIZZA_1", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_1.png"));
     LoadTexture("SMALL_PIZZA_2", buildPath(RES_PATH, PIZZA_PATH, "Pizzas70_2.png"));
