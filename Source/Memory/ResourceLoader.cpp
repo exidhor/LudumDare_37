@@ -40,6 +40,8 @@ void LoadAll()
     LoadTexture("SHOP_PAN", buildPath(RES_PATH, SHOP_PATH, "shop_overlay.png"));
     LoadTexture("SHOP_EXIT", buildPath(RES_PATH, SHOP_PATH, "close_button.png"));
     LoadTexture("SHOP_BUY", buildPath(RES_PATH, SHOP_PATH, "buy_button.png"));
+    LoadTexture("ITEM_BG", buildPath(RES_PATH, SHOP_PATH, "defense_overlay.png"));
+    LoadTexture("FLY_COUNTER", buildPath(RES_PATH, SHOP_PATH, "antimouche_overlay.png"));
 
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "FondRempli.png"));

@@ -2,6 +2,7 @@
 #define __GAME_VIEW_HPP
 
 #include "Interface/BasicInterface.hpp"
+#include "Shop.hpp"
 
 class GameView : public BasicInterface
 {
@@ -58,10 +59,10 @@ private:
 
     NButton m_exitButton;
     NButton m_optButton;
-
-    NPanel m_shop;
-    NButton m_shopExit;
     NButton m_shopEnter;
+
+    // Shop
+    Shop m_shop;
 };
 
 #endif // __GAME_VIEW_HPP
