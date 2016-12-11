@@ -38,6 +38,9 @@ void LoadAll()
     LoadTexture("OPT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_1.png"));
     LoadTexture("OPT_BP", buildPath(RES_PATH, INTERFACE_PATH, "topBarOptionButton_2.png"));
     LoadTexture("SHOP_PAN", buildPath(RES_PATH, SHOP_PATH, "shop_overlay.png"));
+    LoadTexture("SHOP_EXIT", buildPath(RES_PATH, SHOP_PATH, "close_button.png"));
+    LoadTexture("SHOP_BUY", buildPath(RES_PATH, SHOP_PATH, "buy_button.png"));
+
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "FondRempli.png"));
     // Fly texture
