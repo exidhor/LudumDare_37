@@ -13,6 +13,7 @@
 #include <View/GameView.hpp>
 #include "State.hpp"
 #include "Spawner.hpp"
+#include "Player/ClickEffect.hpp"
 
 class GameState : public State, public InputHandler, public Singleton < GameState >
 {
@@ -76,7 +77,7 @@ private:
     Drawable                m_screen;
     double                  m_screenElapsed;
 
-	Drawable                m_clickEffect;
+	ClickEffect             m_clickEffect;
 
 };
 
