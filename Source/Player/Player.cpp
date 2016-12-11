@@ -76,5 +76,5 @@ Drawable & Player::getDrawable()
 
 void Player::setMoney(unsigned long long int malus)
 {
-    m_$lotOfMoney$ -= malus;
+    m_$lotOfMoney$ = malus;
 }
