@@ -107,8 +107,8 @@ int Spawner::getHighestTokenCost(int token)
 {
     // Respecter la hierarchie ! Du plus grand au plus petit !
 
-    if(token >= 20)
-        return 20;
+    if(token >= 30)
+        return 30;
     if(token >= 15)
         return 15;
     else if(token >= 5)
@@ -127,7 +127,7 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
             return new FatFly();
         case 15 :
             return new SmallFly();
-        case 20 :
+        case 30 :
             return new PizzaZombie();
         default:
 			return new Fly();

@@ -39,6 +39,13 @@ void PauseState::onPollEvent(sf::Event &event, double elapsed)
     {
         StateMachine::Instance()->popState();
     }
+
+    if(event.type == sf::Event::KeyReleased)
+    {
+        if (event.key.code == 36)
+            StateMachine::Instance()->popState();
+
+    }
 }
 
 void PauseState::update(double dt)
