@@ -144,7 +144,8 @@ void GameView::showOverlay(std::string toPress, std::string randomMessage)
 {
     //m_overlayRandomMessage.setTexte(randomMessage);
     // Checking for it
-    if (getContentPane()->getComponent(&m_overlay) == nullptr) {
+    if (getContentPane()->getComponent(&m_overlay) == nullptr)
+    {
         m_overlayToPress.setTexte(toPress);
         getContentPane()->addComponent(&m_overlay);
     }

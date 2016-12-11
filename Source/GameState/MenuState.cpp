@@ -40,8 +40,6 @@
     {
         StateMachine::Instance()->exit();
     }
-
-    // clearInput(); // Hot fix
 }
 
 /* virtual */ void MenuState::draw(sf::RenderWindow& window)
@@ -51,7 +49,7 @@
 
 /* virtual */ bool MenuState::onEnter()
 {
-    MusicManager::Instance()->FadeInOut(4.0, "MENU");
+    MusicManager::Instance()->FadeInOut(2.0, "MENU");
     return true;
 }
 
