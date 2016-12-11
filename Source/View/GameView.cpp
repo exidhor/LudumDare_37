@@ -143,8 +143,11 @@ void GameView::hideShop()
 void GameView::showOverlay(std::string toPress, std::string randomMessage)
 {
     //m_overlayRandomMessage.setTexte(randomMessage);
-    m_overlayToPress.setTexte(toPress);
-    getContentPane()->addComponent(&m_overlay);
+    // Checking for it
+    if (getContentPane()->getComponent(&m_overlay) == nullptr) {
+        m_overlayToPress.setTexte(toPress);
+        getContentPane()->addComponent(&m_overlay);
+    }
 }
 
 void GameView::hideOverlay()
