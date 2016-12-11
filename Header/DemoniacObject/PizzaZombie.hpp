@@ -7,10 +7,10 @@
 
 #include "DemoniacObject.hpp"
 
-#define PIZZA_LIFE 10
-#define PIZZA_SPEED 4
-#define PIZZA_DAMAGE 10
-#define PIZZA_ARMOR 0
+#define PIZZA_LIFE 15
+#define PIZZA_SPEED 5
+#define PIZZA_DAMAGE 20
+#define PIZZA_ARMOR 3
 #define PIZZA_SPRITESWAP 0.10
 
 class PizzaZombie : public DemoniacObject
@@ -20,5 +20,18 @@ public:
     virtual ~PizzaZombie() {};
 };
 
+class SmallPizzaZombie : public DemoniacObject
+{
+public:
+    explicit SmallPizzaZombie();
+    virtual ~SmallPizzaZombie() {};
+};
+
+class FatPizzaZombie : public DemoniacObject
+{
+public:
+    explicit FatPizzaZombie();
+    virtual ~FatPizzaZombie() {};
+};
 
 #endif //LUDUMDARE_PIZZAZOMBIE_HPP
