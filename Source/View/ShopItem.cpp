@@ -24,7 +24,7 @@
 
     // Button
     m_buy.create(std::string("BUY_") + fix::to_string(index),
-                 x + 10, y + 180,
+                 x + 8, y + 180,
                  pTContainer->GetResource("SHOP_BUY"),
                  pTContainer->GetResource("SHOP_BUY"));
 
