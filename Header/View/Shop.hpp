@@ -28,7 +28,7 @@ public :
 
 private:
 
-    const int SHOP_PAN_POS_X = 317;
+    const int SHOP_PAN_POS_X = 230; //< 317 = center
     const int SHOP_PAN_POS_Y = 104;
     const int SHOP_ITEM_OFFSET = 100;
 
