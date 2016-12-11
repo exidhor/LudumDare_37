@@ -50,6 +50,26 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
     {
         m_view.showShop();
     }
+    else if(getComponentId().size() == 5)
+    {
+        std::string check = getComponentId().substr(0, 3);
+        if(check == "BUY")
+        {
+            char itemID = getComponentId()[4] - '0';
+            ShopItem * item = m_view.getShopItem((unsigned)itemID);
+
+            // Checking money
+            if(m_player.get$Money$() >= item->getPrice())
+            {
+                // Making course
+                m_player.setMoney(m_player.get$Money$() - item->getPrice());
+                std::cout << "Bought turret !" << std::endl;
+
+                // Closing store
+                m_view.hideShop();
+            }
+        }
+    }
 
     // Process player shoot
     if (event.type == sf::Event::MouseButtonPressed)
@@ -198,19 +218,20 @@ void GameState::update(double dt)
     }
     else
     {
-        // Shop phase
-        if(!m_shopPhase)
-        {
-            m_shopPhase = true;
-            m_view.showShopButton();
-        }
-
         m_nextRoundIn -= dt;
         m_view.setNextRoundIn(m_nextRoundIn > 0.0 ? (int)m_nextRoundIn : 0.0);
         if(m_nextRoundIn <= 0)
         {
             m_gamePhase = true;
             m_spawners.giveToken();
+        }
+
+        // Shop phase
+        if(!m_shopPhase)
+        {
+            m_shopPhase = true;
+            m_view.showShop();
+            m_view.showShopButton();
         }
     }
     m_player.update(dt);

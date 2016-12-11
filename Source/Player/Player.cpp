@@ -73,3 +73,8 @@ Drawable & Player::getDrawable()
 {
 	return m_drawable;
 }
+
+void Player::setMoney(unsigned long long int malus)
+{
+    m_$lotOfMoney$ -= malus;
+}

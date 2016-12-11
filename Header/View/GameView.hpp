@@ -51,6 +51,8 @@ public:
     void showShop();
     void hideShop();
 
+    ShopItem *getShopItem(unsigned int index);
+
 private:
 
     NLabel m_money;

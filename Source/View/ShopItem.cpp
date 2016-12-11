@@ -6,6 +6,8 @@
 /* explicit */ ShopItem::ShopItem(int x, int y,
     unsigned price, std::string const& key, std::string const& index)
 {
+    m_uprice = price;
+
     // Buffering pointer
     Container<sf::Font> * pFContainer = Container<sf::Font>::Instance();
     Container<sf::Texture> * pTContainer = Container<sf::Texture>::Instance();
@@ -42,4 +44,9 @@
 NPanel * ShopItem::getItemPan()
 {
     return &m_item;
+}
+
+unsigned int ShopItem::getPrice()
+{
+    return m_uprice;
 }

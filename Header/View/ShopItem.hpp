@@ -27,12 +27,16 @@ public :
     /// \return The item panel
     NPanel * getItemPan();
 
+    unsigned int getPrice();
+
 private:
 
     NPanel m_item;
     NPanel m_image;
     NLabel m_price;
     NButton m_buy;
+
+    unsigned int m_uprice;
 };
 
 #endif // __SHOP_ITEM_HPP

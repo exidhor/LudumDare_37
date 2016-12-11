@@ -26,6 +26,8 @@ public :
     /// \return A pointer on the shop pan
     NPanel * getShopPan();
 
+    ShopItem *getItem(unsigned int index);
+
 private:
 
     const int SHOP_PAN_POS_X = 230; //< 317 = center

@@ -156,3 +156,8 @@ void GameView::hideOverlay()
     getContentPane()->removeComponent(&m_overlay);
 }
 
+ShopItem * GameView::getShopItem(unsigned int index)
+{
+    return m_shop.getItem(index);
+}
+
