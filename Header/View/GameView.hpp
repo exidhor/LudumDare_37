@@ -39,8 +39,14 @@ public:
     void setDifficulty(unsigned int diff);
 
     void showBonusPhase();
-
     void hideBonusPhase();
+
+
+    // SHOP
+    void showShopButton();
+    void hideShopButton();
+    void showShop();
+    void hideShop();
 
 private:
 
@@ -52,6 +58,10 @@ private:
 
     NButton m_exitButton;
     NButton m_optButton;
+
+    NPanel m_shop;
+    NButton m_shopExit;
+    NButton m_shopEnter;
 };
 
 #endif // __GAME_VIEW_HPP
