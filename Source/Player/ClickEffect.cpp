@@ -1,8 +1,9 @@
 #include "Player/ClickEffect.hpp"
 
 
-ParticuleEffect::ParticuleEffect(sf::Vector2f const& position)
+ParticuleEffect::ParticuleEffect(sf::Vector2f const& position, float orientation)
 {
+	m_orientation = orientation;
 	m_position = position;
 	m_currentTime = 0;
 	m_timeToDie = TIME_EFFECT;
@@ -22,10 +23,10 @@ void ParticuleEffect::update(double dt)
 	sf::Vector2f newScale(m_currentScale, m_currentScale);
 
 	m_drawable.getSprite().setScale(newScale);
-	m_drawable.getSprite().setOrigin(0, 0);
-	m_drawable.getSprite().setPosition(m_position - 
-									       sf::Vector2f(m_drawable.getSprite().getGlobalBounds().width / 2,
-									                    m_drawable.getSprite().getGlobalBounds().height / 2));
+	m_drawable.getSprite().setOrigin(m_drawable.getSprite().getLocalBounds().width / 2,
+									 m_drawable.getSprite().getLocalBounds().height / 2);
+	m_drawable.getSprite().setPosition(m_position);
+	m_drawable.getSprite().setRotation(m_orientation);
 }
 
 bool ParticuleEffect::isDead() const
@@ -62,10 +63,12 @@ void ClickEffect::update(double time)
 
 void ClickEffect::addEffect(sf::Vector2f const& position)
 {
-	m_particules.push_back(ParticuleEffect(position));
+	float orientation = rand() % 360;
+	m_particules.push_back(ParticuleEffect(position, orientation));
 
 	m_particules.back().getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("CLICK_EFFECT"));
-	m_particules.back().getDrawable().nextTexture();
+	m_particules.back().getDrawable().nextTexture();	// generate a random orientation to make a little changement
+														// for each effect
 }
 
 void ClickEffect::draw(sf::RenderTarget & target)

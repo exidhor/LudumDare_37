@@ -51,7 +51,7 @@ void LoadAll()
     LoadTexture("PSCHIT_3", buildPath(RES_PATH, DRAW_PATH, "pschit3.png"));
 
 	// clickEffect
-	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "effetClic3.png"));
+	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "testEffect-goodSize.png"));
 
     // Loading musics
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
