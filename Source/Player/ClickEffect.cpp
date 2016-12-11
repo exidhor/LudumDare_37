@@ -27,6 +27,11 @@ void ParticuleEffect::update(double dt)
 									 m_drawable.getSprite().getLocalBounds().height / 2);
 	m_drawable.getSprite().setPosition(m_position);
 	m_drawable.getSprite().setRotation(m_orientation);
+
+	// fondu
+	sf::Color color = m_drawable.getSprite().getColor();
+	color.a = fabsf(m_currentTime - m_timeToDie) / m_timeToDie * 255;
+	m_drawable.getSprite().setColor(color);
 }
 
 bool ParticuleEffect::isDead() const
