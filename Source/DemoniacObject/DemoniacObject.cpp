@@ -107,6 +107,12 @@ void DemoniacObject::update(double dt)
 	{
 		m_drawable.activeDeathSprite();
 		m_deathElapsed+=dt;
+
+		sf::Color color = m_drawable.getSprite().getColor();
+		color.a = fabsf(m_deathElapsed - m_deathTreshold) / m_deathTreshold * 255;
+
+		m_drawable.getSprite().setColor(color);
+
 		if(m_deathElapsed >= m_deathTreshold)
 		{
 			m_toRemove = true;
