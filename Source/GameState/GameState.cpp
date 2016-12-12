@@ -243,6 +243,7 @@ void GameState::update(double dt)
 
 			m_player.increaseMoney(m_MONEY_PER_ROUND * (m_spawners.getDifficulty() + 1));
 			m_spawners.increaseDifficulty();
+			m_turretPositioningManager.increaseDifficulty();
 			// Shop phase duration
 			m_nextRoundIn = m_NEXT_ROUND_IN;
 			m_gamePhase = false;
