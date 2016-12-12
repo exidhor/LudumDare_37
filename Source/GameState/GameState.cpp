@@ -55,8 +55,8 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 				if (m_turrets[i]->getDrawable().getSprite().getPosition() == m_turretSelected->getDrawable().getSprite().getPosition())
 				{
 					// destroy the turret if it was at the same position
-					//delete m_turrets[i];
-					//m_turrets.erase(m_turrets.begin() + i);
+					delete m_turrets[i];
+					m_turrets.erase(m_turrets.begin() + i);
 					break;
 				}
 			}
@@ -96,7 +96,7 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 			if (m_player.get$Money$() >= item->getPrice())
 			{
 				m_turretIsSelected = true;
-				if(itemID == '0')
+				if(itemID == 0)
 					m_turretSelected = new Poison(sf::Vector2f());
 				else
 					m_turretSelected = new Ion(sf::Vector2f());
