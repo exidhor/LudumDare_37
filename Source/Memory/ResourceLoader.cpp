@@ -15,7 +15,7 @@
 #define MOTHER_PATH ("Images/Monstres/Mother/")
 #define TOWER_PATH ("Images/Tourelles/")
 #define POISON_PATH ("Images/Tourelles/Antimouche/")
-#define ION_PATH ("Images/Tourelles/Ion")
+#define ION_PATH ("Images/Tourelles/Ion/")
 #define SHOP_PATH ("Images/Shop/")
 #define BUTTON_PATH ("Images/Buttons/")
 
@@ -111,6 +111,10 @@ void LoadAll()
     LoadTexture("PSCHIT_1", buildPath(RES_PATH, POISON_PATH, "pschit1.png"));
     LoadTexture("PSCHIT_2", buildPath(RES_PATH, POISON_PATH, "pschit2.png"));
     LoadTexture("PSCHIT_3", buildPath(RES_PATH, POISON_PATH, "pschit3.png"));
+
+    LoadTexture("ION_IDLE", buildPath(RES_PATH, ION_PATH, "IonTurretIdle.png"));
+    LoadTexture("ION_SHOOT", buildPath(RES_PATH, ION_PATH, "IonTurretShoot.png"));
+    LoadTexture("ION", buildPath(RES_PATH, ION_PATH, "projectile_ion.png"));
 
 	// clickEffect
 	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "testEffect-goodSize.png"));
