@@ -26,7 +26,7 @@ class GameState : public State, public InputHandler, public Singleton < GameStat
     /// Public members
     //------------------------------------------------------------------------------------------------------------------
 public:
-    explicit            GameState              ();
+	explicit            GameState();
     virtual             ~GameState             ();
 
     /*!
@@ -79,6 +79,7 @@ private:
     bool                    m_bonusPhase;
     bool                    m_shopPhase;
 
+	sf::Window *            m_window;
 	bool                    m_turretIsSelected; // buy WIP
 	Turret*                 m_turretSelected;
 	TurretPositioning       m_turretPositioningManager;

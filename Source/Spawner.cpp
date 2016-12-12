@@ -109,6 +109,8 @@ int Spawner::getHighestTokenCost(int token)
 {
     // Respecter la hierarchie ! Du plus grand au plus petit !
 
+	if (token >= 300)
+		return 300;
     if(token >= 60)
         return 60;
     else if(token >= 40)
@@ -121,8 +123,6 @@ int Spawner::getHighestTokenCost(int token)
 		return 15;
 	else if (token >= 5)
 		return 5;
-	else if (token >= 2)
-		return 2;
     else
         return 1;
 }
@@ -133,8 +133,6 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
     {
         case 1 :
 			return new Fly();
-		case 2 :
-			return new Mom();
         case 5 :
             return new FatFly();
         case 15 :
@@ -147,6 +145,8 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
             return new SmallPizzaZombie();
         case 60 :
             return new FatPizzaZombie();
+		case 300 :
+			return new Mom();
 		
         default:
         std::cerr<< "Unknown token value : " << token << std::endl;

@@ -21,6 +21,9 @@ void Game::Init()
 
     //PoolAllocator<sf::Sprite>::Instance()->Init(100);
 
+	// link with the window
+	StateMachine::Instance()->window = &m_window;
+
     // Singleton, bitch please
     MenuState::Instance()->init();
 

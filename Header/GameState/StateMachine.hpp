@@ -74,8 +74,9 @@ public:
      */
     void exit();
 
-private:
+	sf::Window * window;
 
+private:
     std::vector < State * > m_gameStates;
 };
 

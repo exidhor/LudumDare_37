@@ -14,6 +14,7 @@
 
 /* Explicit */ GameState::GameState()
 : InputHandler(LD_DEBUG)
+, m_window(nullptr)
 , m_view(LD_DEBUG, this)
 , m_player(0)
 , m_world()
@@ -250,10 +251,14 @@ void GameState::update(double dt)
 			// todo : finish it (WIP)
 
 			// fin the closest point
-			//sf::Vector2f mousePosition(sf::Mouse::getPosition(window));
+			sf::Vector2f mousePosition(sf::Mouse::getPosition(*StateMachine::Instance()->window));
 
-			//unsigned index = MathHelper::getClosestPoint(closestPoint,
-			//											 m_turretPositioningManager.getPositions());
+			std::vector<sf::Vector2f> m_points = m_turretPositioningManager.getPositions();
+
+			unsigned index = MathHelper::getClosestPoint(mousePosition,
+														 m_turretPositioningManager.getPositions());
+		
+			m_turretSelected->getDrawable().getSprite().setPosition(m_points[index]);
 		}
     }
 
@@ -287,6 +292,12 @@ void GameState::draw(sf::RenderWindow & window)
     }
 
     m_world.addDrawable(&m_screen);
+	
+	if (m_turretIsSelected)
+	{
+		m_world.addDrawable(&m_turretSelected->getDrawable());
+	}
+
     m_world.draw(window);
 	m_clickEffect.draw(window);
     m_view.draw(&window);
