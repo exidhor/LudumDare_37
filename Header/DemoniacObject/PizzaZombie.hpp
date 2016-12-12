@@ -8,7 +8,7 @@
 #include "DemoniacObject.hpp"
 
 #define PIZZA_LIFE 40
-#define PIZZA_SPEED 5
+#define PIZZA_SPEED 7
 #define PIZZA_DAMAGE 5
 #define PIZZA_ARMOR 4
 #define PIZZA_SPRITESWAP 0.10
