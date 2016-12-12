@@ -114,7 +114,8 @@ void LoadAll()
     LoadTexture("PSCHIT_2", buildPath(RES_PATH, POISON_PATH, "pschit2.png"));
     LoadTexture("PSCHIT_3", buildPath(RES_PATH, POISON_PATH, "pschit3.png"));
 
-    LoadTexture("ION_IDLE", buildPath(RES_PATH, ION_PATH, "IonTurretIdle.png"));
+    LoadTexture("ION_IDLE", buildPath(RES_PATH, ION_PATH, "base_Tourelle_Ions_v2_assembly.png"));
+	LoadTexture("ION_CANON", buildPath(RES_PATH, ION_PATH, "Canon_tour_resize.png"));
     LoadTexture("ION_SHOOT", buildPath(RES_PATH, ION_PATH, "IonTurretShoot.png"));
     LoadTexture("ION", buildPath(RES_PATH, ION_PATH, "projectile_ion.png"));
 

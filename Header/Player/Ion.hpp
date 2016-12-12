@@ -18,6 +18,10 @@ public :
     Ion(sf::Vector2f const& position);
 
     Projectile * getProjectile(sf::Vector2f const &target);
+
+private:
+	Drawable m_canon;
+	sf::Vector2f m_endCanon;
 };
 
 
