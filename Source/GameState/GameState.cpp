@@ -418,3 +418,8 @@ void GameState::reset()
 
 	//m_turrets.push_back(new Poison(sf::Vector2f(250, 530)));
 }
+
+int GameState::getScore() {
+	return m_spawners.getDifficulty()+1;
+}
+

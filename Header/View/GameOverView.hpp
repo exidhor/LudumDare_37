@@ -7,6 +7,8 @@
 
 
 #include <Interface/BasicInterface.hpp>
+#include "Memory/Container.hpp"
+#include "GameState/GameState.hpp"
 
 class GameOverView : public BasicInterface
 {
@@ -31,9 +33,9 @@ public :
     virtual void draw(sf::RenderWindow * w);
 
 private:
+    NPanel m_background;
     NButton m_mainMenu;
     NButton m_replay;
-    NLabel m_score;
 };
 
 

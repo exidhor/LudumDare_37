@@ -3,11 +3,12 @@
 //
 
 #include "View/GameOverView.hpp"
-#include "Memory/Container.hpp"
 
 GameOverView::GameOverView(bool debug, InputHandler *inputHandler)
         : BasicInterface(debug, inputHandler)
 {
+    m_background.create("GAME_OVER_PANE",0,0,Container<sf::Texture>::Instance()->GetResource("GAMEOVER"));
+
     m_replay.create("REPLAY_BUTTON", 500, 400,
                     Container<sf::Texture>::Instance()->GetResource("REPLAY_R"),
                     Container<sf::Texture>::Instance()->GetResource("REPLAY_P"));
@@ -16,13 +17,9 @@ GameOverView::GameOverView(bool debug, InputHandler *inputHandler)
                             Container<sf::Texture>::Instance()->GetResource("MAIN_MENU_R"),
                             Container<sf::Texture>::Instance()->GetResource("MAIN_MENU_P"));
 
-    m_score.create("SCORE",400,200,25,
-                            Container<sf::Font>::Instance()->GetResource("FONT"),
-                   "Score : ", sf::Color::Black );
-
+    getContentPane()->addComponent(&m_background);
     getContentPane()->addComponent(&m_replay);
     getContentPane()->addComponent(&m_mainMenu);
-    getContentPane()->addComponent(&m_score);
 }
 
 GameOverView::~GameOverView()

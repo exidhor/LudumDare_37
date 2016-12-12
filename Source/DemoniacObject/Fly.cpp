@@ -9,7 +9,7 @@ Fly::Fly()
     : DemoniacObject(sf::Vector2f(), 
 					 FLY_LIFE, 
 					 FLY_SPEED,
-					 FLY_DAMAGE, 
+					 FLY_DAMAGE,
 					 FLY_ARMOR,
 					 FLY_SPRITESWAP)
 {
