@@ -71,7 +71,7 @@ private:
     Player                  m_player;
     World                   m_world;
     std::vector<DemoniacObject*> m_demoniacObjects;
-    std::vector<Turret>    m_turrets;
+    std::vector<Turret*>    m_turrets;
     std::vector<Projectile*>    m_projectiles;
 	Spawner                 m_spawners;
     bool                    m_gamePhase;
@@ -82,6 +82,7 @@ private:
 	sf::Window *            m_window;
 	bool                    m_turretIsSelected; // buy WIP
 	Turret*                 m_turretSelected;
+	unsigned                m_priceOfTheCurrentTurret;
 	TurretPositioning       m_turretPositioningManager;
 
     double                  m_nextRoundIn;
@@ -91,7 +92,7 @@ private:
 
 	ClickEffect             m_clickEffect;
 
-    const int               m_MONEY_PER_ROUND = 250;
+    const int               m_MONEY_PER_ROUND = 100000000250;
     const double            m_NEXT_ROUND_IN = 30.0;
     const double            m_TIME_SCREEN_SWAP = 0.2;
     const int               m_NEXT_BONUS_PHASE_MAX = 7;
