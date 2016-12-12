@@ -30,7 +30,7 @@
     m_items.push_back(new ShopItem(
             SHOP_PAN_POS_X + SHOP_ITEM_OFFSET * 4,
             SHOP_PAN_POS_Y + SHOP_ITEM_OFFSET - 60,
-            10,
+            3000,
             "ION_TURRETS",
             "1"));
 

@@ -28,11 +28,13 @@ GameState::GameState()
 	  , m_turretSelected(nullptr)
 	  , m_nextRoundIn(0.0)
 {
+
 }
 
 /* Virtual */
 GameState::~GameState()
 {
+
 }
 
 void GameState::onPollEvent(sf::Event& event, double elapsed)
@@ -143,7 +145,7 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 					}
 				}
 				else if (m_bonusPhase)
-					m_player.increaseMoney(100);
+					m_player.increaseMoney(10);
 			}
 		}
 	}

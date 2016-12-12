@@ -29,7 +29,11 @@ DemoniacObject* Spawner::spawn()
 	{
 		m_itsTimeToSpawn = false;
 
-        int token = rand() % m_token;
+        int token;
+        if(m_token < 120)
+            token = rand() % m_token;
+        else
+            token = rand() % 120;
 
         token = getHighestTokenCost(token);
 
@@ -109,20 +113,28 @@ int Spawner::getHighestTokenCost(int token)
 {
     // Respecter la hierarchie ! Du plus grand au plus petit !
 
-	if (token >= 300)
-		return 300;
-    if(token >= 60)
-        return 60;
-    else if(token >= 40)
+        // Mom
+	if (m_difficulty > 14 && token >= 100)
+		return 100;
+        // Fat Pizza
+    if(m_difficulty > 9 && token >= 40)
         return 40;
-    else if(token >= 30)
+        // Small Pizza
+    else if(m_difficulty > 6 && token >= 35)
+        return 35;
+        // Pizza
+    else if(m_difficulty > 5 && token >= 30)
         return 30;
-	if (token >= 20)
+        // Small Fly
+	else if (m_difficulty > 4 && token >= 20)
 		return 20;
-	if (token >= 15)
+        // Fat Fly
+	else if (m_difficulty > 2 && token >= 10)
 		return 15;
-	else if (token >= 5)
+        // Fly
+	else if (m_difficulty > 1 && token >= 5)
 		return 5;
+        // Paper plane
     else
         return 1;
 }
@@ -132,22 +144,21 @@ DemoniacObject *Spawner::createDemoniacObjectWithToken(int token)
     switch(token)
     {
         case 1 :
-			return new Fly();
-        case 5 :
-            return new FatFly();
-        case 15 :
-            return new PizzaZombie();
-		case 20 :
 			return new PaperPlane();
+        case 5 :
+            return new Fly();
+        case 15 :
+            return new FatFly();
+		case 20 :
+			return new SmallFly();
         case 30 :
-            return new SmallFly();
-        case 40 :
+            return new PizzaZombie();
+        case 35 :
             return new SmallPizzaZombie();
-        case 60 :
+        case 40 :
             return new FatPizzaZombie();
-		case 300 :
+		case 100 :
 			return new Mom();
-		
         default:
         std::cerr<< "Unknown token value : " << token << std::endl;
 			return new Fly();

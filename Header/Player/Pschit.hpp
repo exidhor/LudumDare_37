@@ -8,7 +8,7 @@
 #include "Player/Projectile.hpp"
 
 #define SPEED 0
-#define DAMAGE 10
+#define DAMAGE 15
 #define TIME_BETWEEN_SWAP 0.1
 
 class Pschit : public Projectile

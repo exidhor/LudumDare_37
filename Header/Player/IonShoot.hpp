@@ -8,7 +8,7 @@
 #include "Projectile.hpp"
 
 #define SPEED_ION 1
-#define DAMAGE_ION 2
+#define DAMAGE_ION 35
 #define TIME_BETWEEN_SWAP_ION 1000.0
 
 class IonShoot : public Projectile

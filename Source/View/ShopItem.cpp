@@ -20,17 +20,18 @@
     m_image.create("PAN_IMAGE", x, y, pTContainer->GetResource(key));
 
     // Price
-    m_price.create("PAN_PRICE", x + 30, y + 140, 25,
-                   pFContainer->GetResource("FONT"),
-                   fix::to_string(price), sf::Color::White);
-
-    // Button
     if(price != 0)
+    {
+        m_price.create("PAN_PRICE", x + 30, y + 140, 25,
+                       pFContainer->GetResource("FONT"),
+                       fix::to_string(price), sf::Color::White);
+
+        // Button
         m_buy.create(std::string("BUY_") + fix::to_string(index),
                      x + 8, y + 180,
                      pTContainer->GetResource("SHOP_BUY"),
                      pTContainer->GetResource("SHOP_BUY"));
-
+    }
 
     // Pushing them back into the panel
     m_item.addComponent(&m_image);

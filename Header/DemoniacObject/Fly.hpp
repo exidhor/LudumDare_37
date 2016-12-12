@@ -7,10 +7,10 @@
 
 #include "DemoniacObject/DemoniacObject.hpp"
 
-#define FLY_LIFE 10
+#define FLY_LIFE 20
 #define FLY_SPEED 4
-#define FLY_DAMAGE 10
-#define FLY_ARMOR 0
+#define FLY_DAMAGE 2
+#define FLY_ARMOR 2
 #define FLY_SPRITESWAP 0.05
 
 class Fly : public DemoniacObject
