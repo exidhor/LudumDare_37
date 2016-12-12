@@ -18,6 +18,7 @@
 #define ION_PATH ("Images/Tourelles/Ion/")
 #define SHOP_PATH ("Images/Shop/")
 #define BUTTON_PATH ("Images/Buttons/")
+#define MENU_PATH ("Images/Menu/")
 
 #ifdef MVS
     #define RES_PATH ("../LudumDare_37/Res/")
@@ -42,6 +43,10 @@ void LoadAll()
 
     LoadTexture("SHOP_EXIT_R", buildPath(RES_PATH, BUTTON_PATH, "RedCrossR.png"));
     LoadTexture("SHOP_EXIT_P", buildPath(RES_PATH, BUTTON_PATH, "RedCrossP.png"));
+
+    LoadTexture("MENU_BG", buildPath(RES_PATH, MENU_PATH, "MenuBG.png"));
+
+
 
     LoadTexture("REPLAY_R", buildPath(RES_PATH, BUTTON_PATH, "ReplayButtonR.png"));
     LoadTexture("REPLAY_P", buildPath(RES_PATH, BUTTON_PATH, "ReplayButtonP.png"));

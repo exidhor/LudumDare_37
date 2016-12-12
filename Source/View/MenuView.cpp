@@ -6,14 +6,18 @@
 {
     Container <sf::Texture> * p_Tcontainer = Container<sf::Texture>::Instance();
 
-    m_startButton.create("START_BUTTON", 500, 200,
+    m_background.create("MENU", 0, 0,
+                        Container<sf::Texture>::Instance()->GetResource("MENU_BG"));
+
+    m_startButton.create("START_BUTTON", 560, 270,
          Container<sf::Texture>::Instance()->GetResource("PLAY_R"),
          Container<sf::Texture>::Instance()->GetResource("PLAY_P"));
 
-    m_exitButton.create("EXIT_BUTTON", 500, 400,
+    m_exitButton.create("EXIT_BUTTON", 560, 420,
         Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
         Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
 
+    getContentPane()->addComponent(&m_background);
     getContentPane()->addComponent(&m_startButton);
     getContentPane()->addComponent(&m_exitButton);
 }

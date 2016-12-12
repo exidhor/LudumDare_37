@@ -28,6 +28,7 @@ public:
 
 private:
 
+	NPanel  m_background;  ///< Menu
 	NButton m_startButton; ///< Start button
 	NButton m_exitButton;  ///< Exit button
 };
