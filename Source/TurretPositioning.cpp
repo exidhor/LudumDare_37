@@ -7,19 +7,21 @@ TurretPositioning::TurretPositioning()
 
 	// init hard coded position
 	m_allPositions.push_back(sf::Vector2f(905, 750));
-	m_allPositions.push_back(sf::Vector2f(675, 690));
-	m_allPositions.push_back(sf::Vector2f(425, 620));
+	m_allPositions.push_back(sf::Vector2f(1225, 285));
+	m_allPositions.push_back(sf::Vector2f(630, 485));
 
 	m_allPositions.push_back(sf::Vector2f(105, 695));
 	m_allPositions.push_back(sf::Vector2f(250, 530));
 
 	m_allPositions.push_back(sf::Vector2f(360, 365));
 
-	m_allPositions.push_back(sf::Vector2f(630, 485));
+	m_allPositions.push_back(sf::Vector2f(425, 620));
 	
 	m_allPositions.push_back(sf::Vector2f(950, 350));
+
+	m_allPositions.push_back(sf::Vector2f(675, 690));
 	
-	m_allPositions.push_back(sf::Vector2f(1225, 285));
+
 
 	// init tiers
 	m_tierIndices.push_back(NUMBER_POSITION_UNLOCKED_TIER_0);
@@ -55,6 +57,16 @@ void TurretPositioning::increaseDifficulty()
 std::vector<sf::Vector2f> const& TurretPositioning::getPositions()
 {
 	return m_unlockedPositions;
+}
+
+void TurretPositioning::draw(sf::RenderTarget & renderTarget, Drawable & turret)
+{
+	for(int i = 0; i < m_unlockedPositions.size(); i++)
+	{
+		turret.getSprite().setPosition(m_unlockedPositions[i]);
+		turret.getSprite().setColor(sf::Color(30, 30, 30, 150));
+		renderTarget.draw(turret.getSprite());
+	}
 }
 
 bool TurretPositioning::unlockedTier()

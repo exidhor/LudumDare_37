@@ -95,8 +95,7 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 			{
 				m_turretIsSelected = true;
 				m_turretSelected = new Poison(sf::Vector2f());
-				// in selection, not draw at 100%
-				m_turretSelected->getDrawable().getSprite().setColor(sf::Color(255, 255, 255, 125));
+
 				m_priceOfTheCurrentTurret = item->getPrice();
 				// Closing store
 				m_view.hideShop();
@@ -280,7 +279,7 @@ void GameState::update(double dt)
 			unsigned index = MathHelper::getClosestPoint(mousePosition,
 			                                             m_turretPositioningManager.getPositions());
 
-			m_turretSelected->getDrawable().getSprite().setPosition(m_points[index]);
+			m_currentPosition = m_points[index];
 		}
 	}
 
@@ -315,12 +314,19 @@ void GameState::draw(sf::RenderWindow& window)
 
 	m_world.addDrawable(&m_screen);
 
+	m_world.draw(window);
+
 	if (m_turretIsSelected)
 	{
-		m_world.addDrawable(&m_turretSelected->getDrawable());
+		m_turretPositioningManager.draw(window, m_turretSelected->getDrawable());
+
+		// in selection, not draw at 100%
+		m_turretSelected->getDrawable().getSprite().setColor(sf::Color(255, 255, 255, 125));
+
+		m_turretSelected->getDrawable().getSprite().setPosition(m_currentPosition);
+		window.draw(m_turretSelected->getDrawable().getSprite());
 	}
 
-	m_world.draw(window);
 	m_clickEffect.draw(window);
 	m_view.draw(&window);
 	if (m_bonusPhase)

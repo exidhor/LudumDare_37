@@ -82,6 +82,7 @@ private:
 	sf::Window *            m_window;
 	bool                    m_turretIsSelected; // buy WIP
 	Turret*                 m_turretSelected;
+	sf::Vector2f            m_currentPosition;
 	unsigned                m_priceOfTheCurrentTurret;
 	TurretPositioning       m_turretPositioningManager;
 

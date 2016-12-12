@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include "Graphics/Drawable.hpp"
 
 #define INCREASE_TIER_SPEED 3
 
@@ -21,6 +23,8 @@ public :
 	void increaseDifficulty();
 
 	std::vector<sf::Vector2f> const& getPositions();
+
+	void draw(sf::RenderTarget & renderTarget, Drawable & turret);
 
 private:
 	bool unlockedTier();
