@@ -16,7 +16,7 @@ class Overlay
     //------------------------------------------------------------------------------------------------------------------
 public:
 
-    static const long   m_OVERLAY_REWARD = 100;
+    static const long   m_OVERLAY_REWARD = 1000;
 
     explicit            Overlay                 ();
     virtual             ~Overlay                ();
@@ -42,8 +42,8 @@ private:
     bool                    m_overlayPhase;
     int                     m_randomMessageId;
 
-    const int               m_NEXT_OVERLAY_PHASE_MAX = 5;
-    const int               m_NEXT_OVERLAY_PHASE_MIN = 3;
+    const int               m_NEXT_OVERLAY_PHASE_MAX = 7;
+    const int               m_NEXT_OVERLAY_PHASE_MIN = 5;
 
     std::vector<std::string> m_randomMessage;
 };

@@ -15,7 +15,6 @@
 /* Explicit */
 GameState::GameState()
 	: InputHandler(LD_DEBUG)
-	  , m_window(nullptr)
 	  , m_view(LD_DEBUG, this)
 	  , m_player(0)
 	  , m_world()
@@ -23,6 +22,7 @@ GameState::GameState()
 	  , m_gamePhase(true)
 	  , m_bonusPhase(false)
 	  , m_shopPhase(false)
+      , m_window(nullptr)
 	  , m_turretIsSelected(false)
 	  , m_turretSelected(nullptr)
 	  , m_nextRoundIn(0.0)
@@ -38,7 +38,7 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 {
 	m_view.processInput(event);
 
-	// Process turret positioning 
+	// Process turret positioning
 	if (m_turretIsSelected)
 	{
 		if (event.type == sf::Event::MouseButtonPressed)
@@ -47,7 +47,7 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 			m_player.setMoney(m_player.get$Money$() - m_priceOfTheCurrentTurret);
 
 			// verify if there was a turret their
-			for (int i = 0; i < m_turrets.size(); i++)
+			for (int i = 0; i < (int)m_turrets.size(); i++)
 			{
 				if (m_turrets[i]->getDrawable().getSprite().getPosition() == m_turretSelected->getDrawable().getSprite().getPosition())
 				{
@@ -131,9 +131,8 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 		{
 			if (m_gamePhase)
 			{
-				if (m_bonusPhase)
-					m_player.increaseMoney(100);
-				else if (m_overlay.isOverlayPhase())
+
+				if (m_overlay.isOverlayPhase())
 				{
 					if (event.key.code == m_overlay.getKeycode())
 					{
@@ -141,6 +140,8 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 						m_player.increaseMoney(m_spawners.getDifficulty() * Overlay::m_OVERLAY_REWARD);
 					}
 				}
+				else if (m_bonusPhase)
+					m_player.increaseMoney(100);
 			}
 		}
 	}
@@ -222,7 +223,7 @@ void GameState::update(double dt)
 		// End of round
 		if (m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
 		{
-			if (m_overlay.isOverlayPhase())
+			if (!m_overlay.isOverlayPhase())
 			{
 				m_overlay.prepareNextOverlayEvent();
 			}
@@ -331,19 +332,19 @@ void GameState::draw(sf::RenderWindow& window)
 	}
 
 	m_clickEffect.draw(window);
-	m_view.draw(&window);
-	if (m_bonusPhase)
-		m_view.showBonusPhase();
-	else
-		m_view.hideBonusPhase();
-	if (m_overlay.isOverlayPhase())
-	{
-		m_view.showOverlay(std::string(1, m_overlay.getCharFromKeyCode()), m_overlay.getRandomMessage());
-	}
-	else
-	{
-		m_view.hideOverlay();
-	}
+    m_view.draw(&window);
+    if(m_bonusPhase)
+        m_view.showBonusPhase();
+    else
+        m_view.hideBonusPhase();
+    if(m_gamePhase && m_overlay.isOverlayPhase())
+    {
+        m_view.showOverlay(std::string(1, m_overlay.getCharFromKeyCode()), m_overlay.getRandomMessage());
+    }
+    else
+    {
+        m_view.hideOverlay();
+    }
 }
 
 bool GameState::onEnter()
