@@ -7,10 +7,10 @@
 
 #include "DemoniacObject.hpp"
 
-#define PIZZA_LIFE 15
+#define PIZZA_LIFE 40
 #define PIZZA_SPEED 5
-#define PIZZA_DAMAGE 20
-#define PIZZA_ARMOR 3
+#define PIZZA_DAMAGE 5
+#define PIZZA_ARMOR 4
 #define PIZZA_SPRITESWAP 0.10
 
 class PizzaZombie : public DemoniacObject

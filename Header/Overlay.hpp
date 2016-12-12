@@ -16,7 +16,7 @@ class Overlay
     //------------------------------------------------------------------------------------------------------------------
 public:
 
-    static const long   m_OVERLAY_REWARD = 1000;
+    static const long   m_OVERLAY_REWARD = 500;
 
     explicit            Overlay                 ();
     virtual             ~Overlay                ();
