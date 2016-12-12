@@ -94,7 +94,7 @@ private:
 	ClickEffect             m_clickEffect;
 
     const int               m_MONEY_PER_ROUND = 100000000250;
-    const double            m_NEXT_ROUND_IN = 30.0;
+    const double            m_NEXT_ROUND_IN = 5.0;
     const double            m_TIME_SCREEN_SWAP = 0.2;
     const int               m_NEXT_BONUS_PHASE_MAX = 7;
     const int               m_NEXT_BONUS_PHASE_MIN = 5;

@@ -47,7 +47,9 @@ void TurretPositioning::increaseDifficulty()
 		m_tier++;
 		unsigned numberPositionToUnlocked = m_tierIndices[m_tier];
 
-		for(unsigned i = m_unlockedPositions.size(); i < m_unlockedPositions.size() + numberPositionToUnlocked; i++)
+		unsigned newUnlockedSize = m_unlockedPositions.size() + numberPositionToUnlocked;
+
+		for(unsigned i = m_unlockedPositions.size(); i < newUnlockedSize; i++)
 		{
 			m_unlockedPositions.push_back(m_allPositions[i]);
 		}
