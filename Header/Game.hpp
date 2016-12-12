@@ -22,10 +22,9 @@ public:
 
 private:
 	sf::RenderWindow    m_window;
-	sf::CircleShape     m_shape;
     Player*             m_player;
 };
 
 #endif // __GAME_HPP
 
-// monstres ou sont ils geré
+// monstres ou sont ils ger

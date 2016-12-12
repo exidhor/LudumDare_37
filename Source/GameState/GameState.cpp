@@ -10,6 +10,7 @@
 #include "Music/MusicManager.hpp"
 #include <GameState/StateMachine.hpp>
 #include <GameState/PauseState.hpp>
+#include "Player/Pschit.hpp"
 
 /* Explicit */ GameState::GameState()
 : InputHandler(LD_DEBUG)
@@ -20,6 +21,8 @@
 , m_gamePhase(true)
 , m_bonusPhase(false)
 , m_shopPhase(false)
+, m_turretIsSelected(false)
+, m_turretSelected(nullptr)
 , m_nextRoundIn(0.0)
 {
 
@@ -63,8 +66,13 @@ void GameState::onPollEvent(sf::Event &event, double elapsed)
             // Checking money
             if(m_player.get$Money$() >= item->getPrice())
             {
+				m_turretIsSelected = true;
+				m_turretSelected = new Poison(sf::Vector2f()); // todo : selected the turret
+				// in selection, not draw at 100%
+            	m_turretSelected->getDrawable().getSprite().setColor(sf::Color(255, 255, 255, 125));
+
                 // Making course
-                m_player.setMoney(m_player.get$Money$() - item->getPrice());
+                //m_player.setMoney(m_player.get$Money$() - item->getPrice());
 
                 // Closing store
                 m_view.hideShop();
@@ -235,6 +243,18 @@ void GameState::update(double dt)
             m_view.showShopButton();
             m_view.showShop();
         }
+
+		// turret Positioning
+		if(m_turretIsSelected)
+		{
+			// todo : finish it (WIP)
+
+			// fin the closest point
+			//sf::Vector2f mousePosition(sf::Mouse::getPosition(window));
+
+			//unsigned index = MathHelper::getClosestPoint(closestPoint,
+			//											 m_turretPositioningManager.getPositions());
+		}
     }
 
     m_player.update(dt);

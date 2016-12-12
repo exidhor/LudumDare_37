@@ -16,6 +16,7 @@
 #include "Spawner.hpp"
 #include "Player/ClickEffect.hpp"
 #include "Player/Poison.hpp"
+#include "TurretPositioning.hpp"
 
 #define NUMBER_SPRITE 400
 
@@ -77,6 +78,11 @@ private:
     int                     m_nextBonusPhaseIn;
     bool                    m_bonusPhase;
     bool                    m_shopPhase;
+
+	bool                    m_turretIsSelected; // buy WIP
+	Turret*                 m_turretSelected;
+	TurretPositioning       m_turretPositioningManager;
+
     double                  m_nextRoundIn;
     Drawable                m_screen;
     double                  m_screenElapsed;
@@ -85,7 +91,7 @@ private:
 	ClickEffect             m_clickEffect;
 
     const int               m_MONEY_PER_ROUND = 250;
-    const double            m_NEXT_ROUND_IN = 10.0;
+    const double            m_NEXT_ROUND_IN = 30.0;
     const double            m_TIME_SCREEN_SWAP = 0.2;
     const int               m_NEXT_BONUS_PHASE_MAX = 7;
     const int               m_NEXT_BONUS_PHASE_MIN = 5;

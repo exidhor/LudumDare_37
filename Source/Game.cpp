@@ -6,9 +6,8 @@
 
 Game::Game()
 : m_window(sf::VideoMode(1280, 768), "LD 37")
-, m_shape(100.f)
 {
-	m_shape.setFillColor(sf::Color::Green);
+
 }
 
 void Game::Init()
