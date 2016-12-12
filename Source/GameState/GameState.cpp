@@ -10,6 +10,7 @@
 #include "Music/MusicManager.hpp"
 #include <GameState/StateMachine.hpp>
 #include <GameState/PauseState.hpp>
+#include <Player/Ion.hpp>
 #include "Player/Pschit.hpp"
 
 /* Explicit */
@@ -89,13 +90,14 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 		{
 			char itemID = getComponentId()[4] - '0';
 			ShopItem* item = m_view.getShopItem((unsigned)itemID);
-
 			// Checking money
 			if (m_player.get$Money$() >= item->getPrice())
 			{
 				m_turretIsSelected = true;
-				m_turretSelected = new Poison(sf::Vector2f());
-
+				if(itemID == '0')
+					m_turretSelected = new Poison(sf::Vector2f());
+				else
+					m_turretSelected = new Ion(sf::Vector2f());
 				m_priceOfTheCurrentTurret = item->getPrice();
 				// Closing store
 				m_view.hideShop();

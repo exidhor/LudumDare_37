@@ -25,10 +25,12 @@
                    fix::to_string(price), sf::Color::White);
 
     // Button
-    m_buy.create(std::string("BUY_") + fix::to_string(index),
-                 x + 8, y + 180,
-                 pTContainer->GetResource("SHOP_BUY"),
-                 pTContainer->GetResource("SHOP_BUY"));
+    if(price != 0)
+        m_buy.create(std::string("BUY_") + fix::to_string(index),
+                     x + 8, y + 180,
+                     pTContainer->GetResource("SHOP_BUY"),
+                     pTContainer->GetResource("SHOP_BUY"));
+
 
     // Pushing them back into the panel
     m_item.addComponent(&m_image);

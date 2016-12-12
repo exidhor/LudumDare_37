@@ -65,6 +65,8 @@ void LoadAll()
     LoadTexture("SHOP_BUY", buildPath(RES_PATH, SHOP_PATH, "buy_button.png"));
     LoadTexture("ITEM_BG", buildPath(RES_PATH, SHOP_PATH, "defense_overlay.png"));
     LoadTexture("FLY_COUNTER", buildPath(RES_PATH, SHOP_PATH, "antimouche_overlay.png"));
+    LoadTexture("ION_TURRETS", buildPath(RES_PATH, SHOP_PATH, "ion_overlay.png"));
+    LoadTexture("UNAVAILABLE", buildPath(RES_PATH, SHOP_PATH, "unavailable_overlay.png"));
 
     LoadTexture("BACKGROUND", buildPath(RES_PATH, FOND_PATH, "Fond.png"));
     LoadTexture("OVERLAY_ALERT", buildPath(RES_PATH, FOND_PATH, "Overlay_alerte.png"));

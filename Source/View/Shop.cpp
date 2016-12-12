@@ -30,22 +30,22 @@
     m_items.push_back(new ShopItem(
             SHOP_PAN_POS_X + SHOP_ITEM_OFFSET * 4,
             SHOP_PAN_POS_Y + SHOP_ITEM_OFFSET - 60,
-            10000,
-            "FLY_COUNTER",
+            10,
+            "ION_TURRETS",
             "1"));
 
     m_items.push_back(new ShopItem(
             SHOP_PAN_POS_X + SHOP_ITEM_OFFSET,
             SHOP_PAN_POS_Y + SHOP_ITEM_OFFSET * 3,
-            100000,
-            "FLY_COUNTER",
+            0,
+            "UNAVAILABLE",
             "2"));
 
     m_items.push_back(new ShopItem(
             SHOP_PAN_POS_X + SHOP_ITEM_OFFSET * 4,
             SHOP_PAN_POS_Y + SHOP_ITEM_OFFSET * 3,
-            1000000,
-            "FLY_COUNTER",
+            0,
+            "UNAVAILABLE",
             "3"));
 
     // Adding items
