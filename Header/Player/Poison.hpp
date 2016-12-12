@@ -8,7 +8,7 @@
 #include <SFML/System.hpp>
 #include "Player/Turret.hpp"
 
-#define TIME_BETWEEN_SHOT 0.5
+#define TIME_BETWEEN_SHOT 2
 #define TARGETING_RANGE 50
 #define SHOOTING_RANGE 50
 

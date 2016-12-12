@@ -198,7 +198,9 @@ void GameState::update(double dt)
 		for (int i = 0; i < (int) m_turrets.size(); i++)
 		{
 			m_turrets[i]->update(dt, m_world);
+
 			Projectile* projectile = m_turrets[i]->shoot();
+
 			if (projectile != nullptr)
 			{
 				m_projectiles.push_back(projectile);
