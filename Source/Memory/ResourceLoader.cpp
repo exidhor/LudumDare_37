@@ -28,10 +28,10 @@
 void LoadAll()
 {
     // Loading textures
-    LoadTexture("PLAY_R", buildPath(RES_PATH, INTERFACE_PATH, "PlayR.png"));
-    LoadTexture("PLAY_P", buildPath(RES_PATH, INTERFACE_PATH, "PlayP.png"));
-    LoadTexture("QUIT_R", buildPath(RES_PATH, INTERFACE_PATH, "QuitR.png"));
-    LoadTexture("QUIT_P", buildPath(RES_PATH, INTERFACE_PATH, "QuitP.png"));
+    LoadTexture("PLAY_R", buildPath(RES_PATH, BUTTON_PATH, "PlayButtonR.png"));
+    LoadTexture("PLAY_P", buildPath(RES_PATH, BUTTON_PATH, "PlayButtonP.png"));
+    LoadTexture("QUIT_R", buildPath(RES_PATH, BUTTON_PATH, "ExitButtonR.png"));
+    LoadTexture("QUIT_P", buildPath(RES_PATH, BUTTON_PATH, "ExitButtonP.png"));
     LoadTexture("CSOUND", buildPath(RES_PATH, INTERFACE_PATH, "LenR.png"));
 
     LoadTexture("EXIT_BR", buildPath(RES_PATH, INTERFACE_PATH, "topBarExitButton_1.png"));
@@ -43,6 +43,14 @@ void LoadAll()
     LoadTexture("SHOP_EXIT_R", buildPath(RES_PATH, BUTTON_PATH, "RedCrossR.png"));
     LoadTexture("SHOP_EXIT_P", buildPath(RES_PATH, BUTTON_PATH, "RedCrossP.png"));
 
+    LoadTexture("REPLAY_R", buildPath(RES_PATH, BUTTON_PATH, "ReplayButtonR.png"));
+    LoadTexture("REPLAY_P", buildPath(RES_PATH, BUTTON_PATH, "ReplayButtonP.png"));
+
+    LoadTexture("MAIN_MENU_R", buildPath(RES_PATH, BUTTON_PATH, "MainMenuButtonR.png"));
+    LoadTexture("MAIN_MENU_P", buildPath(RES_PATH, BUTTON_PATH, "MainMenuButtonP.png"));
+
+    LoadTexture("BACK_R", buildPath(RES_PATH, BUTTON_PATH, "BackToTheGameButtonR.png"));
+    LoadTexture("BACK_P", buildPath(RES_PATH, BUTTON_PATH, "BackToTheGameButtonP.png"));
 
     LoadTexture("SHOP_ENTER_P", buildPath(RES_PATH, BUTTON_PATH, "ShopButtonP.png"));
     LoadTexture("SHOP_ENTER_R", buildPath(RES_PATH, BUTTON_PATH, "ShopButtonR.png"));

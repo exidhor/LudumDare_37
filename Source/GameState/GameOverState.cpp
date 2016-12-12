@@ -23,7 +23,19 @@ void GameOverState::update(double dt)
 
 void GameOverState::onPollEvent(sf::Event &event, double elapsed)
 {
+    m_view.processInput(event);
 
+    if(getComponentId() == "RESUME_BUTTON")
+    {
+        StateMachine::Instance()->popState();
+        GameState::Instance()->reset();
+    }
+
+    if(getComponentId() == "BACK_TO_MAIN_MENU")
+    {
+        StateMachine::Instance()->popState();
+        StateMachine::Instance()->popState();
+    }
 }
 
 void GameOverState::draw(sf::RenderWindow &window)

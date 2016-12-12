@@ -9,12 +9,12 @@ GameOverView::GameOverView(bool debug, InputHandler *inputHandler)
         : BasicInterface(debug, inputHandler)
 {
     m_replay.create("REPLAY_BUTTON", 500, 400,
-                    Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
-                    Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
+                    Container<sf::Texture>::Instance()->GetResource("REPLAY_R"),
+                    Container<sf::Texture>::Instance()->GetResource("REPLAY_P"));
 
     m_mainMenu.create("BACK_TO_MAIN_MENU", 500, 500,
-                            Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
-                            Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
+                            Container<sf::Texture>::Instance()->GetResource("MAIN_MENU_R"),
+                            Container<sf::Texture>::Instance()->GetResource("MAIN_MENU_P"));
 
     m_score.create("SCORE",400,200,25,
                             Container<sf::Font>::Instance()->GetResource("FONT"),

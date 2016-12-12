@@ -5,12 +5,12 @@
 : BasicInterface(debug, inputHandler)
 {
     m_resume.create("RESUME_BUTTON", 500, 400,
-                        Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
-                        Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
+                        Container<sf::Texture>::Instance()->GetResource("BACK_R"),
+                        Container<sf::Texture>::Instance()->GetResource("BACK_P"));
 
     m_backToMainMenu.create("BACK_TO_MAIN_MENU", 500, 500,
-                  Container<sf::Texture>::Instance()->GetResource("QUIT_R"),
-                  Container<sf::Texture>::Instance()->GetResource("QUIT_P"));
+                  Container<sf::Texture>::Instance()->GetResource("MAIN_MENU_R"),
+                  Container<sf::Texture>::Instance()->GetResource("MAIN_MENU_P"));
 
 
     getContentPane()->addComponent(&m_resume);

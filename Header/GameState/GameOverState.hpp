@@ -7,6 +7,8 @@
 
 #include <Utils/Singleton.hpp>
 #include <View/GameOverView.hpp>
+#include "GameState/StateMachine.hpp"
+#include "GameState/GameState.hpp"
 #include "State.hpp"
 
 class GameOverState : public State, public Singleton < GameOverState >, public InputHandler

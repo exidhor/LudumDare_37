@@ -13,7 +13,7 @@
     m_randomMessage.push_back(".:H4CK3D_BY_FOX_M4C_T4G:.");
     m_randomMessage.push_back("Ping... Pong");
     m_randomMessage.push_back("Mama mia !");
-    m_randomMessage.push_back("Let's build a firewall !");
+    m_randomMessage.push_back("Let's build a wall... A firewall !");
 }
 
 /* Virtual */ Overlay::~Overlay()
