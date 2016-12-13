@@ -99,7 +99,7 @@ IF(CMAKE_BUILD_TYPE MATCHES Debug)
 
 ELSEIF(CMAKE_BUILD_TYPE MATCHES Release)
     # Release mode
-    ADD_DEFINITIONS(-D LD_RELEASE=0)
+    ADD_DEFINITIONS(-D LD_DEBUG=0)
     MESSAGE(STATUS "Compilation mode : Release")
 
     # Setting flags

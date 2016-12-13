@@ -29,7 +29,7 @@
                        Container<sf::Texture>::Instance()->GetResource("SOUND_OFF_R"),
                        Container<sf::Texture>::Instance()->GetResource("SOUND_OFF_P"));
 
-    m_BonusPhase.create("BONUS_PHASE", 700,80, 25,
+    m_BonusPhase.create("BONUS_PHASE", 530, 70, 25,
                         Container<sf::Font>::Instance()->GetResource("FONT"),
                         "", sf::Color::Black);
 
@@ -107,7 +107,7 @@ void GameView::setDifficulty(unsigned int diff)
 
 void GameView::showBonusPhase()
 {
-    m_BonusPhase.setTexte("KEYBOARD RUSH ! ");
+    m_BonusPhase.setTexte("PRESS ANY KEY !");
 }
 
 void GameView::hideBonusPhase()

@@ -131,7 +131,7 @@ void LoadAll()
     LoadMusic("MENU", buildPath(RES_PATH, MUSIC_PATH, "Hypnotic_Regret.ogg"));
 
     // Loading font
-    LoadFont("FONT_OVERLAY", buildPath(RES_PATH, FONT_PATH, "yugothib.ttf"));
+    LoadFont("FONT_OVERLAY", buildPath(RES_PATH, FONT_PATH, "PIXELADE.ttf"));
     LoadFont("FONT", buildPath(RES_PATH, FONT_PATH, "PIXELADE.TTF"));
 }
 
