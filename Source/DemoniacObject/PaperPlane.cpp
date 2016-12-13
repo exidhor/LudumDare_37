@@ -12,4 +12,5 @@ PaperPlane::PaperPlane()
 	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PAPER_PLANE_2"));
 	getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("PAPER_PLANE_3"));
 	getDrawable().nextTexture();
+	setKillIncome(PAPER_PLANE_INCOME);
 }

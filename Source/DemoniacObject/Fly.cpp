@@ -17,6 +17,7 @@ Fly::Fly()
 	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FLY_2"));
 	getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("FLY_3"));
 	getDrawable().nextTexture();
+	setKillIncome(FLY_INCOME);
 }
 
 SmallFly::SmallFly()
@@ -31,6 +32,7 @@ SmallFly::SmallFly()
 	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("SMALL_FLY_2"));
 	getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("SMALL_FLY_3"));
 	getDrawable().nextTexture();
+    setKillIncome(FLY_INCOME + 2);
 }
 
 FatFly::FatFly()
@@ -45,4 +47,5 @@ FatFly::FatFly()
 	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FAT_FLY_2"));
 	getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("FAT_FLY_3"));
 	getDrawable().nextTexture();
+    setKillIncome(FLY_INCOME + 5);
 }

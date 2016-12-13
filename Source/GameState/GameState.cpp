@@ -196,6 +196,8 @@ void GameState::update(double dt)
 
 			if (m_demoniacObjects[i]->toRemove())
 			{
+                m_player.setMoney(m_player.get$Money$() + m_demoniacObjects[i]->getKillIncome());
+
 				delete m_demoniacObjects[i];
 				m_demoniacObjects.erase(m_demoniacObjects.begin() + i);
 				i--;
