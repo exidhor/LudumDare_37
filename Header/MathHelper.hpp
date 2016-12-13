@@ -21,6 +21,10 @@ namespace MathHelper
 
 	unsigned getClosestPoint(sf::Vector2f const& pointToCompare,
 							 std::vector<sf::Vector2f> const& points);
+
+	sf::Vector2f  rotatePoint(sf::Vector2f const& point,
+							  sf::Vector2f const& centerOfRotation,
+							  float angleInDegree);
 }
 
 namespace Movement

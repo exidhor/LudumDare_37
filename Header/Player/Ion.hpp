@@ -17,7 +17,9 @@ class Ion : public Turret
 public :
     Ion(sf::Vector2f const& position);
 
-    Projectile * getProjectile(sf::Vector2f const &target);
+    virtual Projectile * getProjectile(sf::Vector2f const &target);
+
+	virtual std::vector<Drawable*> getDrawables();
 
 private:
 	Drawable m_canon;

@@ -6,6 +6,7 @@
 #define LUDUMDARE_DRAWABLE_HPP
 
 #define DEFAULT_LAYER 10
+#define CANON_LAYER 20
 #define DEATH_LAYER 0
 
 #include <vector>

@@ -21,6 +21,7 @@ void World::prepare()
 	m_activeEnemies.clear();
 	m_drawables.clear();
 	m_corpses.clear();
+	m_canon.clear();
 
 	addDecorsToDrawable();
 }
@@ -55,7 +56,14 @@ void World::addDemoniacObject(DemoniacObject * demoniacObject)
 
 void World::addDrawable(Drawable * drawable)
 {
-	m_drawables.push_back(drawable);
+	if(drawable->getLayer() == CANON_LAYER)
+	{
+		m_canon.push_back(drawable);
+	}
+	else
+	{
+		m_drawables.push_back(drawable);
+	}
 }
 
 void World::addDecors(sf::Vector2f const& position, sf::Texture *texture)
@@ -89,6 +97,7 @@ void World::getSortedDrawables(std::vector<Drawable*> & output)
 
 	sort(m_corpses);
 	sort(m_drawables);
+	sort(m_canon);
 
 	for (unsigned i = 0; i < m_corpses.size(); i++)
 	{
@@ -98,6 +107,11 @@ void World::getSortedDrawables(std::vector<Drawable*> & output)
 	for (unsigned i = 0; i < m_drawables.size(); i++)
 	{
 		output.push_back(m_drawables[i]);
+	}
+
+	for (unsigned i = 0; i < m_canon.size(); i++)
+	{
+		output.push_back(m_canon[i]);
 	}
 }
 

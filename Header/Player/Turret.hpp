@@ -15,12 +15,13 @@ public :
     void update(double time, const World world);
     Projectile* shoot();
 
-    Projectile *getProjectile(sf::Vector2f const &target);
+    virtual Projectile *getProjectile(sf::Vector2f const &target) = 0;
 
-	Drawable& getDrawable();
+	virtual std::vector<Drawable*> getDrawables();
 
-private:
-	
+	Drawable & getDrawable();
+
+protected:
 	Drawable m_drawable;
 
     float m_timeUntilShoot;

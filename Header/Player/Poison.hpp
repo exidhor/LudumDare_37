@@ -17,7 +17,7 @@ class Poison : public Turret
 public:
     Poison(sf::Vector2f const& position);
 
-    Projectile *getProjectile(sf::Vector2f const &target);
+	virtual Projectile * getProjectile(sf::Vector2f const &target);
 };
 
 #endif //LUDUMDARE_POISON_HPP

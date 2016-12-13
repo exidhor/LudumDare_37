@@ -9,28 +9,46 @@
 Ion::Ion(sf::Vector2f const &position)
         : Turret(TIME_BETWEEN_SHOT_ION, TARGETING_RANGE_ION, SHOOTING_RANGE_ION)
 {
-    getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("ION_IDLE"));
-	getDrawable().nextTexture();
-	getDrawable().getSprite().setPosition(position);
+    m_drawable.addTexture(Container<sf::Texture>::Instance()->GetResource("ION_IDLE"));
+	m_drawable.nextTexture();
+	m_drawable.getSprite().setPosition(position);
 
 	m_canon.addTexture(Container<sf::Texture>::Instance()->GetResource("ION_CANON"));
+	m_canon.setLayer(CANON_LAYER);
+	m_canon.nextTexture();
 }
 
 Projectile* Ion::getProjectile(sf::Vector2f const &target)
 {
     // orientate the canon
-	float angle = Movement::getOrientation(Movement::offset(getDrawable().getSprite().getPosition(),
+	float angle = Movement::getOrientation(Movement::offset(m_drawable.getSprite().getPosition(),
 										   target));
 
-	getDrawable().getSprite().setRotation(angle);
-	
-	sf::Transform tr;
-	tr.rotate(angle);
-	m_endCanon = tr.rotate(angle).transformPoint(m_endCanon);
-	
-	Projectile *projectile = new IonShoot();
+#define PI 3.1415926535f
+	angle *= 180 / PI;
 
-    projectile->getDrawable().getSprite().setPosition(target);
+	m_canon.getSprite().setRotation(angle);
+
+	sf::Vector2f centerOfRotation;
+
+	sf::FloatRect globalBounds = m_canon.getSprite().getGlobalBounds();
+
+	centerOfRotation.x = globalBounds.left + globalBounds.width / 2;
+	centerOfRotation.y = globalBounds.top + globalBounds.height / 2;
+
+	m_endCanon = MathHelper::rotatePoint(m_endCanon, centerOfRotation, angle);
+
+	Projectile *projectile = new IonShoot(m_endCanon, target, angle);
+
+    projectile->getDrawable().getSprite().setPosition(m_endCanon);
 
     return projectile;
+}
+
+std::vector<Drawable*> Ion::getDrawables()
+{
+	std::vector<Drawable*> res = Turret::getDrawables();
+	res.push_back(&m_canon);
+
+	return res;
 }

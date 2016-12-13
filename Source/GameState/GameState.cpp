@@ -61,7 +61,14 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 				}
 			}
 			m_turrets.push_back(m_turretSelected);
-			m_turretSelected->getDrawable().getSprite().setColor(sf::Color(255, 255, 255, 255));
+			
+			std::vector<Drawable*> drawables_vector = m_turretSelected->getDrawables();
+			
+			for(int i = 0; i < drawables_vector.size(); i++)
+			{
+				drawables_vector[i]->getSprite().setColor(sf::Color(255, 255, 255, 255));
+			}
+			
 			m_turretSelected = nullptr;
 			m_turretIsSelected = false;
 		}
@@ -312,7 +319,12 @@ void GameState::draw(sf::RenderWindow& window)
 
 	for (int i = 0; i < (int) m_turrets.size(); i++)
 	{
-		m_world.addDrawable(&m_turrets[i]->getDrawable());
+		std::vector<Drawable*> res = m_turrets[i]->getDrawables();
+
+		for(int i = 0; i < res.size(); i++)
+		{
+			m_world.addDrawable(res[i]);
+		}
 	}
 
 	for (int i = 0; i < (int) m_projectiles.size(); i++)
@@ -326,13 +338,20 @@ void GameState::draw(sf::RenderWindow& window)
 
 	if (m_turretIsSelected)
 	{
-		m_turretPositioningManager.draw(window, m_turretSelected->getDrawable());
+		std::vector<Drawable*> drawables_vector = m_turretSelected->getDrawables();
 
-		// in selection, not draw at 100%
-		m_turretSelected->getDrawable().getSprite().setColor(sf::Color(255, 255, 255, 125));
+		for (int i = 0; i < drawables_vector.size(); i++)
+		{
+			m_turretPositioningManager.draw(window, *drawables_vector[i]);
+		}
 
-		m_turretSelected->getDrawable().getSprite().setPosition(m_currentPosition);
-		window.draw(m_turretSelected->getDrawable().getSprite());
+		for (int i = 0; i < drawables_vector.size(); i++)
+		{
+			// in selection, not draw at 100%
+			drawables_vector[i]->getSprite().setColor(sf::Color(255, 255, 255, 125));
+			drawables_vector[i]->getSprite().setPosition(m_currentPosition);
+			window.draw(drawables_vector[i]->getSprite());
+		}
 	}
 
 	m_clickEffect.draw(window);

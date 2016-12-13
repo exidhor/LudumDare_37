@@ -47,6 +47,15 @@ Projectile* Turret::shoot()
     return nullptr;
 }
 
+std::vector<Drawable*> Turret::getDrawables()
+{
+	std::vector<Drawable*> res;
+
+	res.push_back(&m_drawable);
+
+	return res;
+}
+
 Drawable & Turret::getDrawable()
 {
 	return m_drawable;

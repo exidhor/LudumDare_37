@@ -14,7 +14,7 @@
 class IonShoot : public Projectile
 {
 public:
-    IonShoot();
+    IonShoot(sf::Vector2f const& start, sf::Vector2f const& end, float angle);
     virtual ~IonShoot() {};
 
     sf::Vector2f move(sf::Vector2f const& position, float speed);

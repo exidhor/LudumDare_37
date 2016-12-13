@@ -122,7 +122,7 @@ void LoadAll()
     LoadTexture("ION_IDLE", buildPath(RES_PATH, ION_PATH, "base_Tourelle_Ions_v2_assembly.png"));
 	LoadTexture("ION_CANON", buildPath(RES_PATH, ION_PATH, "Canon_tour_resize.png"));
     LoadTexture("ION_SHOOT", buildPath(RES_PATH, ION_PATH, "IonTurretShoot.png"));
-    LoadTexture("ION", buildPath(RES_PATH, ION_PATH, "projectile_ion.png"));
+    LoadTexture("ION", buildPath(RES_PATH, ION_PATH, "laserLigne.png"));
 
 	// clickEffect
 	LoadTexture("CLICK_EFFECT", buildPath(RES_PATH, DRAW_PATH, "testEffect-goodSize.png"));

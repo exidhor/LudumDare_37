@@ -6,11 +6,24 @@
 #include <MathHelper.hpp>
 #include "Player/IonShoot.hpp"
 
-IonShoot::IonShoot()
+IonShoot::IonShoot(sf::Vector2f const& start, sf::Vector2f const& end, float angle)
 : Projectile(SPEED_ION)
 {
     getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("ION"));
-    getDrawable().nextTexture();
+	Container<sf::Texture>::Instance()->GetResource("ION")->setRepeated(true);
+
+	sf::IntRect rect;
+
+	rect.left = 0;
+	rect.top = 0;
+	rect.width = 3;
+	rect.height = Movement::distance(start, end);
+
+	getDrawable().nextTexture();
+	getDrawable().getSprite().setTextureRect(rect);
+	getDrawable().getSprite().setRotation(angle);
+
+	m_timeTreshold = 1;
 }
 
 void IonShoot::killDemoniacObject(const World world)
@@ -30,5 +43,6 @@ void IonShoot::killDemoniacObject(const World world)
 sf::Vector2f IonShoot::move(sf::Vector2f const &position, float speed)
 {
     // TODO J'en sais foutrement rien
-    return position*speed;
+    //return position*speed;
+	return sf::Vector2f();
 }

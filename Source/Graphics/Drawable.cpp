@@ -43,7 +43,7 @@ void Drawable::nextTexture()
 		if (m_textureId >= m_pTextures.size())
 			m_textureId = 0;
 
-		m_sprite.setTexture(*m_pTextures[m_textureId]);
+		m_sprite.setTexture(*m_pTextures[m_textureId], true);
 
 		centerOrigin();
 	}

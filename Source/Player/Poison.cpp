@@ -9,13 +9,13 @@
 Poison::Poison(sf::Vector2f const &position)
     : Turret(TIME_BETWEEN_SHOT, TARGETING_RANGE, SHOOTING_RANGE)
 {
-	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("TURRET_IDLE"));
-	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("TURRET_SHOOT"));
-    getDrawable().nextTexture();
+	m_drawable.addTexture(Container<sf::Texture>::Instance()->GetResource("TURRET_IDLE"));
+	m_drawable.addTexture(Container<sf::Texture>::Instance()->GetResource("TURRET_SHOOT"));
+	m_drawable.nextTexture();
 	getDrawable().getSprite().setPosition(position);
 }
 
-Projectile* Turret::getProjectile(sf::Vector2f const &target)
+Projectile* Poison::getProjectile(sf::Vector2f const &target)
 {
     Projectile *projectile = new Pschit();
 

@@ -18,7 +18,7 @@ public :
 
 	Drawable & getDrawable();
 
-private:
+protected:
 	Drawable m_drawable;
 	float m_speed;
 

@@ -85,6 +85,28 @@ unsigned MathHelper::getClosestPoint(sf::Vector2f const& pointToCompare,
 	return bestIndex;
 }
 
+sf::Vector2f  MathHelper::rotatePoint(sf::Vector2f const& point,
+									  sf::Vector2f const& centerOfRotation,
+									  float angleInDegree)
+{
+	sf::Vector2f resultRotation;
+
+	float offset_x = point.x - centerOfRotation.x;
+	float offset_y = point.y - centerOfRotation.y;
+
+	// "rotating a point A around point B by C degrees".
+
+	// A.x' = (A.x-B.x) * cos(C) - (A.y-B.y) * sin(C) + B.x
+	resultRotation.x = (float)(offset_x * cos(angleInDegree) - offset_y * sin(angleInDegree)
+							   + centerOfRotation.x);
+
+	// A.y' = (A.y-B.y) * cos(C) + (A.x-B.x) * sin(C) + B.y
+	resultRotation.y = (float)(offset_y * cos(angleInDegree) + offset_x * sin(angleInDegree)
+							   + centerOfRotation.y);
+
+	return resultRotation;
+}
+
 sf::Vector2f Movement::offset(sf::Vector2f const& start, sf::Vector2f const& end)
 {
 	return end - start;
