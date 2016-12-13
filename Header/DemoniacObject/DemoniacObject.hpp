@@ -43,12 +43,23 @@ public :
 
 	double m_elapsedSinceLastSpriteSwap;
 
+    int getKillIncome()
+    {
+        return m_killIncome;
+    }
+
+    void setKillIncome(int income)
+    {
+        m_killIncome = income;
+    }
+
 protected:
 	Drawable m_drawable;
 
 	int m_damage;
 	int m_armor;
 	float m_speed;
+	int m_killIncome;
 	double m_spriteSwapTreshold;
 	double m_deathTreshold;
 	double m_deathElapsed;

@@ -13,6 +13,7 @@ Mom::Mom()
 	getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("MOTHER_2"));
 	//getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("FLY_3"));
 	getDrawable().nextTexture();
+	setKillIncome(MOM_INCOME);
 }
 
 void Mom::update(double dt)

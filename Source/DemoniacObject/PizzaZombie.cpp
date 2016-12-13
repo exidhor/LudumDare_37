@@ -17,6 +17,7 @@ PizzaZombie::PizzaZombie()
     getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("PIZZA_2"));
     getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("PIZZA_3"));
     getDrawable().nextTexture();
+    setKillIncome(PIZZA_INCOME);
 }
 
 FatPizzaZombie::FatPizzaZombie()
@@ -31,6 +32,7 @@ FatPizzaZombie::FatPizzaZombie()
     getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("FAT_PIZZA_2"));
     getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("FAT_PIZZA_3"));
     getDrawable().nextTexture();
+    setKillIncome(PIZZA_INCOME + 5);
 }
 
 SmallPizzaZombie::SmallPizzaZombie()
@@ -45,4 +47,5 @@ SmallPizzaZombie::SmallPizzaZombie()
     getDrawable().addTexture(Container<sf::Texture>::Instance()->GetResource("SMALL_PIZZA_2"));
     getDrawable().setDeathTexture(Container<sf::Texture>::Instance()->GetResource("SMALL_PIZZA_3"));
     getDrawable().nextTexture();
+    setKillIncome(PIZZA_INCOME + 10);
 }

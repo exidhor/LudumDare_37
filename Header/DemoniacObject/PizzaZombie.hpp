@@ -12,6 +12,7 @@
 #define PIZZA_DAMAGE 10
 #define PIZZA_ARMOR 4
 #define PIZZA_SPRITESWAP 0.10
+#define PIZZA_INCOME 20
 
 class PizzaZombie : public DemoniacObject
 {

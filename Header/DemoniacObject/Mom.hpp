@@ -6,6 +6,7 @@
 #define MOM_DAMAGE 150
 #define MOM_ARMOR 0
 #define MOM_SPRITESWAP 1.5f
+#define MOM_INCOME 10000
 
 class Mom : public DemoniacObject
 {

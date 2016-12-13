@@ -7,6 +7,7 @@
 #define PAPER_PLANE_DAMAGE 5
 #define PAPER_PLANE_ARMOR 0
 #define PAPER_PLANE_SPRITESWAP 0.5
+#define PAPER_PLANE_INCOME 5
 
 class PaperPlane : public DemoniacObject
 {
