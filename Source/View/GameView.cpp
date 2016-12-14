@@ -19,7 +19,7 @@
 
     m_difficulty.create("DIFFICULTY", 1000, 110, 25,
                    Container<sf::Font>::Instance()->GetResource("FONT"),
-                   "DIFFICULTY : ", sf::Color::Green);
+                   "ROUND : ", sf::Color::Green);
 
     m_soundOn.create("SOUND_BUTTON_ON", 398, 75,
                          Container<sf::Texture>::Instance()->GetResource("SOUND_ON_R"),
@@ -32,6 +32,10 @@
     m_BonusPhase.create("BONUS_PHASE", 530, 70, 25,
                         Container<sf::Font>::Instance()->GetResource("FONT"),
                         "", sf::Color::Black);
+
+    m_skip.create("SKIP",505,55,
+                  Container<sf::Texture>::Instance()->GetResource("SKIPR"),
+                  Container<sf::Texture>::Instance()->GetResource("SKIPP"));
 
     m_shopEnter.create("SHOP_ENTER", 775, 82,
                       Container<sf::Texture>::Instance()->GetResource("SHOP_ENTER_P"),
@@ -53,6 +57,7 @@
     m_overlay.addComponent(&m_overlayRandomMessage);
     m_overlay.addComponent(&m_overlayToPress);
 
+    getContentPane()->addComponent(&m_skip);
     getContentPane()->addComponent(&m_hitPoint);
     getContentPane()->addComponent(&m_money);
     getContentPane()->addComponent(&m_nextRoundIn);
@@ -93,22 +98,24 @@ void GameView::setMoney(unsigned long long money)
 
 void GameView::setNextRoundIn(double nextRoundIn)
 {
+    m_skip.setVisible(true);
     m_nextRoundIn.setTexte("Next round in : "+fix::to_string(nextRoundIn));
 }
 
 void GameView::hideNextRoundIn()
 {
+    m_skip.setVisible(false);
     m_nextRoundIn.setTexte("");
 }
 
 void GameView::setDifficulty(unsigned int diff)
 {
-    m_difficulty.setTexte("DIFFICULTY : " + fix::to_string(diff));
+    m_difficulty.setTexte("ROUND : " + fix::to_string(diff));
 }
 
 void GameView::showBonusPhase()
 {
-    m_BonusPhase.setTexte("PRESS ANY KEY !");
+    m_BonusPhase.setTexte("SMASH ANY KEY !");
 }
 
 void GameView::hideBonusPhase()

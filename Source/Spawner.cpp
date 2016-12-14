@@ -106,7 +106,8 @@ void Spawner::giveToken()
     m_token = (long) (10 + m_difficulty * 10);
 
     if(m_timeBetweenSpawn > 0.1)
-        m_timeBetweenSpawn -= 0.05;
+        m_timeBetweenSpawn -= 0.1;
+    m_timeUntilSpawn = m_timeBetweenSpawn;
 }
 
 int Spawner::getHighestTokenCost(int token)

@@ -74,6 +74,8 @@ void GameState::onPollEvent(sf::Event& event, double elapsed)
 		}
 	}
 
+    if(getComponentId() == "SKIP")
+        m_nextRoundIn = 0.0;
 	if (getComponentId() == "SOUND_BUTTON_ON")
 	{
 		MusicManager::Instance()->PauseCurrent();
@@ -323,7 +325,7 @@ void GameState::draw(sf::RenderWindow& window)
 	{
 		std::vector<Drawable*> res = m_turrets[i]->getDrawables();
 
-		for(int i = 0; i < res.size(); i++)
+		for(int i = 0; i < (int)res.size(); i++)
 		{
 			m_world.addDrawable(res[i]);
 		}

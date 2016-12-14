@@ -67,6 +67,7 @@ private:
     NButton m_soundOn;
     NButton m_soundOff;
     NButton m_shopEnter;
+    NButton m_skip;
 
     // Shop
     Shop m_shop;
