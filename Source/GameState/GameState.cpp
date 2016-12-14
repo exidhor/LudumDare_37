@@ -358,18 +358,14 @@ void GameState::draw(sf::RenderWindow& window)
 
 	m_clickEffect.draw(window);
     m_view.draw(&window);
-    if(m_bonusPhase)
+    if(m_gamePhase && m_bonusPhase)
         m_view.showBonusPhase();
     else
         m_view.hideBonusPhase();
     if(m_gamePhase && m_overlay.isOverlayPhase())
-    {
         m_view.showOverlay(std::string(1, m_overlay.getCharFromKeyCode()), m_overlay.getRandomMessage());
-    }
     else
-    {
         m_view.hideOverlay();
-    }
 }
 
 bool GameState::onEnter()

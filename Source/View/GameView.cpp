@@ -49,6 +49,7 @@
                         Container<sf::Font>::Instance()->GetResource("FONT_OVERLAY"),
                         "",  sf::Color(210,0,0));
 
+
     m_overlay.addComponent(&m_overlayRandomMessage);
     m_overlay.addComponent(&m_overlayToPress);
 
