@@ -236,7 +236,7 @@ void GameState::update(double dt)
 		// End of round
 		if (m_spawners.outOfToken() && m_demoniacObjects.size() == 0)
 		{
-			if (!m_overlay.isOverlayPhase())
+			if (m_overlay.isOverlayPhase())
 			{
 				m_overlay.prepareNextOverlayEvent();
 			}

@@ -9,8 +9,8 @@
 #include "Turret.hpp"
 
 #define TIME_BETWEEN_SHOT_ION 5
-#define TARGETING_RANGE_ION 100
-#define SHOOTING_RANGE_ION 80
+#define TARGETING_RANGE_ION 30
+#define SHOOTING_RANGE_ION 30
 
 class Ion : public Turret
 {
